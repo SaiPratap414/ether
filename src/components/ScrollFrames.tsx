@@ -69,7 +69,7 @@ const ScrollFrames = () => {
           className={styles.terraIcon}
           loading="eager"
           alt=""
-          src="/terra.png"
+          src="/Terra.png"
         />
       </div>
       <div className={styles.blazeSurgesWithTheUnbridleWrapper}>
