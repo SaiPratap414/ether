@@ -1,4 +1,4 @@
-import { FunctionComponent, useMemo, type CSSProperties } from "react";
+import React, { FunctionComponent, useMemo, CSSProperties } from "react";
 import styles from "./BlazeOrb.module.css";
 
 export type BlazeOrbType = {
@@ -9,9 +9,10 @@ export type BlazeOrbType = {
   orbPulse?: string;
   fAQParent?: string;
   pondering?: string;
-
-  /** Style props */
   propMinHeight?: CSSProperties["minHeight"];
+
+  // New video props
+  videoSrc?: string;
 };
 
 const BlazeOrb: FunctionComponent<BlazeOrbType> = ({
@@ -23,6 +24,7 @@ const BlazeOrb: FunctionComponent<BlazeOrbType> = ({
   fAQParent,
   pondering,
   propMinHeight,
+  videoSrc, // New prop
 }) => {
   const blazeOrbStyle: CSSProperties = useMemo(() => {
     return {
@@ -46,12 +48,11 @@ const BlazeOrb: FunctionComponent<BlazeOrbType> = ({
         </div>
         <div className={styles.blazeWrapper}>
           <div className={styles.blaze}>
-            <img
-              className={styles.etherTransformedIcon}
-              loading="eager"
-              alt=""
-              src={etherTransformed}
-            />
+            {/* Use videoSrc prop if provided, otherwise use etherTransformed */}
+            <video className={styles.etherTransformedIcon} autoPlay loop muted>
+              <source src={videoSrc || etherTransformed} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
         <div className={styles.ponderAcquireWrapper}>

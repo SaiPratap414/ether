@@ -16,7 +16,7 @@ const Orb: FunctionComponent = () => {
               <div className={styles.text}>
                 <BlazeOrb
                   oRB0245="ORB #0245"
-                  etherTransformed="/ellipse-8@2x.png"
+                  etherTransformed="1.mp4" // Update the video source
                   dualNatureORBs="26"
                   predictionBattle="01"
                   orbPulse="25"
@@ -25,7 +25,7 @@ const Orb: FunctionComponent = () => {
                 />
                 <BlazeOrb
                   oRB0245="ORB #1122"
-                  etherTransformed="/ellipse-8-1@2x.png"
+                  etherTransformed="2.mp4" // Update the video source
                   dualNatureORBs="05"
                   predictionBattle="42"
                   orbPulse="35"
@@ -35,7 +35,7 @@ const Orb: FunctionComponent = () => {
                 />
                 <BlazeOrb
                   oRB0245="ORB #2542"
-                  etherTransformed="/ellipse-8-2@2x.png"
+                  etherTransformed="3.mp4" // Update the video source
                   dualNatureORBs="42"
                   predictionBattle="10"
                   orbPulse="06"
