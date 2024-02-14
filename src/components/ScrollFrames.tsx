@@ -3,7 +3,7 @@ import styles from './ScrollFrames.module.css';
 
 const ScrollFrames = () => {
   const [centeredImage, setCenteredImage] = useState('orange'); // Default centered image
-  const images = ['v', 'green', 'orange', 'blue', 'lightblue'];
+  const images = ['v1', 'green', 'orange', 'blue', 'lightblue'];
 
   const handleArrowClick = (direction: 'left' | 'right') => {
     const currentIndex = images.indexOf(centeredImage);
