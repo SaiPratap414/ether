@@ -18,7 +18,7 @@ const Video: FunctionComponent = () => {
             </div>
           </div>
           <div className={styles.putContractAddress}>
-            PUT CONTRACT ADDRESS HERE
+
           </div>
           <button className={styles.ponderAcquireOrbs}>
             <div className={styles.howToFrame}>
