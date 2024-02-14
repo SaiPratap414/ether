@@ -42,10 +42,13 @@
   align-items: flex-end;
   justify-content: flex-start;
 }
+
 .fungiParent1 .wrapper {
   margin-top: 40px; /* Adjust the value as needed */
 }
-
+.fungiParent .rectangleFrames{
+  margin-bottom: 30px;
+}
 
 .rectangleFrames,
 .wrapper {
