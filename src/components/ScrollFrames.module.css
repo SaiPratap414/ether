@@ -1,9 +1,54 @@
-.emptyFrame {
-  position: relative;
-  line-height: 13.17px;
-  font-weight: 500;
+/* Basic layout and styling */
+.scrollFrames {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18.14px;
+  min-height: 396px;
+  max-width: 100%;
+  z-index: 1;
+  text-align: left;
+  font-size: var(--font-size-3xs-9);
+  color: var(--color-white);
+  font-family: var(--font-inter);
 }
-.rectangleFrames {
+
+.buyOrbParent,
+.fungiParent1,
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.buyOrbParent {
+  align-self: stretch;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+
+.fungiParent,
+.fungiParent1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-101xl) 0 0;
+}
+
+.fungiParent1 {
+  height: 140.6px;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.fungiParent1 .wrapper {
+  margin-top: 40px; /* Adjust the value as needed */
+}
+
+
+.rectangleFrames,
+.wrapper {
   border-radius: 3.29px;
   background-color: var(--color-black);
   border: 0.8px solid var(--color-white);
@@ -11,23 +56,9 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 3.2917368412017822px var(--padding-5xs) 3.2917368412017822px
-    8.229342460632324px;
+  padding: 3.2917368412017822px var(--padding-5xs) 3.2917368412017822px 8.229342460632324px;
 }
-.fungiParent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--padding-101xl) 0 0;
-}
-.blazeChildIcon {
-  height: 65.8px;
-  width: 65.8px;
-  position: relative;
-  border-radius: 388.95px;
-  object-fit: contain;
-}
+
 .rectangleParent {
   height: 145.8px;
   display: flex;
@@ -35,101 +66,67 @@
   align-items: flex-end;
   justify-content: flex-start;
 }
-.elementalScoresFAQ {
-  height: 115.2px;
-  width: 115.2px;
+
+/* Styling for specific elements and icons */
+.blazeChildIcon,
+.elementalScoresFAQ,
+.whatIsElementalScores,
+.orbAcquisitionIcon,
+.fAQHeaderChild {
   position: relative;
   border-radius: 388.95px;
   object-fit: contain;
 }
-.powerFrame {
-  height: 155.2px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: center;
-}
-.whatIsElementalScores {
-  width: 138.2px;
-  height: 138.2px;
-  position: relative;
-  border-radius: 248.85px;
-  object-fit: contain;
-}
-.orbNFTMalfunctioning,
-.strategicBattle {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-.strategicBattle {
-  align-items: center;
-}
-.orbAcquisitionIcon {
-  height: 115.2px;
-  width: 115.2px;
-  position: relative;
-  border-radius: 388.95px;
-  object-fit: contain;
-}
-.predictOpponent {
-  height: 155.2px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: center;
-}
+
+.blazeChildIcon,
 .fAQHeaderChild {
   height: 65.8px;
   width: 65.8px;
-  position: relative;
-  border-radius: 388.95px;
-  object-fit: contain;
 }
-.fAQHeader {
-  height: 145.8px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-start;
+
+.elementalScoresFAQ,
+.orbAcquisitionIcon {
+  height: 115.2px;
+  width: 115.2px;
 }
+
+.whatIsElementalScores {
+  width: 138.2px;
+  height: 138.2px;
+  border-radius: 248.85px;
+}
+
+/* Glowing effect for the centered image */
+.centered {
+  animation: glow 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 8px #fff, 0 0 10px #fff, 0 0 12px #ff00de, 0 0 14px #ff00de;
+  }
+  50% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 22px #ff00de, 0 0 24px #ff00de;
+  }
+  100% {
+    box-shadow: 0 0 8px #fff, 0 0 10px #fff, 0 0 12px #ff00de, 0 0 14px #ff00de;
+  }
+}
+
+/* Additional styles */
+.emptyFrame,
 .div {
   position: relative;
   line-height: 13.17px;
   font-weight: 500;
 }
-.wrapper {
-  border-radius: 3.29px;
-  background-color: var(--color-black);
-  border: 0.8px solid var(--color-white);
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 3.2917368412017822px var(--padding-5xs) 3.2917368412017822px
-    8.229342460632324px;
-}
-.buyOrbParent,
-.fungiParent1,
-.wrapper {
-  display: flex;
-  flex-direction: row;
-}
-.fungiParent1 {
-  height: 140.6px;
-  align-items: flex-end;
-  justify-content: flex-start;
-}
-.buyOrbParent {
-  align-self: stretch;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--gap-xl);
-}
+
 .blaze {
   position: relative;
   line-height: 120%;
   text-transform: uppercase;
 }
+
 .blazeWrapper {
   display: flex;
   flex-direction: row;
@@ -137,16 +134,19 @@
   justify-content: center;
   padding: 7.102153301239014px var(--padding-6xs);
 }
+
 .blaze1,
 .riblazeFillIcon {
   overflow: hidden;
   flex-shrink: 0;
 }
+
 .riblazeFillIcon {
   height: 51.1px;
   width: 51.1px;
   position: relative;
 }
+
 .blaze1 {
   width: 68px;
   height: 68.2px;
@@ -156,16 +156,17 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 8.522583961486816px var(--padding-5xs) 8.522583961486816px
-    8.522583961486816px;
+  padding: 8.522583961486816px var(--padding-5xs) 8.522583961486816px 8.522583961486816px;
   box-sizing: border-box;
 }
+
 .blazeSurgesWith {
   flex: 1;
   position: relative;
   line-height: 120%;
   text-transform: uppercase;
 }
+
 .blazeSurgesWithTheUnbridleWrapper {
   align-self: stretch;
   display: flex;
@@ -177,12 +178,14 @@
   color: var(--color-gray-100);
   font-family: var(--font-jetbrains-mono);
 }
-.buyOrb,
-.frameParent {
+
+.frameParent,
+.buyOrb {
   font-size: var(--font-size-xs-4);
   font-family: var(--font-krungthep);
   text-align: center;
 }
+
 .frameParent {
   width: 197px;
   height: 158px;
@@ -196,12 +199,14 @@
   justify-content: flex-start;
   padding: 0 var(--padding-6xs) 0 8.522583961486816px;
 }
+
 .buyOrb {
   position: relative;
   line-height: 120%;
   text-transform: uppercase;
   color: var(--color-white);
 }
+
 .buyButton {
   display: flex;
   flex-direction: row;
@@ -209,12 +214,14 @@
   justify-content: center;
   padding: 7.102153301239014px var(--padding-6xs);
 }
+
 .buyButtonWrapper,
 .scrollFrames {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .buyButtonWrapper {
   cursor: pointer;
   border: 0.7px solid var(--color-white);
@@ -223,6 +230,7 @@
   border-radius: 2.84px;
   justify-content: flex-start;
 }
+
 .scrollFrames {
   flex: 1;
   justify-content: center;
@@ -235,8 +243,37 @@
   color: var(--color-white);
   font-family: var(--font-inter);
 }
+
+/* Responsive adjustments */
 @media screen and (max-width: 750px) {
   .buyOrbParent {
     flex-wrap: wrap;
   }
 }
+/* Adjustments for PNG images */
+.torrentIcon,
+.etherIcon,
+.terraIcon,
+.aerIcon {
+  width: 68px; /* Adjust width as needed */
+  height: 68px; /* Adjust height as needed */
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Additional adjustments */
+.torrentIcon {
+  border-radius: 37.88px; /* Add border-radius as needed */
+}
+
+.etherIcon,
+.terraIcon,
+.aerIcon {
+  border-radius: 50%; /* Add border-radius as needed */
+}
+
+
+
+

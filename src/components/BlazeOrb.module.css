@@ -54,6 +54,7 @@
 .core {
   position: relative;
   font-weight: 300;
+  
 }
 .riblazeFillIcon {
   height: 31.7px;
@@ -425,3 +426,13 @@
     flex-wrap: wrap;
   }
 }
+.core,
+.bonus,
+.blaze1,
+.torrent,
+.terra,
+.aer,
+.ether1{
+  color: white; /* Set text color to white */
+}
+
