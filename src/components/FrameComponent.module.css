@@ -1,0 +1,72 @@
+.telegram,
+.twitter {
+  flex: 1;
+}
+.docs,
+.play,
+.telegram,
+.twitter {
+  position: relative;
+  text-decoration: underline;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.play {
+  color: var(--color-darkslategray);
+}
+.twitterParent {
+  width: 248px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xl) 0;
+  box-sizing: border-box;
+  gap: var(--gap-5xl);
+}
+.nav,
+.nav1 {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+.nav1 {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.nav {
+  background-color: var(--color-black);
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100px;
+}
+.acquiringOrbIs {
+  width: 466.1px;
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: var(--color-gray-100);
+  display: inline-block;
+  max-width: 100%;
+}
+.navParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--padding-11xs);
+  box-sizing: border-box;
+  max-width: 100%;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-white);
+  font-family: var(--font-jetbrains-mono);
+}
+@media screen and (max-width: 750px) {
+  .nav1 {
+    flex-wrap: wrap;
+  }
+}

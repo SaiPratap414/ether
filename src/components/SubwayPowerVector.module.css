@@ -1,0 +1,46 @@
+.ether {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: -0.13em;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: inherit;
+}
+.groupVectorTerraChild {
+  height: 53.4px;
+  width: 55px;
+  position: relative;
+}
+.rb {
+  margin: 0;
+  width: 58px;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: -0.13em;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+}
+.groupVectorTerra {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.subwayPowerVector {
+  align-self: stretch;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: var(--font-size-29xl);
+  color: var(--color-white);
+  font-family: var(--font-krungthep);
+}

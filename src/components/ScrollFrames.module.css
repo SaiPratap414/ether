@@ -1,0 +1,242 @@
+.emptyFrame {
+  position: relative;
+  line-height: 13.17px;
+  font-weight: 500;
+}
+.rectangleFrames {
+  border-radius: 3.29px;
+  background-color: var(--color-black);
+  border: 0.8px solid var(--color-white);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 3.2917368412017822px var(--padding-5xs) 3.2917368412017822px
+    8.229342460632324px;
+}
+.fungiParent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-101xl) 0 0;
+}
+.blazeChildIcon {
+  height: 65.8px;
+  width: 65.8px;
+  position: relative;
+  border-radius: 388.95px;
+  object-fit: contain;
+}
+.rectangleParent {
+  height: 145.8px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.elementalScoresFAQ {
+  height: 115.2px;
+  width: 115.2px;
+  position: relative;
+  border-radius: 388.95px;
+  object-fit: contain;
+}
+.powerFrame {
+  height: 155.2px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+.whatIsElementalScores {
+  width: 138.2px;
+  height: 138.2px;
+  position: relative;
+  border-radius: 248.85px;
+  object-fit: contain;
+}
+.orbNFTMalfunctioning,
+.strategicBattle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.strategicBattle {
+  align-items: center;
+}
+.orbAcquisitionIcon {
+  height: 115.2px;
+  width: 115.2px;
+  position: relative;
+  border-radius: 388.95px;
+  object-fit: contain;
+}
+.predictOpponent {
+  height: 155.2px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+.fAQHeaderChild {
+  height: 65.8px;
+  width: 65.8px;
+  position: relative;
+  border-radius: 388.95px;
+  object-fit: contain;
+}
+.fAQHeader {
+  height: 145.8px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.div {
+  position: relative;
+  line-height: 13.17px;
+  font-weight: 500;
+}
+.wrapper {
+  border-radius: 3.29px;
+  background-color: var(--color-black);
+  border: 0.8px solid var(--color-white);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 3.2917368412017822px var(--padding-5xs) 3.2917368412017822px
+    8.229342460632324px;
+}
+.buyOrbParent,
+.fungiParent1,
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.fungiParent1 {
+  height: 140.6px;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.buyOrbParent {
+  align-self: stretch;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.blaze {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.blazeWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 7.102153301239014px var(--padding-6xs);
+}
+.blaze1,
+.riblazeFillIcon {
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.riblazeFillIcon {
+  height: 51.1px;
+  width: 51.1px;
+  position: relative;
+}
+.blaze1 {
+  width: 68px;
+  height: 68.2px;
+  border-radius: 37.88px;
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 8.522583961486816px var(--padding-5xs) 8.522583961486816px
+    8.522583961486816px;
+  box-sizing: border-box;
+}
+.blazeSurgesWith {
+  flex: 1;
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.blazeSurgesWithTheUnbridleWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 0 8.522583961486816px;
+  font-size: var(--font-size-4xs-5);
+  color: var(--color-gray-100);
+  font-family: var(--font-jetbrains-mono);
+}
+.buyOrb,
+.frameParent {
+  font-size: var(--font-size-xs-4);
+  font-family: var(--font-krungthep);
+  text-align: center;
+}
+.frameParent {
+  width: 197px;
+  height: 158px;
+  border-radius: 2.84px;
+  background-color: var(--color-black);
+  border: 0.7px solid var(--color-white);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--padding-6xs) 0 8.522583961486816px;
+}
+.buyOrb {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+.buyButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 7.102153301239014px var(--padding-6xs);
+}
+.buyButtonWrapper,
+.scrollFrames {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.buyButtonWrapper {
+  cursor: pointer;
+  border: 0.7px solid var(--color-white);
+  padding: 0 var(--padding-5xs);
+  background-color: var(--color-black);
+  border-radius: 2.84px;
+  justify-content: flex-start;
+}
+.scrollFrames {
+  flex: 1;
+  justify-content: center;
+  gap: 18.14px;
+  min-height: 396px;
+  max-width: 100%;
+  z-index: 1;
+  text-align: left;
+  font-size: var(--font-size-3xs-9);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 750px) {
+  .buyOrbParent {
+    flex-wrap: wrap;
+  }
+}

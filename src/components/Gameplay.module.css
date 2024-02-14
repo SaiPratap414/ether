@@ -1,0 +1,432 @@
+.gameplay1 {
+  margin: 0;
+  width: 1150px;
+  position: relative;
+  font-size: inherit;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: var(--font-krungthep);
+  display: inline-block;
+  max-width: 100%;
+}
+.frameChild {
+  height: 0;
+  width: 40px;
+  display: none;
+}
+.vectorIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.gameIconsabstract030 {
+  height: 88.7px;
+  width: 88.7px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.ether {
+  border-radius: 19.82px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 4.4592413902282715px var(--padding-9xs) 4.4592413902282715px
+    4.4592413902282715px;
+}
+.terra,
+.vectorParent {
+  position: absolute;
+  z-index: 1;
+}
+.terra {
+  top: 19.7px;
+  left: 20px;
+  border-radius: 73.95px;
+  width: 127px;
+  height: 127.2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 14.789504051208496px 14.789504051208496px 14.789504051208496px
+    var(--padding-mini);
+  box-sizing: border-box;
+}
+.vectorParent {
+  height: 38.67%;
+  width: 33.33%;
+  top: 0;
+  right: 66.67%;
+  bottom: 61.33%;
+  left: 0;
+}
+.torrentVectorGroup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.blazeVectorGroup {
+  height: 67.6px;
+  width: 78.1px;
+  position: relative;
+  border-radius: 0.84px;
+}
+.torrent {
+  position: absolute;
+  top: 23.2px;
+  left: 17.9px;
+  border-radius: 66.71px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 26.682825088500977px var(--padding-7xl) 26.682825088500977px
+    26.682825088500977px;
+  z-index: 1;
+}
+.torrentVectorGroupParent {
+  position: absolute;
+  height: 38.67%;
+  width: 33.33%;
+  top: 0;
+  right: 0;
+  bottom: 61.33%;
+  left: 66.67%;
+  z-index: 1;
+}
+.buyOrbFrame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.riblazeFillIcon {
+  height: 88.7px;
+  width: 88.7px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.blaze,
+.buyOrbFrameParent {
+  position: absolute;
+  z-index: 1;
+}
+.blaze {
+  top: 24.9px;
+  left: 24.5px;
+  border-radius: 65.68px;
+  width: 118px;
+  height: 118.2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 14.777265548706055px var(--padding-mini) 14.777265548706055px
+    14.777265548706055px;
+  box-sizing: border-box;
+}
+.buyOrbFrameParent {
+  height: 38.67%;
+  width: 33.33%;
+  top: 61.33%;
+  right: 33.33%;
+  bottom: 0;
+  left: 33.33%;
+}
+.subtractIcon {
+  position: absolute;
+  top: -0.5px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.beats {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+.bxsupArrowIcon {
+  height: 11.1px;
+  width: 11.1px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.beatsParent,
+.subtractIcon1,
+.twoFramesIcon {
+  position: absolute;
+  border-radius: 19.65px;
+  z-index: 1;
+}
+.beatsParent {
+  top: 1.1px;
+  left: 140.7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2.28px;
+}
+.subtractIcon1,
+.twoFramesIcon {
+  top: 99.1px;
+  left: 213px;
+  width: 42.5px;
+  height: 51.6px;
+  object-fit: contain;
+}
+.twoFramesIcon {
+  top: 102.2px;
+  left: 62.4px;
+}
+.subtractFrame {
+  position: absolute;
+  top: 83.8px;
+  left: 86.8px;
+  width: 315px;
+  height: 272px;
+}
+.frameGroup {
+  align-self: stretch;
+  height: 432.6px;
+  position: relative;
+}
+.frameWrapper {
+  flex: 1;
+  border-radius: 19.65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30.420560836791992px var(--padding-11xl);
+  box-sizing: border-box;
+  min-width: 365px;
+  max-width: 100%;
+}
+.howToPonder {
+  margin: 0;
+  color: var(--color-white);
+}
+.blankLine {
+  margin: 0;
+}
+.acquireYourOrbTokenBoth1 {
+  margin-bottom: 0;
+}
+.acquireYourOrbTokenBoth {
+  margin: 0;
+  font-size: inherit;
+  padding-left: var(--padding-lgi);
+}
+.blankLine1 {
+  margin: 0;
+}
+.mintYourOrbNftAndEnterDu1 {
+  margin-bottom: 0;
+}
+.mintYourOrbNftAndEnterDu {
+  margin: 0;
+  font-size: inherit;
+  padding-left: var(--padding-lgi);
+}
+.blankLine2 {
+  margin: 0;
+  color: var(--color-white);
+}
+.blankLine3,
+.gameMechanics {
+  margin: 0;
+}
+.elementalRockPaperScissors1 {
+  margin-bottom: 0;
+}
+.elementalRockPaperScissors {
+  margin: 0;
+  font-size: inherit;
+  padding-left: var(--padding-lgi);
+}
+.blankLine4 {
+  margin: 0;
+}
+.elementsAreCommonForAllWi1 {
+  margin-bottom: 0;
+}
+.elementsAreCommonForAllWi {
+  margin: 0;
+  font-size: inherit;
+  padding-left: var(--padding-lgi);
+}
+.blankLine5 {
+  margin: 0;
+}
+.eachOrbNftHasAnAllocation1 {
+  margin-bottom: 0;
+}
+.eachOrbNftHasAnAllocation {
+  margin: 0;
+  font-size: inherit;
+  padding-left: var(--padding-lgi);
+}
+.blankLine6 {
+  margin: 0;
+  color: var(--color-white);
+}
+.inTheEventOfATieWinIs1 {
+  margin-bottom: 0;
+}
+.inTheEventOfATieWinIs {
+  margin: 0;
+  font-size: inherit;
+  padding-left: var(--padding-lgi);
+}
+.blankLine7 {
+  margin: 0;
+}
+.eachMatchAllowsPvpWagering1 {
+  margin-bottom: 0;
+}
+.eachMatchAllowsPvpWagering {
+  margin: 0;
+  font-size: inherit;
+  padding-left: var(--padding-lgi);
+}
+.blankLine8 {
+  margin: 0;
+}
+.theUtilityFor2BonusTraits {
+  margin: 0;
+  font-size: inherit;
+  padding-left: var(--padding-lgi);
+}
+.howToPonderContainer {
+  width: 461.7px;
+  position: relative;
+  font-size: var(--font-size-sm);
+  line-height: 120%;
+  text-transform: uppercase;
+  white-space: pre-wrap;
+  text-align: left;
+  display: inline-block;
+  flex-shrink: 0;
+  min-width: 461.7px;
+  max-width: 100%;
+  color: var(--color-gray-100);
+}
+.frameParent {
+  width: 1150px;
+  border-radius: var(--br-9xs);
+  border: 2px solid var(--color-darkslategray);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-21xl) var(--padding-26xl) var(--padding-21xl)
+    var(--padding-23xl);
+  gap: var(--gap-20xl);
+  max-width: 100%;
+  font-size: var(--font-size-xs-1);
+}
+.blankLine9,
+.everyBattleIs,
+.whetherYoureBetting {
+  margin: 0;
+}
+.everyBattleIsContainer {
+  width: 600px;
+  position: relative;
+  font-size: var(--font-size-sm);
+  line-height: 120%;
+  text-transform: uppercase;
+  color: var(--color-gray-100);
+  display: inline-block;
+  max-width: 100%;
+}
+.gameplay {
+  align-self: stretch;
+  background-color: var(--color-black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-67xl) var(--padding-xl) var(--padding-108xl);
+  box-sizing: border-box;
+  gap: var(--gap-21xl);
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-13xl);
+  color: var(--color-white);
+  font-family: var(--font-jetbrains-mono);
+}
+@media screen and (max-width: 1150px) {
+  .frameParent {
+    padding-left: var(--padding-2xl);
+    padding-right: var(--padding-3xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .gameplay1 {
+    font-size: var(--font-size-7xl);
+    line-height: 31px;
+  }
+  .howToPonderContainer {
+    flex: 1;
+  }
+  .frameParent {
+    flex-wrap: wrap;
+  }
+  .gameplay {
+    padding-top: var(--padding-37xl);
+    padding-bottom: var(--padding-64xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .frameWrapper {
+    gap: 45.63px;
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .frameWrapper,
+  .howToPonderContainer {
+    min-width: 100%;
+  }
+  .frameParent,
+  .gameplay {
+    gap: var(--gap-20xl);
+    padding-top: var(--padding-7xl);
+    padding-bottom: var(--padding-7xl);
+    box-sizing: border-box;
+  }
+  .gameplay {
+    gap: var(--gap-21xl);
+    padding-top: var(--padding-17xl);
+    padding-bottom: var(--padding-35xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .gameplay1 {
+    font-size: var(--font-size-lgi);
+    line-height: 23px;
+  }
+}

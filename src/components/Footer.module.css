@@ -1,0 +1,117 @@
+.ether {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: -0.13em;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: inherit;
+}
+.twitterTelegramLinksChild {
+  height: 53.4px;
+  width: 55px;
+  position: relative;
+}
+.rb {
+  margin: 0;
+  width: 58px;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: -0.13em;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+}
+.twitterTelegramLinks {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.telegram,
+.twitter {
+  flex: 1;
+}
+.docs,
+.telegram,
+.twitter {
+  position: relative;
+  text-decoration: underline;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.twitterParent,
+.twitterTelegramLinksParent {
+  width: 187px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xl) 0;
+  box-sizing: border-box;
+  gap: var(--gap-5xl);
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-white);
+  font-family: var(--font-jetbrains-mono);
+}
+.twitterTelegramLinksParent {
+  width: 1401px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--padding-xl);
+  gap: var(--gap-xl);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-29xl);
+  color: var(--color-gray-100);
+  font-family: var(--font-krungthep);
+}
+.link {
+  width: 222px;
+  position: relative;
+  letter-spacing: -0.04em;
+  line-height: 120%;
+  display: inline-block;
+  padding-left: var(--padding-xl);
+  padding-right: var(--padding-xl);
+}
+.footer {
+  align-self: stretch;
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-21xl) 0;
+  box-sizing: border-box;
+  gap: var(--gap-3xs);
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-100);
+  font-family: var(--font-jetbrains-mono);
+}
+@media screen and (max-width: 1050px) {
+  .ether,
+  .rb {
+    font-size: var(--font-size-19xl);
+    line-height: 46px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .twitterTelegramLinksParent {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 450px) {
+  .ether,
+  .rb {
+    font-size: var(--font-size-10xl);
+    line-height: 35px;
+  }
+}

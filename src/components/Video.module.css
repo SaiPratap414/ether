@@ -1,0 +1,159 @@
+.etherOrbsIntroduces,
+.watchVideo {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.watchVideo {
+  text-decoration: underline;
+  white-space: nowrap;
+}
+.etherOrbsIntroduces {
+  align-self: stretch;
+  font-size: var(--font-size-xs);
+  font-family: var(--font-jetbrains-mono);
+  color: var(--color-gray-100);
+  text-align: center;
+}
+.etherVectorGroup {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-21xl);
+}
+.buyOrb,
+.putContractAddress {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+}
+.putContractAddress {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-jetbrains-mono);
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.2)), #6b6b6b;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.buyOrb {
+  font-size: var(--font-size-xs-4);
+  font-family: var(--font-krungthep);
+  color: var(--color-white);
+}
+.howToFrame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 7.102153301239014px var(--padding-8xs);
+}
+.ponderAcquireOrbs {
+  cursor: pointer;
+  border: 0.7px solid var(--color-white);
+  padding: 0 var(--padding-6xs) 0 8.522583961486816px;
+  background-color: var(--color-black);
+  border-radius: 2.84px;
+}
+.layerFrame,
+.orbIntroFrame,
+.ponderAcquireOrbs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.orbIntroFrame {
+  align-self: stretch;
+  gap: var(--gap-21xl);
+}
+.layerFrame {
+  width: 583px;
+  padding: var(--padding-21xl);
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-29xl);
+  color: var(--color-white);
+  font-family: var(--font-krungthep);
+}
+.ggmoveDownIcon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 24px;
+}
+.scrollDown {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.ggmoveDownIcon1 {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 24px;
+}
+.blitzBattle,
+.video {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+  font-size: var(--font-size-base);
+}
+.video {
+  align-self: stretch;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--padding-77xl) var(--padding-xl) var(--padding-68xl);
+  box-sizing: border-box;
+  gap: var(--gap-203xl);
+  background-image: url(/public/video@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-100);
+  font-family: var(--font-jetbrains-mono);
+}
+@media screen and (max-width: 1050px) {
+  .video {
+    padding-top: var(--padding-43xl);
+    padding-bottom: var(--padding-38xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .etherVectorGroup,
+  .orbIntroFrame {
+    gap: var(--gap-21xl);
+  }
+  .video {
+    gap: var(--gap-203xl);
+    padding-top: var(--padding-21xl);
+    padding-bottom: var(--padding-18xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .layerFrame {
+    padding-top: var(--padding-7xl);
+    padding-bottom: var(--padding-7xl);
+    box-sizing: border-box;
+  }
+  .video {
+    gap: var(--gap-203xl);
+  }
+}
