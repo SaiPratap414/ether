@@ -1,48 +1,50 @@
 // Import React and necessary hooks
 import React, { useState } from 'react';
-// Import other components and styles as before
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import SubwayPowerVector from './SubwayPowerVector';
 import styles from './Video.module.css';
 
-// Define the Video component
 const Video: React.FunctionComponent = () => {
-  // State to manage video playback
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
-  // Function to trigger video playback
-  const handleVideoPlay = () => {
-    setIsVideoPlaying(true); // Set the state to true to play the video
+  const handleBackButtonClick = () => {
+    // Navigate to the previous page
+    navigate(-1);
   };
 
-  // Conditional rendering based on whether the video is playing
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  const handleVideoPlay = () => {
+    setIsVideoPlaying(true);
+  };
+
   if (isVideoPlaying) {
-    // If the video is playing, return a full-screen video element
     return (
       <div className={styles.fullScreenVideoContainer}>
         <video
-          src="/finaledit.mp4" // Specify the path to your video file here
-          autoPlay // Play the video automatically
-           // Loop the video
-           // Mute the video
-          playsInline // Play the video inline
+          src="/video.mp4"
+          autoPlay
+          playsInline
           style={{
             position: 'fixed',
             top: '0',
             left: '0',
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover', // Ensure the video covers the full screen
-            zIndex: '9999', // Make sure the video is above all other content
+            width: '100%', // Adjust the width as needed
+            height: '100%', // Adjust the height as needed
+            objectFit: 'cover',
+            zIndex: '9999',
           }}
         />
+         <div className={styles.backButton} onClick={handleBackButtonClick}>Back</div>
       </div>
     );
   }
 
-  // Return the original component structure if the video is not playing
   return (
     <header className={styles.video}>
-      <div className={styles.watchVideo} onClick={handleVideoPlay}>watch video</div>
+      <div className={styles.watchVideo} onClick={handleVideoPlay}>
+        watch video
+      </div>
       <div className={styles.layerFrame}>
         <div className={styles.orbIntroFrame}>
           <div className={styles.etherVectorGroup}>
@@ -68,5 +70,4 @@ const Video: React.FunctionComponent = () => {
   );
 };
 
-// Export the updated component
 export default Video;

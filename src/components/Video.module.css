@@ -110,6 +110,10 @@
   gap: var(--gap-9xs);
   font-size: var(--font-size-base);
 }
+/* Video.module.css */
+
+
+
 .video {
   align-self: stretch;
   overflow: hidden;
@@ -156,4 +160,22 @@
   .video {
     gap: var(--gap-203xl);
   }
+}
+/* Add this style to your existing CSS file */
+/* Add this style to your existing CSS file */
+.backButton {
+  cursor: pointer;
+  padding: 10px 20px; /* Adjust padding as needed */
+  background-color: #007bff; /* Example background color */
+  color: white;
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  position: absolute;
+  bottom: 20px; /* Adjust bottom position as needed */
+  right: 20px; /* Adjust right position as needed */
+  z-index: 999; /* Make sure it's above other elements */
+}
+
+/* Add hover effect */
+.backButton:hover {
+  background-color: #0056b3; /* Example hover background color */
 }
