@@ -108,8 +108,9 @@ video {
 
 .para {
     position: absolute;
-    bottom: 50%;
-    transform: translateY(50%);
+    bottom: 10px; /* Adjust bottom position as needed */
+    left: 50%; /* Align to the horizontal center */
+    transform: translateX(-50%); /* Move horizontally to center */
     text-align: center;
 }
 
@@ -121,6 +122,7 @@ video {
     text-transform: uppercase;
     color: #ffffff;
 }
+
 
 .skip-button {
     position: absolute;
