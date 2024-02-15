@@ -102,8 +102,11 @@
 /* Glowing effect for the centered image */
 .centered {
   animation: glow 2s infinite ease-in-out;
-  margin-top: -90px;
+  transform: scale(1.9) translateY(-20px); /* Scale up and lift the image */
+  box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+  z-index: 2; /* Ensure it's above other images */
 }
+
 
 @keyframes glow {
   0% {
