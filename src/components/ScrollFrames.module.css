@@ -41,10 +41,11 @@
   height: 140.6px;
   align-items: flex-end;
   justify-content: flex-start;
+  margin-top: 10px;
 }
 
 .fungiParent1 .wrapper {
-  margin-top: 40px; /* Adjust the value as needed */
+  margin-top: -20px; /* Adjust the value as needed */
 }
 .fungiParent .rectangleFrames{
   margin-bottom: 40px;
@@ -229,14 +230,20 @@
   align-items: center;
 }
 
+/* ScrollFrames.module.css */
+
 .buyButtonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   border: 0.7px solid var(--color-white);
   padding: 0 var(--padding-5xs);
   background-color: var(--color-black);
   border-radius: 2.84px;
-  justify-content: flex-start;
 }
+
+
 
 .scrollFrames {
   flex: 1;

@@ -4,7 +4,6 @@ import styles from './ScrollFrames.module.css';
 const ScrollFrames = () => {
   const [centeredImage, setCenteredImage] = useState('orange'); // Default centered image
   const images = ['v', 'green', 'orange', 'blue', 'lightblue'];
-
   const handleArrowClick = (direction: 'left' | 'right') => {
     const currentIndex = images.indexOf(centeredImage);
     const nextIndex =
@@ -13,7 +12,8 @@ const ScrollFrames = () => {
         : (currentIndex + 1) % images.length;
     setCenteredImage(images[nextIndex]);
   };
-  
+
+
 
   return (
     <div className={styles.scrollFrames}>
@@ -27,17 +27,15 @@ const ScrollFrames = () => {
 
         {/* Images */}
         {images.map((imageId) => (
-  <div key={imageId} className={styles.rectangleParent}>
-    <img
-  className={`${styles.blazeChildIcon} ${centeredImage === imageId ? styles.centered : ''} ${imageId === 'orange' ? styles.orangeIcon : ''}`}
-  alt=""
-  src={`/${imageId}.png`}
-  style={centeredImage === imageId ? { transform: 'scale(1.9)', boxShadow: '0 0 10px rgba(0, 0, 255, 0.7)' } : {}}
-/>
-
-  </div>
-))}
-
+          <div key={imageId} className={styles.rectangleParent}>
+            <img
+              className={`${styles.blazeChildIcon} ${centeredImage === imageId ? styles.centered : ''} ${imageId === 'orange' ? styles.orangeIcon : ''}`}
+              alt=""
+              src={`/${imageId}.png`}
+              style={centeredImage === imageId ? { transform: 'scale(1.9)', boxShadow: '0 0 10px rgba(0, 0, 255, 0.7)' } : {}}
+            />
+          </div>
+        ))}
 
         {/* Right arrow */}
         <div className={styles.fungiParent1} onClick={() => handleArrowClick('right')}>
@@ -155,3 +153,19 @@ const ScrollFrames = () => {
 };
 
 export default ScrollFrames;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

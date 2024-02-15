@@ -232,3 +232,14 @@
     gap: var(--gap-71xl);
   }
 }
+
+
+.faqHeading {
+  font-size: var(--font-size-5xl); /* Same font size as the technology behind */
+  font-family: var(--font-krungthep); /* Same font family as the technology behind */
+  color: var(--color-white); /* Same color as the technology behind */
+  text-align: center; /* Center the text */
+}
+
+/* Your existing CSS styles */
+

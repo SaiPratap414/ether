@@ -1,3 +1,5 @@
+// FAQ.tsx
+
 import React, { useState, FunctionComponent } from 'react';
 import styles from './FAQ.module.css';
 
@@ -24,6 +26,7 @@ const FAQItem: FunctionComponent<FAQItemProps> = ({ question, answer }) => {
 
 // Main FAQ component
 const FAQ: FunctionComponent = () => {
+  
   // FAQ items array
   const faqItems = [
     {
@@ -63,6 +66,8 @@ const FAQ: FunctionComponent = () => {
           alt=""
           src="/group-3-2.svg"
         />
+        {/* FAQ heading */}
+        <h2 className={styles.faqHeading}>FAQ</h2>
         <div className={styles.socialMediaLinks}>
           {faqItems.map((item, index) => (
             <FAQItem key={index} question={item.question} answer={item.answer} />
