@@ -5,16 +5,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Krungthep"; /* Apply Krungthep font to all text */
 }
 
 /* Global styles */
 .App {
     text-align: center;
+    font-family: "Krungthep"; /* Apply Krungthep font */
 }
 
 /* Figma component specific styles */
 .background-video-container {
     position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .bg-img {
@@ -29,6 +34,7 @@
     height: 100vh; /* Fills the vertical height of the screen */
     width: 100%; /* Fills the horizontal width of the screen */
     background-color: black;
+    font-family: "Krungthep"; /* Apply Krungthep font */
 }
 
 .logo {
@@ -47,6 +53,7 @@
     text-decoration: underline;
     text-underline-offset: 4px;
     margin-top: 20px; /* Adjust margin-top as needed */
+    font-family: "Krungthep"; /* Apply Krungthep font */
 }
 
 .button1 {
@@ -107,29 +114,14 @@ video {
 }
 
 .para {
-    position: absolute;
-    bottom: 10px; /* Adjust bottom position as needed */
-    left: 50%; /* Align to the horizontal center */
-    transform: translateX(-50%); /* Move horizontally to center */
-    text-align: center;
+    display: none; /* Remove paragraph CSS */
 }
-
-.para-text {
-    font-family: JetBrains Mono, 'Source Sans Pro';
-    font-size: 1.2rem;
-    font-weight: 600;
-    line-height: 1.2;
-    text-transform: uppercase;
-    color: #ffffff;
-}
-
 
 .skip-button {
     position: absolute;
     bottom: 10px;
     right: 10px;
     color: #ffffff;
-    font-family: JetBrains Mono, 'Source Sans Pro';
     font-size: 16px;
     cursor: pointer;
     z-index: 2;
@@ -143,6 +135,13 @@ video {
     height: 20px; /* Adjust height as needed */
     z-index: 2;
 }
+
+.subtitle,
+.text {
+    color: #ffffff;
+    margin-bottom: 90px;
+}
+
 
 /* Animation styles */
 @keyframes App-logo-spin {

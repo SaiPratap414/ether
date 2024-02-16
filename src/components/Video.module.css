@@ -1,3 +1,5 @@
+/* Add this CSS to your existing stylesheet */
+
 .etherOrbsIntroduces,
 .watchVideo {
   position: relative;
@@ -21,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: var(--gap-21xl);
+  gap: 60px; /* Adjust the value to 50px */
 }
 .buyOrb,
 .putContractAddress {
@@ -67,11 +69,11 @@
 }
 .orbIntroFrame {
   align-self: stretch;
-  gap: var(--gap-21xl);
+  gap: 60px; /* Adjust the value to 50px */
 }
 .layerFrame {
   width: 583px;
-  padding: var(--padding-21xl);
+  padding: 20px; /* Adjust the padding as needed */
   box-sizing: border-box;
   max-width: 100%;
   text-align: left;
@@ -107,12 +109,10 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: var(--gap-9xs);
+  gap: 60px; /* Adjust the value to 50px */
   font-size: var(--font-size-base);
 }
 /* Video.module.css */
-
-
 
 .video {
   align-self: stretch;
@@ -121,7 +121,7 @@
   align-items: center;
   padding: var(--padding-77xl) var(--padding-xl) var(--padding-68xl);
   box-sizing: border-box;
-  gap: var(--gap-203xl);
+  gap: 60px; /* Adjust the value to 50px */
   background-image: url(/public/video@3x.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -142,10 +142,10 @@
 @media screen and (max-width: 750px) {
   .etherVectorGroup,
   .orbIntroFrame {
-    gap: var(--gap-21xl);
+    gap: 80px; /* Adjust the value to 50px */
   }
   .video {
-    gap: var(--gap-203xl);
+    gap: 60px; /* Adjust the value to 50px */
     padding-top: var(--padding-21xl);
     padding-bottom: var(--padding-18xl);
     box-sizing: border-box;
@@ -153,15 +153,14 @@
 }
 @media screen and (max-width: 450px) {
   .layerFrame {
-    padding-top: var(--padding-7xl);
-    padding-bottom: var(--padding-7xl);
-    box-sizing: border-box;
+    padding-top: 10px; /* Adjust the top padding as needed */
+    padding-bottom: 10px; /* Adjust the bottom padding as needed */
   }
   .video {
-    gap: var(--gap-203xl);
+    gap: 60px; /* Adjust the value to 50px */
   }
 }
-/* Add this style to your existing CSS file */
+
 /* Add this style to your existing CSS file */
 .backButton {
   cursor: pointer;

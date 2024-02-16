@@ -4,16 +4,19 @@
   font-family: var(--font-krungthep);
   color: var(--color-white);
 }
+
 .blankLine,
 .theDualNature {
   margin: 0;
 }
+
 .theTechnologyBehindContainer {
   align-self: stretch;
   position: relative;
   line-height: 120%;
   text-transform: uppercase;
 }
+
 .theTechnologyBehindTheMagiWrapper {
   align-self: stretch;
   display: flex;
@@ -21,11 +24,14 @@
   align-items: flex-start;
   justify-content: flex-end;
 }
+
 .fAQParentChild {
   width: 123.5px;
   height: 120px;
   position: relative;
+  margin-bottom: -90px;
 }
+
 .faq1 {
   margin: 0;
   width: 503.7px;
@@ -36,16 +42,19 @@
   display: inline-block;
   max-width: 100%;
 }
+
 .faq1,
 .howDoI,
 .theDualNature1 {
   position: relative;
   line-height: 120%;
 }
+
 .howDoI {
   text-transform: uppercase;
   font-weight: 500;
 }
+
 .theDualNature1 {
   width: 587.9px;
   font-weight: 300;
@@ -54,6 +63,7 @@
   max-width: 133%;
   flex-shrink: 0;
 }
+
 .helpMyORB {
   width: 442px;
   display: flex;
@@ -63,11 +73,13 @@
   gap: var(--gap-5xl);
   max-width: calc(100% - 28px);
 }
+
 .fAQ {
   position: relative;
   line-height: 120%;
   text-transform: uppercase;
 }
+
 .helpMyORBParent {
   align-self: stretch;
   border-radius: var(--br-11xs);
@@ -81,55 +93,20 @@
   gap: var(--gap-xl);
   max-width: 100%;
 }
+
 .whatsTheDeal {
   font-weight: 500;
 }
+
 .whatsTheDeal,
 .winWithStrategy {
   position: relative;
   line-height: 120%;
   text-transform: uppercase;
 }
-.orbWontStopPulsating {
-  align-self: stretch;
-  border-radius: var(--br-11xs);
-  background-color: var(--color-gray-100);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: var(--padding-9xs);
-  gap: var(--gap-xl);
-}
-.canIActually {
-  font-weight: 500;
-}
-.canIActually,
-.div {
-  position: relative;
-  line-height: 120%;
-  text-transform: uppercase;
-}
-.orbWontStopPulsating1 {
-  align-self: stretch;
-  border-radius: var(--br-11xs);
-  background-color: var(--color-gray-100);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: var(--padding-9xs);
-  gap: var(--gap-xl);
-}
-.helpMyOrb {
-  font-weight: 500;
-}
-.div1,
-.helpMyOrb {
-  position: relative;
-  line-height: 120%;
-  text-transform: uppercase;
-}
+
+.orbWontStopPulsating,
+.orbWontStopPulsating1,
 .orbWontStopPulsating2 {
   align-self: stretch;
   border-radius: var(--br-11xs);
@@ -141,6 +118,20 @@
   padding: var(--padding-9xs);
   gap: var(--gap-xl);
 }
+
+.canIActually,
+.div,
+.helpMyOrb {
+  font-weight: 500;
+}
+
+.div1,
+.helpMyOrb {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
 .fAQParent,
 .fAQTitle,
 .faq,
@@ -150,6 +141,7 @@
   justify-content: center;
   max-width: 100%;
 }
+
 .socialMediaLinks {
   align-self: stretch;
   align-items: flex-start;
@@ -157,12 +149,15 @@
   font-size: var(--font-size-xs);
   color: var(--color-black);
   font-family: var(--font-jetbrains-mono);
+  margin-top: -60px;
 }
+
 .fAQParent,
 .fAQTitle,
 .faq {
   align-items: center;
 }
+
 .fAQTitle {
   align-self: stretch;
   gap: var(--gap-21xl);
@@ -170,19 +165,22 @@
   color: var(--color-white);
   font-family: var(--font-krungthep);
 }
+
 .fAQParent,
 .faq {
   box-sizing: border-box;
 }
+
 .fAQParent {
   width: 600px;
   padding: var(--padding-61xl) 0 0;
   gap: var(--gap-101xl);
 }
+
 .faq {
   align-self: stretch;
   overflow: hidden;
-  padding: var(--padding-59xl) var(--padding-xl);
+  padding: var(--padding-59xl) var(--padding-xl) 0; /* Adjust top padding */
   background-image: url(/public/faq@3x.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -192,6 +190,7 @@
   color: var(--color-gray-100);
   font-family: var(--font-jetbrains-mono);
 }
+
 @media screen and (max-width: 1050px) {
   .fAQParent,
   .faq {
@@ -203,21 +202,19 @@
     padding-bottom: var(--padding-32xl);
   }
 }
+
 @media screen and (max-width: 750px) {
-  .fAQTitle,
-  .theTechnologyBehindTheMagiWrapper {
-    gap: var(--gap-21xl);
-  }
-  .fAQParent {
-    gap: var(--gap-101xl);
+  .faqHeading {
+    margin-top: 20px; /* Adjust as needed */
+    margin-bottom: 10px; /* Adjust as needed */
   }
   .faq {
-    gap: var(--gap-71xl);
-    padding-top: var(--padding-14xl);
-    padding-bottom: var(--padding-14xl);
+    padding-top: var(--padding-14xl); /* Adjust top padding */
+    padding-bottom: var(--padding-14xl); /* Adjust bottom padding */
     box-sizing: border-box;
   }
 }
+
 @media screen and (max-width: 450px) {
   .faq1 {
     font-size: var(--font-size-lgi);
@@ -232,14 +229,3 @@
     gap: var(--gap-71xl);
   }
 }
-
-
-.faqHeading {
-  font-size: var(--font-size-5xl); /* Same font size as the technology behind */
-  font-family: var(--font-krungthep); /* Same font family as the technology behind */
-  color: var(--color-white); /* Same color as the technology behind */
-  text-align: center; /* Center the text */
-}
-
-/* Your existing CSS styles */
-
