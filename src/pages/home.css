@@ -42,9 +42,14 @@
 }
 
 .image-blob {
-    width: 300px; /* Adjust width as needed */
+    width: 500px; /* Increased width */
+    height: auto; /* Maintain aspect ratio, adjust if needed */
     margin-top: 20px; /* Adjust margin-top as needed */
+    display: block; /* Ensure it's centered if needed */
+    margin-left: auto; /* Center align */
+    margin-right: auto; /* Center align */
 }
+
 
 .future {
     color: rgba(176, 165, 150, 0.523);

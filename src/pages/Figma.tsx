@@ -61,7 +61,7 @@ const Figma: React.FC<FigmaProps> = ({ onSkip }) => {
       {!clicked ? (
         <div className="bg-img" onClick={() => setClicked(true)}>
           <img className="logo" src="/logo.png" alt="logo" />
-          <img className="image-blob" src="/blobimage.png" alt="blob" />
+          <img className="image-blob" src="/blob.gif" alt="blob" />
           <h1 className="future">ENTER</h1>
         </div>
       ) : (
