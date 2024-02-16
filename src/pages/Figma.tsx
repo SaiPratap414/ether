@@ -19,9 +19,9 @@ const Figma: React.FC<FigmaProps> = ({ onSkip }) => {
 
   // Subtitles array
   const subtitles: Subtitle[] = [
-    { start: 0, end: 3, text: 'In the far-flung future,' },
-    { start: 3, end: 6, text: 'where the lines between sorcery and technology blur' },
-    { start: 6, end: 9, text: 'like a meme on a quantum computer screen,' },
+    { start: 0, end: 2, text: 'In the far-flung future,' },
+    { start: 3, end: 5, text: 'where the lines between sorcery and technology blur' },
+    { start: 6, end: 8, text: 'like a meme on a quantum computer screen,' },
     { start: 9, end: 13, text: 'exists a world both wondrous and slightly absurd.' },
     { start: 13, end: 19, text: 'Here, in the sprawling expanse of the post-singularity Universe,' },
     { start: 20, end: 29, text: "the most esteemed minds aren't technologists – they're Wizards," },
