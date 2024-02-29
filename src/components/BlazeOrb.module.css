@@ -108,7 +108,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: var(--padding-3xs);
+  padding: 8px;
 }
 .terra {
   position: relative;
@@ -167,7 +167,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: var(--padding-3xs);
+  padding: 8px;
 }
 .torrent {
   position: relative;
@@ -175,8 +175,8 @@
 }
 .gameIconsaquarius,
 .subwaypowerIcon2 {
-  width: 42px;
-  height: 42px;
+  height: 38px;
+  width: 38px;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -210,7 +210,7 @@
   width: 71px;
   flex-direction: row;
   align-items: flex-start;
-  padding: var(--padding-3xs);
+  padding: 8px;
   box-sizing: border-box;
 }
 .blazeGroup,
@@ -293,7 +293,8 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: var(--padding-3xs);
+  padding: 8px;
+  margin-left: -6px;
 }
 .ether1 {
   position: relative;
@@ -301,8 +302,8 @@
 }
 .gameIconsatomicSlashes,
 .subwaypowerIcon4 {
-  width: 41px;
-  height: 41px;
+  height: 38px;
+  width: 38px;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -434,5 +435,6 @@
 .aer,
 .ether1{
   color: white; /* Set text color to white */
+  font-size: .7rem;
 }
 

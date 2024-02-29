@@ -96,6 +96,11 @@
   color: var(--color-gray-100);
   font-family: var(--font-jetbrains-mono);
 }
+.twitterParent a,
+twitterParent a:visited {
+  text-decoration: none;
+  color: var(--color-white);
+}
 @media screen and (max-width: 1050px) {
   .ether,
   .rb {
@@ -113,5 +118,30 @@
   .rb {
     font-size: var(--font-size-10xl);
     line-height: 35px;
+  }
+}
+
+.twitterParent {
+  margin-right: 4rem;
+}
+
+@media screen and (max-width: 680px) {
+  .twitter,
+  .telegram,
+  .docs,
+  .play {
+    font-size: .75rem;
+  }
+ 
+  .twitterParent {
+    margin-right: .5rem;
+  }
+ }
+
+ @media screen and (max-width: 480px) {
+  .twitterTelegramLinksParent {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-left: 3rem;
   }
 }

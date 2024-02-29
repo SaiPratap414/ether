@@ -44,3 +44,31 @@
   color: var(--color-white);
   font-family: var(--font-krungthep);
 }
+
+.subwayPowerVector :hover {
+  cursor: pointer;
+}
+
+.subwayPowerVector :hover .groupVectorTerraChild {
+  animation: rotateAndBounce 0.5s ease forwards;
+}
+
+/* Animations */
+
+@keyframes rotateAndBounce {
+  0% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(390deg); /* Rotate a bit more for the bounce */
+  }
+  100% {
+    transform: rotate(360deg); /* Settle back to the full rotation */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .groupVectorTerra {
+    margin-left: 3rem;
+  }
+}

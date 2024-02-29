@@ -4,7 +4,7 @@ import styles from "./FrameComponent.module.css";
 
 const FrameComponent: FunctionComponent = () => {
   return (
-    <div className={styles.navParent}>
+    <div className={styles.navParent} id="scroll-section">
       <div className={styles.nav}>
         <div className={styles.nav1}>
           <SubwayPowerVector
@@ -15,7 +15,7 @@ const FrameComponent: FunctionComponent = () => {
             propAlignSelf1="stretch"
           />
           <div className={styles.twitterParent}>
-            <div className={styles.twitter}>twitter</div>
+            <a href="https://twitter.com/etherorbxyz"><div className={styles.twitter}>twitter</div></a>
             <div className={styles.telegram}>telegram</div>
             <div className={styles.docs}>docs</div>
             <div className={styles.play}>play</div>

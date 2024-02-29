@@ -26,6 +26,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--gap-xl);
+  margin-top: -4.2rem;
 }
 
 .fungiParent,
@@ -133,6 +134,7 @@
   position: relative;
   line-height: 120%;
   text-transform: uppercase;
+  font-size: .8rem;
 }
 
 .blazeWrapper {
@@ -149,11 +151,6 @@
   flex-shrink: 0;
 }
 
-.riblazeFillIcon {
-  height: 51.1px;
-  width: 51.1px;
-  position: relative;
-}
 
 .blaze1 {
   width: 68px;
@@ -173,6 +170,8 @@
   position: relative;
   line-height: 120%;
   text-transform: uppercase;
+  font-size: .8rem;
+  margin-top: -.8rem;
 }
 
 .blazeSurgesWithTheUnbridleWrapper {
@@ -195,6 +194,7 @@
 }
 
 .frameParent {
+  margin-top: 1rem;
   width: 197px;
   height: 158px;
   border-radius: 2.84px;
@@ -243,6 +243,8 @@
   border-radius: 2.84px;
 }
 
+
+
 .scrollFrames {
   flex: 1;
   justify-content: center;
@@ -256,6 +258,13 @@
   font-family: var(--font-inter);
 }
 
+.fungiParent {
+  transform: translateY(3rem);
+}
+
+.fungiParent1 {
+  transform: translateY(3rem);
+}
 /* Responsive adjustments */
 @media screen and (max-width: 750px) {
   .buyOrbParent {
@@ -267,13 +276,23 @@
 .etherIcon,
 .terraIcon,
 .aerIcon {
-  width: 68px; /* Adjust width as needed */
-  height: 68px; /* Adjust height as needed */
+  width: 30px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -99%);
 }
+
+.riblazeFillIcon {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -99%);
+}
+
 
 /* Additional adjustments */
 .torrentIcon {
@@ -286,4 +305,79 @@
   border-radius: 50%; /* Add border-radius as needed */
 }
 
+.ponderAcquireOrbs {
+  cursor: pointer;
+  border: 0.7px solid var(--color-white);
+  padding: 0 var(--padding-6xs) 0 8.522583961486816px;
+  background-color: var(--color-black);
+  border-radius: 2.84px;
+  transition: all .3s ease;
+}
 
+.ponderAcquireOrbs:hover {
+  background-color: var(--color-white);
+}
+.ponderAcquireOrbs:hover .buyOrb {
+  color: #000;
+}
+
+.layerFrame,
+.orbIntroFrame,
+.ponderAcquireOrbs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.howToFrame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 7.102153301239014px var(--padding-8xs);
+}
+
+
+.buyOrbParent > .rectangleParent:not(:nth-child(4)) {
+  margin-top: 4rem;
+}
+
+.buyOrbParent > .rectangleParent:nth-child(3) {
+  margin-top: 4rem;
+  transform: scale(1.4) translateY(-20px);
+  margin-left: -1.5rem;
+}
+
+.buyOrbParent > .rectangleParent:nth-child(5) {
+  margin-top: 4rem;
+  transform: scale(1.4) translateY(-20px);
+  margin-right: -1.5rem;
+}
+
+
+@media screen and (max-width: 600px) {
+  .buyOrbParent > .rectangleParent:not(:nth-child(4)) {
+    margin-top: 0rem;
+  }
+  
+  .buyOrbParent > .rectangleParent:nth-child(3) {
+    margin-top: 0rem;
+    transform: scale(1) translateY(0);
+    margin-left: 0;
+  }
+  
+  .buyOrbParent > .rectangleParent:nth-child(5) {
+    margin-top: 0rem;
+    transform: scale(1) translateY(0);
+    margin-left: 0;
+  }
+
+  .fungiParent {
+    transform: translateY(0px);
+  }
+  
+  .fungiParent1 {
+    transform: translateY(0px);
+  }
+}

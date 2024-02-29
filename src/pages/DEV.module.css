@@ -18,6 +18,7 @@
   position: relative;
   max-width: 100%;
   flex-shrink: 0;
+  margin-top: -3rem;
 }
 .dev,
 .homepage {

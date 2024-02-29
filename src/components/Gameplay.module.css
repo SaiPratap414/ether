@@ -376,12 +376,85 @@
   color: var(--color-white);
   font-family: var(--font-jetbrains-mono);
 }
+
+/* .frameParent {
+  width: 1150px;
+  border-radius: var(--br-9xs);
+  border: 2px solid var(--color-darkslategray);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--padding-21xl) var(--padding-26xl) var(--padding-21xl)
+    var(--padding-23xl);
+  gap: var(--gap-20xl);
+  max-width: 100%;
+  font-size: var(--font-size-xs-1);
+} */
+
 @media screen and (max-width: 1150px) {
   .frameParent {
     padding-left: var(--padding-2xl);
     padding-right: var(--padding-3xl);
     box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
   }
+
+  .torrentVectorGroupParent {
+    top: 0;
+    right: 0;
+    bottom: 61.33%;
+    left: 120%;
+    z-index: 1;
+  }
+
+  .vectorParent {
+    top: 0;
+    bottom: 61.33%;
+    left: 10%;
+  }
+
+  .buyOrbFrameParent {
+    top: 61.33%;
+    right: 33.33%;
+    bottom: 0;
+    left: 63%;
+  }
+
+  .frameWrapper {
+    margin-left: -10rem;
+  }
+
+  .gameIconsabstract030 {
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    flex-shrink: 0;
+    right: 52%;
+    top: 25%;
+    position: absolute;
+  }
+
+  .Gameplay_torrent{
+    position: relative;
+  }
+
+  .blazeVectorGroup {
+    height: 60px;
+    width: 60px;
+    right: 40%;
+  }
+
+  .riblazeFillIcon {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 25%;
+    left: 0%;
+  }
+
 }
 @media screen and (max-width: 1050px) {
   .gameplay1 {
@@ -400,33 +473,130 @@
     box-sizing: border-box;
   }
 }
-@media screen and (max-width: 750px) {
-  .frameWrapper {
-    gap: 45.63px;
-    padding-top: var(--padding-xl);
-    padding-bottom: var(--padding-xl);
-    box-sizing: border-box;
-  }
-  .frameWrapper,
-  .howToPonderContainer {
-    min-width: 100%;
-  }
-  .frameParent,
-  .gameplay {
-    gap: var(--gap-20xl);
-    padding-top: var(--padding-7xl);
-    padding-bottom: var(--padding-7xl);
-    box-sizing: border-box;
-  }
-  .gameplay {
-    gap: var(--gap-21xl);
-    padding-top: var(--padding-17xl);
-    padding-bottom: var(--padding-35xl);
-  }
-}
+
 @media screen and (max-width: 450px) {
   .gameplay1 {
     font-size: var(--font-size-lgi);
     line-height: 23px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+
+  .subtractFrame {
+  /* position: absolute;
+  top: 83.8px;
+  left: 86.8px; */
+  width: 200px;
+  height: 200px;
+}
+
+.frameWrapper {
+  margin-left: -15rem;
+}
+
+.beatsParent {
+  top: 12px;
+  left: 95px;
+}
+
+.beats{
+  font-size: .6rem;
+}
+
+.subtractIcon1 {
+  top: 80px;
+  left: 120px;
+}
+
+.twoFramesIcon {
+  top: 80px;
+  left: 40px;
+}
+
+.vectorParent {
+  height: 25%;
+  width: 25%;
+  top: 10%;
+  left: 20%;
+}
+
+.gameIconsabstract030 {
+  height: 45px;
+  width: 45px;
+  left: -3%;
+  top: 10%;
+  position: absolute;
+}
+.terra {
+  overflow: visible;
+}
+
+.torrentVectorGroupParent {
+  height: 25%;
+  width: 25%;
+  top: 10%;
+  left: 80%;
+}
+
+.blazeVectorGroup {
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  left: -4%;
+  top: 15%;
+}
+.torrent {
+  overflow: visible;
+}
+
+.buyOrbFrameParent {
+  height: 25%;
+  width: 25%;
+  top: 50%;
+  left: 49%;
+}
+
+.riblazeFillIcon {
+  height: 45px;
+  width: 45px;
+  top: 3%;
+  left: -6%;
+}
+
+.blaze {
+  overflow: visible;
+}
+
+.frameWrapper {
+  margin-left: 0%;
+  left: -30%;
+  position: relative;
+}
+
+.howToPonderContainer {
+  padding-right: 7rem;
+}
+
+.howToPonderContainer * {
+  font-size: .6rem ;
+  line-height: 150%;
+
+}
+}
+
+ @media screen and (max-width: 400px) {
+  .frameWrapper {
+    left: -40%;
+  }
+
+  .howToPonderContainer {
+    padding-right: 10rem;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .frameWrapper {
+    left: -50%;
   }
 }

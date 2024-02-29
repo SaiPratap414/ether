@@ -15,11 +15,11 @@ const FAQItem: FunctionComponent<FAQItemProps> = ({ question, answer }) => {
 
   return (
     <div className={styles.helpMyORBParent}>
-      <div className={styles.helpMyORB} onClick={() => setIsExpanded(!isExpanded)}>
+      <div className={styles.helpMyORB} >
         <div className={styles.howDoI}>{question}</div>
         {isExpanded && <div className={styles.theDualNature1}>{answer}</div>}
       </div>
-      <div className={styles.fAQ}>{isExpanded ? '-' : '+'}</div>
+      <div className={styles.fAQ} onClick={() => setIsExpanded(!isExpanded)}>{isExpanded ? '-' : '+'}</div>
     </div>
   );
 };

@@ -16,7 +16,7 @@ const Footer: FunctionComponent = () => {
           <h1 className={styles.rb}>rb</h1>
         </div>
         <div className={styles.twitterParent}>
-          <div className={styles.twitter}>twitter</div>
+          <a href="https://twitter.com/etherorbxyz"><div className={styles.twitter}>twitter</div></a>
           <div className={styles.telegram}>telegram</div>
           <div className={styles.docs}>DOCS</div>
         </div>

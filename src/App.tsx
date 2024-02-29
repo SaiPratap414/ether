@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import DEV from "./pages/DEV";
+import DEV from "./pages/Homepage";
 import Figma from "./pages/Figma"; // Import the new page component
 import { useLocation, useNavigate } from "react-router-dom"; // Import useNavigate and useLocation
 
@@ -40,13 +40,13 @@ function App() {
   
 
   const handleSkip = () => {
-    navigate("/dev"); // Navigate to the DEV page when skip is clicked
+    navigate("/home"); // Navigate to the DEV page when skip is clicked
   };
 
   return (
     <Routes>
       <Route path="/" element={<Figma onSkip={handleSkip} />} />
-      <Route path="/dev" element={<DEV />} />
+      <Route path="/home" element={<DEV />} />
     </Routes>
   );
 }

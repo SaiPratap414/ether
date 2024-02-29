@@ -2,158 +2,197 @@
 
 /* Reset styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Krungthep"; /* Apply Krungthep font to all text */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  /* text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 /* Global styles */
 .App {
-    text-align: center;
-    font-family: "Krungthep"; /* Apply Krungthep font */
+  text-align: center;
 }
 
 /* Figma component specific styles */
 .background-video-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+  position: relative;
 }
 
 .bg-img {
-    position: relative;
-    background-image: url('/public/bb.png');
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Fills the vertical height of the screen */
-    width: 100%; /* Fills the horizontal width of the screen */
-    background-color: black;
-    font-family: "Krungthep"; /* Apply Krungthep font */
+  position: relative;
+  background-image: url("/public/bb.png");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Fills the vertical height of the screen */
+  width: 100%; /* Fills the horizontal width of the screen */
+  background-color: black;
 }
 
 .logo {
-    width: 200px; /* Adjust width as needed */
+  width: 200px; /* Adjust width as needed */
 }
 
 .image-blob {
-    width: 500px; /* Increased width */
-    height: auto; /* Maintain aspect ratio, adjust if needed */
-    margin-top: 20px; /* Adjust margin-top as needed */
-    display: block; /* Ensure it's centered if needed */
-    margin-left: auto; /* Center align */
-    margin-right: auto; /* Center align */
+  width: 300px; /* Adjust width as needed */
+  margin-top: 40px; /* Adjust margin-top as needed */
 }
 
-
 .future {
-    color: rgba(176, 165, 150, 0.523);
-    font-family: JetBrains Mono;
-    font-size: 20px;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    margin-top: 20px; /* Adjust margin-top as needed */
-    font-family: "Krungthep"; /* Apply Krungthep font */
+  color: rgba(176, 165, 150, 0.523);
+  font-family: JetBrains Mono;
+  font-size: 20px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  /* animation: typewriter 4s steps(40) infinite, blinkCursor 500ms step-end infinite alternate; */
+  margin-top: 40px; /* Adjust margin-top as needed */ 
+
 }
 
 .button1 {
-    position: absolute;
-    top: 90%;
-    left: 90%;
-    color: rgba(255, 250, 243, 0.523);
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  color: rgba(255, 250, 243, 0.523);
 }
 
 .button1:hover,
 .future:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* Video styles */
 video {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    position: absolute;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
 }
 
 /* Updated CSS */
 .background-video-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 #bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
 }
 
 .frame-366-4kP {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100vh;
 }
 
 .image {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: auto; /* Adjust width as needed */
-    height: auto; /* Adjust height as needed */
-    max-width: 50%; /* Adjust max-width as needed */
-    max-height: 50%; /* Adjust max-height as needed */
-    z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: auto; /* Adjust width as needed */
+  height: auto; /* Adjust height as needed */
+  max-width: 50%; /* Adjust max-width as needed */
+  max-height: 50%; /* Adjust max-height as needed */
+  z-index: 1;
 }
 
 .para {
-    display: none; /* Remove paragraph CSS */
+  position: absolute;
+  bottom: 10px; /* Adjust bottom position as needed */
+  left: 50%; /* Align to the horizontal center */
+  transform: translateX(-50%); /* Move horizontally to center */
+  text-align: center;
+}
+
+.para-text {
+  font-family: JetBrains Mono, "Source Sans Pro";
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 
 .skip-button {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    color: #ffffff;
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 2;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #ffffff;
+  font-family: JetBrains Mono, "Source Sans Pro";
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .ri-skip-right-line-r3y {
-    position: absolute;
-    bottom: 10px;
-    right: 60px;
-    width: 20px; /* Adjust width as needed */
-    height: 20px; /* Adjust height as needed */
-    z-index: 2;
+  position: absolute;
+  bottom: 10px;
+  right: 60px;
+  width: 20px; /* Adjust width as needed */
+  height: 20px; /* Adjust height as needed */
+  z-index: 2;
 }
 
-.subtitle,
-.text {
-    color: #ffffff;
-    margin-bottom: 90px;
+.skipnot {
+  border-bottom: 2px solid #fff;  
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 85px; /* Adjust width as needed */
+  cursor: pointer;
 }
-
 
 /* Animation styles */
 @keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blinkCursor {
+    from { border-right-color: transparent; }
+    to { border-right-color: black; }
+  }
+
+/* Media Queries */
+
+@media (max-width: 1100px) {
+  .para {
+    align-self: center; /* Centers the div horizontally in the flex container */
+  margin: auto 0; /* Adds automatic margin vertically, which helps in centering vertically */
+  width: 80%; 
+  position: static; /* Or any other value that suits your layout */
+    transform: none; /* Removes the translation */
+
+  }
+
 }

@@ -32,8 +32,15 @@ const SubwayPowerVector: FunctionComponent<SubwayPowerVectorType> = ({
     };
   }, [propFlex, propAlignSelf1]);
 
+  const scrollToSection = () => {
+    const section = document.getElementById("scroll-header");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className={styles.subwayPowerVector} style={subwayPowerVectorStyle}>
+    <div className={styles.subwayPowerVector} style={subwayPowerVectorStyle} onClick={scrollToSection}>
       <div className={styles.groupVectorTerra} style={groupVectorTerraStyle}>
         <h1 className={styles.ether}>Ether</h1>
         <img

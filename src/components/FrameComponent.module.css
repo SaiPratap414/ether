@@ -23,6 +23,7 @@
   padding: var(--padding-xl) 0;
   box-sizing: border-box;
   gap: var(--gap-5xl);
+  margin-right: 2rem;
 }
 .nav,
 .nav1 {
@@ -65,8 +66,37 @@
   color: var(--color-white);
   font-family: var(--font-jetbrains-mono);
 }
-@media screen and (max-width: 750px) {
+
+.twitterParent a,
+twitterParent a:visited {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+
+@media screen and (max-width: 680px) {
+ .twitter,
+ .telegram,
+ .docs,
+ .play {
+   font-size: .75rem;
+ }
+
+ .twitterParent {
+   margin-right: .5rem;
+ }
+}
+
+@media screen and (max-width: 575px) {
+  .acquiringOrbIs {
+    margin-top: 1rem;
+    width: 100%;
+    font-size: .8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
   .nav1 {
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 }
