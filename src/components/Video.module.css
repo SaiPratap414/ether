@@ -135,8 +135,8 @@
   padding: var(--padding-77xl) var(--padding-xl) var(--padding-68xl);
   box-sizing: border-box;
   gap: var(--gap-203xl);
-  background-image: url(/public/video@3x.png);
   background-size: cover;
+  background-image: url(/public/video@2x.png);
   background-repeat: no-repeat;
   background-position: top;
   max-width: 100%;
@@ -225,4 +225,13 @@
   .video {
     background-image: url(/public/video@2x.png);
   }
+}
+.etherVectorGroup {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-21xl);
+  margin-top: -1.5rem; /* Adjust the margin-top value as needed */
 }

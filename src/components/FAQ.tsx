@@ -32,19 +32,19 @@ const FAQ: FunctionComponent = () => {
     {
       question: 'How do I start pondering?',
       answer:
-        'The Dual Nature of ORB Tokens is enabled by ERC404, the wizardry behind the ORBs. ERC-404 is a new standard of on-chain coordination, that (in this case) lets you own a piece of the game, both as a fungible asset and a gateway to your own Orb NFT. This allows each NFT to possess inherent liquidity, facilitating a robust wagering system. These tokens are not just static collectibles but active, liquid assets integral to the game\'s financial mechanics.',
+        'The The Dual Nature of ORB Tokens is enabled by ERC404, the wizardry behind the ORBs. This allows each NFT to possess inherent liquidity, facilitating a robust wagering system. Buying a full token will auto-mint an ORB NFT into your wallet.',
     },
     {
       question: 'What’s the deal with elemental scores?',
-      answer: 'Elemental scores determine your ORB\'s affinity and power in the game. Higher scores can unlock special abilities and advantages in various challenges.',
+      answer: 'Elemental scores determine your ORBs affinity and power in the game. Each ORB NFT has 3 core elemental traits with inherent scores adding upto 100. In the event of a tie, win is determined based on trait score.',
     },
     {
       question: 'Can I actually win with a strategy?',
-      answer: 'Absolutely! Strategy plays a crucial role in the game. By carefully planning your moves and leveraging the unique abilities of your ORBs, you can outmaneuver your opponents and secure victories.',
+      answer: 'Strategy plays a crucial role in the game. By carefully planning your moves and leveraging the unique abilities of your ORBs, you can outmaneuver your opponents and secure victories.',
     },
     {
       question: 'Help! My Orb NFT won’t stop pulsating!',
-      answer: 'A pulsating Orb NFT indicates it is charged with magical energy, ready for use in your next game session. It may also signal an upcoming event or reveal in the game. Keep an eye on announcements for any related news!',
+      answer: 'Ponder the ORB anon, its secrets will be revealed!',
     },
   ];
 

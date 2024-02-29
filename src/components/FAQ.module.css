@@ -269,3 +269,10 @@
     transform: rotate(360deg); /* Settle back to the full rotation */
   }
 }
+.fAQ {
+  cursor: pointer; /* Add this line to make the "+" icon cursor change on hover */
+}
+
+.theDualNature1 {
+  cursor: pointer; /* Add this line to make the "-" icon cursor change on hover */
+}
