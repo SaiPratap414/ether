@@ -232,6 +232,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: var(--gap-21xl);
-  margin-top: -1.5rem; /* Adjust the margin-top value as needed */
+  gap: var(--gap-20xl);
+  margin-top: -4rem; /* Adjust the margin-top value as needed */
 }
