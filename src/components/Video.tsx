@@ -74,7 +74,7 @@ const Video: React.FunctionComponent = () => {
         <div className={styles.orbIntroFrame}>
           <div className={styles.etherVectorGroup}>
             <div className="logoBox">
-              <img src="/Logo.svg" alt="logo" />
+              <img src="/Logo1.png" alt="logo" />
             </div>
             <div className={styles.etherOrbsIntroduces}>
               Ether Orbs introduces the first PvP wagering iteration of the
