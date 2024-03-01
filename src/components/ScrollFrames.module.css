@@ -381,3 +381,9 @@
     transform: translateY(0px);
   }
 }
+.wrapper:hover {
+  cursor: pointer;
+}
+.rectangleFrames:hover {
+  cursor: pointer;
+}
