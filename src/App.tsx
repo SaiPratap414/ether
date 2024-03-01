@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import DEV from "./pages/Homepage";
 import Figma from "./pages/Figma"; // Import the new page component
+import LoadingScreen from "./components/LoadingScreen";
 import { useLocation, useNavigate } from "react-router-dom"; // Import useNavigate and useLocation
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate(); // Get the navigation function
   const location = useLocation(); // Get the location object
   const pathname = location.pathname;
@@ -40,14 +42,22 @@ function App() {
   
 
   const handleSkip = () => {
-    navigate("/home"); // Navigate to the DEV page when skip is clicked
+    setIsLoading(true); // Show loading screen
+    navigate("/home");
+  };
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false); // Hide loading screen
   };
 
   return (
-    <Routes>
-      <Route path="/" element={<Figma onSkip={handleSkip} />} />
-      <Route path="/home" element={<DEV />} />
-    </Routes>
+    <>
+      {isLoading && <LoadingScreen />} {/* Conditionally render the LoadingScreen component */}
+      <Routes>
+        <Route path="/" element={<Figma onSkip={handleSkip} />} />
+        <Route path="/home" element={<DEV onLoaded={handleLoadingComplete} />} /> {/* Pass the handleLoadingComplete function as a prop */}
+      </Routes>
+    </>
   );
 }
 
