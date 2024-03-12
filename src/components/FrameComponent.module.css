@@ -65,6 +65,7 @@
   font-size: var(--font-size-xs);
   color: var(--color-white);
   font-family: var(--font-jetbrains-mono);
+  position: relative;
 }
 
 .twitterParent a,
