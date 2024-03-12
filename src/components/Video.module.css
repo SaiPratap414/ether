@@ -10,7 +10,7 @@
 }
 .etherOrbsIntroduces {
   align-self: stretch;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-base);
   font-family: var(--font-jetbrains-mono);
   color: var(--color-gray-100);
   text-align: center;
@@ -43,6 +43,7 @@
   font-family: var(--font-krungthep);
   color: var(--color-white);
   transition: all .3s ease;
+  padding: 5px 10px;
 }
 .howToFrame {
   display: flex;
