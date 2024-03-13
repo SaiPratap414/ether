@@ -40,10 +40,18 @@
 .telegram,
 .twitter {
   position: relative;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   line-height: 120%;
   text-transform: uppercase;
+  cursor: pointer;
 }
+
+.docs:hover,
+.telegram:hover,
+.twitter:hover {
+  text-decoration: underline;
+}
+
 .twitterParent,
 .twitterTelegramLinksParent {
   width: 187px;
@@ -143,5 +151,28 @@ twitterParent a:visited {
     flex-direction: column;
     flex-wrap: nowrap;
     margin-left: 3rem;
+  }
+}
+
+
+.fAQParentChild {
+  width: 50px;
+  height: 120px;
+  position: relative;
+  animation: rotateAndBounce .9s infinite  forwards;
+  margin-top: -1rem;
+}
+@keyframes rotateAndBounce {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(180deg);
+  }
+  70% {
+    transform: rotate(390deg); /* Rotate a bit more for the bounce */
+  }
+  100% {
+    transform: rotate(360deg); /* Settle back to the full rotation */
   }
 }

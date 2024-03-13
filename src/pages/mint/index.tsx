@@ -1,27 +1,29 @@
 import styled from 'styled-components'
 import SubwayPowerVector from '../../components/SubwayPowerVector'
 import { Box, Typography } from '@mui/material'
-import { useState } from 'react'
+import React, { useState } from 'react'
+import Web3 from 'web3'
+
+import ABI from "../../constants/contractABI.json"
 
 const MintPageContainer = styled.div`
     
 `
 
 const Navbar = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  z-index: 998;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 20px;
-  flex-wrap: wrap;
-  @media screen and (max-width: 700px) {
-    flex-direction: column;
-    padding: 10px;
-  }
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: absolute;
+top: 0;
+z-index: 998;
+width: 100%;
+box-sizing: border-box;
+padding: 20px 50px;
+flex-wrap: wrap;
+@media screen and (max-width: 700px) {
+  flex-direction: column;
+}
 `
 
 const Li = styled.li`
@@ -36,7 +38,7 @@ const Li = styled.li`
 `
 
 const Button = styled.button`
-    font-size: var(--font-size-lgi);
+    font-size: var(--font-size-s);
     font-family: var(--font-krungthep);
     color: #00000080;
     transition: all .3s ease;
@@ -44,6 +46,8 @@ const Button = styled.button`
     border: none;
     text-align: center;
     cursor: pointer;
+    background: transparent;
+    text-transform: uppercase;
 `
 
 const MintPageContent = styled.div`
@@ -89,41 +93,115 @@ const MintPage = () => {
     const [isConnected, setIsConnected] = useState(false);
     const [isEligible, setIsEligible] = useState(false);
 
+    const [isConnecting, setIsConnecting] = useState(false);
+
     const ethereum  = (window as any).ethereum;
 
-    const connect = async () => {
-        if(ethereum) {
+    const web3 = new Web3(ethereum)
+    const contractAddress = '0x2F6C135F6881cFdD77d8816f546f52B4693F3233';
+
+    const contract = new web3.eth.Contract(ABI, contractAddress);
+
+    React.useEffect(() => { 
+        const CheckEligibility = async () => {
+            if (!isConnected) return;
+        
             try {
-                const accounts = await ethereum.request({method: 'eth_requestAccounts'});
-                setAccount(accounts![0]);
+                const accounts = await web3.eth.requestAccounts();
+                const account = accounts[0];
+        
+                // call minter checking contract..
+                const result = await contract.methods._whitelisted_minters(account).send({from: account});
+        
+                console.log('Is whitelisted:', result);
                 setIsEligible(true);
-            } catch (err: any) {
+            } catch (err) {
                 console.log(err);
+            }
+        };
+
+        CheckEligibility();
+    }, [isConnected, setIsConnected])
+
+
+    const mint = async () => {
+        if(isConnected && account.length != 0) {
+            try {
+
+                // Get user's Ethereum account address
+                const accounts = await web3.eth.requestAccounts();
+                const account = accounts[0];
+
+                // the transaction value..
+                const transactionValue = web3.utils.toWei('0.001', 'ether');
+        
+                // Send transaction to mint
+                const result = await contract.methods.mint(account).send({
+                    from: account,
+                    value: transactionValue
+                });
+        
+                // Handle success
+                console.log('Transaction successful:', result);
+            } catch (error) {
+                // Handle error
+                console.error('Error minting:', error);
+            }
+        } else {
+            return ;
+        }
+        
+    };
+
+
+    const connect = async () => {
+        if (ethereum) {
+            try {
+                setIsConnecting(true);
+                const chainId = await ethereum.request({ method: 'eth_accounts' });
+                // Base EVM chain ID is '8453'
+                // if (chainId !== '0x2105') {
+                //     console.log('Please switch MetaMask to Base EVM chain');
+                //     return;
+                // }
+    
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                setAccount(accounts[0]);
+                setIsConnected(true);
+                setIsConnecting(false);
+            } catch (err) {
+                console.error(err);
+                setIsConnecting(false);
+                setIsConnected(false);
             }
         }
     }
+    
 
     return (
         <MintPageContainer>
             <MintPageContent>
-                <Navbar>
-                    <SubwayPowerVector
-                        group3="/group-3-1.svg"
-                        propAlignSelf="unset"
-                        propFlexDirection="row"
-                        propFlex="unset"
-                        propAlignSelf1="stretch"
-                    />
-                    <Box sx={{
-                        display: 'flex',
-                        gap: '20px',
-                        fontFamily: "var(--font-jetbrains-mono)",
-                    }}>
-                        <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
-                        <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
-                        <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
-                    </Box>
-                </Navbar>
+            <Navbar>
+                <SubwayPowerVector
+                    group3="/group-3-1.svg"
+                    propAlignSelf="unset"
+                    propFlexDirection="row"
+                    propFlex="unset"
+                    propAlignSelf1="stretch"
+                />
+
+                <Box sx={{
+                    display: 'flex',
+                    gap: '20px',
+                    fontFamily: "var(--font-jetbrains-mono), sans-serif",
+                    minWidth: '200px'
+                    
+                }}>
+                    <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
+                    <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
+                    <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
+                </Box>
+            </Navbar>
                 <img src="./mint_page_bacground.png" alt='mint_page_img' />
                 <Content>
                     <Box
@@ -171,9 +249,10 @@ const MintPage = () => {
                     </> 
                     : 
                     <>
+                    {isConnecting ? "Loading" : <>
                         {isEligible ? 
                             <>
-                            <Button onClick={connect}>MINT</Button>
+                                <Button onClick={mint}>MINT</Button>
                             </>
                         : 
                             <Typography sx={{
@@ -187,6 +266,9 @@ const MintPage = () => {
                                 cursor: "pointer" 
                             }}>NOT ELIGIBLE</Typography>
                         }
+                        </>
+                    }
+                        
                     </>
                     }
                 </BtnContainer>

@@ -4,6 +4,7 @@ import SubwayPowerVector from "./SubwayPowerVector";
 import styles from "./Video.module.css";
 import styled from "styled-components";
 import { Box } from "@mui/material";
+import { VolumeMute, VolumeOff, VolumeUpTwoTone } from "@mui/icons-material";
 
 const HeaderSection = styled.div`
   width: 100%;
@@ -65,8 +66,8 @@ const MouseTrackerBtn = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -145,27 +146,6 @@ const Video: React.FunctionComponent = () => {
 
   return (
     <HeaderSection>
-      <Navbar>
-          <SubwayPowerVector
-            group3="/group-3-1.svg"
-            propAlignSelf="unset"
-            propFlexDirection="row"
-            propFlex="unset"
-            propAlignSelf1="stretch"
-          />
-
-          <Box sx={{
-            display: 'flex',
-            gap: '20px',
-            fontFamily: "var(----font-jetbrains-mono), sans-serif",
-            minWidth: '200px'
-            
-          }}>
-            <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
-            <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
-            <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
-          </Box>
-      </Navbar>
       <VideoContainer>
         <video
           src="/video.mp4"
@@ -188,7 +168,13 @@ const Video: React.FunctionComponent = () => {
             <div className={styles.orbIntroFrame}>
               <div className={styles.etherVectorGroup}>
                 <div className="logoBox">
-                  <img src="./logoo.png" />
+                <SubwayPowerVector
+                  group3="/group-3-1.svg"
+                  propAlignSelf="unset"
+                  propFlexDirection="row"
+                  propFlex="unset"
+                  propAlignSelf1="stretch"
+                />
                 </div>
                 <div className={styles.etherOrbsIntroduces}>
                 Ether Orbs introduces the first PvP wagering iteration of the ERC404 standard allowing “wizards” to wager their ERC404 tokens in a zero-sum strategy game. 7777 unique $ORBS will be minted and burned in the process of a good old-fashioned ORB duel.
@@ -197,7 +183,8 @@ const Video: React.FunctionComponent = () => {
               <div className={styles.putContractAddress}></div>
               <button className={styles.ponderAcquireOrbs}>
                 <div className={styles.howToFrame}>
-                  <div className={styles.buyOrb} onClick={() => navigate("./mint")}>WHITELIST MINT</div>
+                  {/* <div className={styles.buyOrb} onClick={() => navigate("./mint")}>WHITELIST MINT</div> */}
+                  <div className={styles.buyOrb}>WHITELIST MINT</div>
                 </div>
               </button>
             </div>
@@ -206,7 +193,7 @@ const Video: React.FunctionComponent = () => {
       </VideoContainer>
 
       <MouseTrackerBtn style={{ transform: `translate(${mousePosition.x - 50}px, ${mousePosition.y - 50}px)` }}>
-          {isVideoPlaying ? "MUTE" : "UNMUTE"}
+          {isVideoPlaying ? <VolumeOff /> : <VolumeUpTwoTone />}
       </MouseTrackerBtn>
     </HeaderSection>
   );
