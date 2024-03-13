@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./ScrollFrames.module.css";
 
+
 const ScrollFrames = () => {
   const [centeredImage, setCenteredImage] = useState("orange"); // Default centered image
   const [images, setImages] = useState([

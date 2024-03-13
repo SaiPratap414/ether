@@ -39,6 +39,11 @@
 }
 
 .fungiParent1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-101xl) 0 0;
   height: 140.6px;
   align-items: flex-end;
   justify-content: flex-start;
@@ -46,9 +51,11 @@
 }
 
 .fungiParent1 .wrapper {
-  margin-top: -20px; /* Adjust the value as needed */
+  margin-top: 20px; /* Adjust the value to move the arrow down */
 }
-.fungiParent .rectangleFrames{
+
+
+.fungiParent .rectangleFrames {
   margin-bottom: 40px;
 }
 
@@ -109,7 +116,6 @@
   z-index: 2; /* Ensure it's above other images */
 }
 
-
 @keyframes glow {
   0% {
     box-shadow: 0 0 8px #fff, 0 0 10px #fff, 0 0 12px #ff00de, 0 0 14px #ff00de;
@@ -150,7 +156,6 @@
   overflow: hidden;
   flex-shrink: 0;
 }
-
 
 .blaze1 {
   width: 68px;
@@ -243,8 +248,6 @@
   border-radius: 2.84px;
 }
 
-
-
 .scrollFrames {
   flex: 1;
   justify-content: center;
@@ -265,12 +268,14 @@
 .fungiParent1 {
   transform: translateY(3rem);
 }
+
 /* Responsive adjustments */
 @media screen and (max-width: 750px) {
   .buyOrbParent {
     flex-wrap: wrap;
   }
 }
+
 /* Adjustments for PNG images */
 .torrentIcon,
 .etherIcon,
@@ -292,7 +297,6 @@
   left: 50%;
   transform: translate(-50%, -99%);
 }
-
 
 /* Additional adjustments */
 .torrentIcon {
@@ -317,6 +321,7 @@
 .ponderAcquireOrbs:hover {
   background-color: var(--color-white);
 }
+
 .ponderAcquireOrbs:hover .buyOrb {
   color: #000;
 }
@@ -338,7 +343,6 @@
   padding: 7.102153301239014px var(--padding-8xs);
 }
 
-
 .buyOrbParent > .rectangleParent:not(:nth-child(4)) {
   margin-top: 4rem;
 }
@@ -355,35 +359,32 @@
   margin-right: -1.5rem;
 }
 
-
 @media screen and (max-width: 600px) {
   .buyOrbParent > .rectangleParent:not(:nth-child(4)) {
     margin-top: 0rem;
   }
-  
-  .buyOrbParent > .rectangleParent:nth-child(3) {
-    margin-top: 0rem;
-    transform: scale(1) translateY(0);
-    margin-left: 0;
-  }
-  
+
+  .buyOrbParent > .rectangleParent:nth-child(3),
   .buyOrbParent > .rectangleParent:nth-child(5) {
     margin-top: 0rem;
     transform: scale(1) translateY(0);
     margin-left: 0;
+    margin-right: 0;
   }
 
   .fungiParent {
     transform: translateY(0px);
   }
-  
+
   .fungiParent1 {
     transform: translateY(0px);
   }
 }
+
 .wrapper:hover {
   cursor: pointer;
 }
+
 .rectangleFrames:hover {
   cursor: pointer;
 }
