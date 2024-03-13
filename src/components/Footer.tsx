@@ -1,20 +1,29 @@
 import { FunctionComponent } from "react";
 import styles from "./Footer.module.css";
+import SubwayPowerVector from "./SubwayPowerVector";
 
 const Footer: FunctionComponent = () => {
   return (
     <section className={styles.footer}>
       <footer className={styles.twitterTelegramLinksParent}>
         <div className={styles.twitterTelegramLinks}>
-          <h1 className={styles.ether}>Ether</h1>
-          <img
-            className={styles.twitterTelegramLinksChild}
-            loading="eager"
-            alt=""
-            src="/group-3-3.svg"
+        <SubwayPowerVector
+            group3="/group-3-1.svg"
+            propAlignSelf="unset"
+            propFlexDirection="row"
+            propFlex="unset"
+            propAlignSelf1="stretch"
           />
-          <h1 className={styles.rb}>rb</h1>
         </div>
+
+        <img
+          className={styles.fAQParentChild}
+          loading="eager"
+          alt=""
+          src="/group-3-2.svg"
+        />
+
+        
         <div className={styles.twitterParent}>
           <a href="https://twitter.com/etherorbxyz"><div className={styles.twitter}>twitter</div></a>
           <div className={styles.telegram}>telegram</div>

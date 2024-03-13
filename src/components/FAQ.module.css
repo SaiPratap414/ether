@@ -181,7 +181,7 @@
 .fAQParent {
   width: 600px;
   padding: var(--padding-61xl) 0 0;
-  gap: var(--gap-101xl);
+  gap: var(--gap-21xl);
 }
 .faq {
   align-self: stretch;
@@ -207,7 +207,6 @@
   font-family: var(--font-krungthep); /* Same font family as the technology behind */
   color: var(--color-white); /* Same color as the technology behind */
   text-align: center; /* Center the text */
-  
 }
 
 @media screen and (max-width: 1050px) {

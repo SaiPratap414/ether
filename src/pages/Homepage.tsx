@@ -131,7 +131,7 @@ const DEV: FunctionComponent<DEVProps> = ({ onLoaded }) => {
     <div className={styles.dev}>
       <Video />
 
-      <Box
+      {/* <Box
         sx={{
           display: "flex",
           width: "100%",
@@ -153,7 +153,7 @@ const DEV: FunctionComponent<DEVProps> = ({ onLoaded }) => {
             <img src="./star-img.png" />
           </ETHERLOOP>
         ))}
-      </Box>
+      </Box> */}
 
       <section className={styles.homepage}>
           <OrbImage src="./47a24665e0318a667eacee5805c98c02.png" />

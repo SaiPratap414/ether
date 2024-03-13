@@ -60,12 +60,6 @@ const FAQ: FunctionComponent = () => {
             </p>
           </div>
         </div>
-        <img
-          className={styles.fAQParentChild}
-          loading="eager"
-          alt=""
-          src="/group-3-2.svg"
-        />
         {/* FAQ heading */}
         <h2 className={styles.faqHeading}>FAQ</h2>
         <div className={styles.socialMediaLinks}>
@@ -74,6 +68,13 @@ const FAQ: FunctionComponent = () => {
           ))}
         </div>
       </div>
+      {/* <br /><br />
+      <img
+          className={styles.fAQParentChild}
+          loading="eager"
+          alt=""
+          src="/group-3-2.svg"
+        /> */}
     </section>
   );
 };

@@ -16,9 +16,9 @@ const FrameComponent: FunctionComponent = () => {
           />
           <div className={styles.twitterParent}>
             <a href="https://twitter.com/etherorbxyz"><div className={styles.twitter}>twitter</div></a>
-            <div className={styles.telegram}>telegram</div>
-            <div className={styles.docs}>docs</div>
-            <div className={styles.play}>play</div>
+            <a href="#"><div className={styles.telegram}>telegram</div></a>
+            <a href="#"><div className={styles.docs}>docs</div></a>
+            <a href="#"><div className={styles.play}>play</div></a>
           </div>
         </div>
       </div>
