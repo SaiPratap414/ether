@@ -11,20 +11,19 @@ const MintPageContainer = styled.div`
 `
 
 const Navbar = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  z-index: 998;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 20px;
-  flex-wrap: wrap;
-  @media screen and (max-width: 700px) {
-    flex-direction: column;
-    padding: 10px;
-  }
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: absolute;
+top: 0;
+z-index: 998;
+width: 100%;
+box-sizing: border-box;
+padding: 20px 50px;
+flex-wrap: wrap;
+@media screen and (max-width: 700px) {
+  flex-direction: column;
+}
 `
 
 const Li = styled.li`
@@ -182,24 +181,27 @@ const MintPage = () => {
     return (
         <MintPageContainer>
             <MintPageContent>
-                <Navbar>
-                    <SubwayPowerVector
-                        group3="/group-3-1.svg"
-                        propAlignSelf="unset"
-                        propFlexDirection="row"
-                        propFlex="unset"
-                        propAlignSelf1="stretch"
-                    />
-                    <Box sx={{
-                        display: 'flex',
-                        gap: '20px',
-                        fontFamily: "var(--font-jetbrains-mono)",
-                    }}>
-                        <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
-                        <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
-                        <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
-                    </Box>
-                </Navbar>
+            <Navbar>
+                <SubwayPowerVector
+                    group3="/group-3-1.svg"
+                    propAlignSelf="unset"
+                    propFlexDirection="row"
+                    propFlex="unset"
+                    propAlignSelf1="stretch"
+                />
+
+                <Box sx={{
+                    display: 'flex',
+                    gap: '20px',
+                    fontFamily: "var(--font-jetbrains-mono), sans-serif",
+                    minWidth: '200px'
+                    
+                }}>
+                    <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
+                    <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
+                    <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
+                </Box>
+            </Navbar>
                 <img src="./mint_page_bacground.png" alt='mint_page_img' />
                 <Content>
                     <Box
