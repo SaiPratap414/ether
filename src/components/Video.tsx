@@ -188,7 +188,7 @@ const Video: React.FunctionComponent = () => {
             <div className={styles.orbIntroFrame}>
               <div className={styles.etherVectorGroup}>
                 <div className="logoBox">
-                  <img src="./logo.png" alt="logo" />
+                  <img src="./logoo.png" />
                 </div>
                 <div className={styles.etherOrbsIntroduces}>
                 Ether Orbs introduces the first PvP wagering iteration of the ERC404 standard allowing “wizards” to wager their ERC404 tokens in a zero-sum strategy game. 7777 unique $ORBS will be minted and burned in the process of a good old-fashioned ORB duel.
