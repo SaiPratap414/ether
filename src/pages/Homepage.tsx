@@ -149,7 +149,7 @@ const DEV: FunctionComponent<DEVProps> = ({ onLoaded }) => {
             key={index}
             ref={(element) => (etherLoopElementsRef.current[index] = element)}
           >
-            <img src="./Logo.png" />
+            <img src="./logoo.png" />
             <img src="./star-img.png" />
           </ETHERLOOP>
         ))}
