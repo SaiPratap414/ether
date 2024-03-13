@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import SubwayPowerVector from '../../components/SubwayPowerVector'
 import { Box, Typography } from '@mui/material'
 import { useState } from 'react'
+
 const MintPageContainer = styled.div`
     
 `
@@ -15,12 +16,14 @@ const Navbar = styled.nav`
   z-index: 998;
   width: 100%;
   box-sizing: border-box;
-  padding: 20px 50px;
+  padding: 20px;
   flex-wrap: wrap;
   @media screen and (max-width: 700px) {
     flex-direction: column;
+    padding: 10px;
   }
 `
+
 const Li = styled.li`
   text-decoration: none;
   color: #ffffff80;
@@ -37,7 +40,7 @@ const Button = styled.button`
     font-family: var(--font-krungthep);
     color: #00000080;
     transition: all .3s ease;
-    padding: 5px 10px;
+    padding: 10px 20px;
     border: none;
     text-align: center;
     cursor: pointer;
@@ -46,7 +49,6 @@ const Button = styled.button`
 const MintPageContent = styled.div`
     width: 100%;
     height: 100vh;
-    height 100svh;
     position: relative;
     img {
         width:100%;
@@ -74,7 +76,7 @@ const Content = styled.div`
     width: 100%;
     position: absolute;
     left: 0;
-    top: 0;
+    bottom: 50%; /* Adjusted bottom position */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,7 +92,6 @@ const MintPage = () => {
     const ethereum  = (window as any).ethereum;
 
     const connect = async () => {
-
         if(ethereum) {
             try {
                 const accounts = await ethereum.request({method: 'eth_requestAccounts'});
@@ -102,100 +103,96 @@ const MintPage = () => {
         }
     }
 
-  return (
-    <MintPageContainer>
-        <MintPageContent>
-        <Navbar>
-          <SubwayPowerVector
-            group3="/group-3-1.svg"
-            propAlignSelf="unset"
-            propFlexDirection="row"
-            propFlex="unset"
-            propAlignSelf1="stretch"
-          />
-
-          <Box sx={{
-            display: 'flex',
-            gap: '20px',
-            fontFamily: "var(----font-jetbrains-mono), sans-serif",
-            
-          }}>
-            <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
-            <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
-            <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
-          </Box>
-      </Navbar>
-            <img src="./mint_page_bacground.png" alt='mint_page_img' />
-            <Content>
-                <Box
-                    sx={{
-                        fontSize: 'var(--font-size-xs)',
-                        fontFamily: 'var(--font-krungthep)',
-                        background: "var(--color-black)",
-                        color: 'var(--color-white)',
-                        padding: '20px'
-                    }}
-                >
-                    0/7777 MINTED
-                </Box>
-
-                <Box
-                    sx={{
-                        fontSize: 'var(--font-size-29xl)',
-                        fontFamily: 'var(--font-krungthep)',
-                        color: 'var(--color-white)',
-                        padding: '20px',
-                        textTransform: 'uppercase',
-                        '@media screen and (max-width: 800px)': {
-                            fontSize: 'var(--font-size-5xl)'
-                        }
-                    }}
-                >
-                    let the orb choose you
-                </Box>
-
-                <Box
-                    sx={{
-                        fontSize: 'var(--font-size-xs)',
-                        fontFamily: 'var(--font-krungthep)',
-                        background: "var(--color-black)",
-                        color: 'var(--color-white)',
-                        padding: '20px',
-                        textTransform:'uppercase'
-                    }}
-                >
-                    [open for whitelist only]
-                </Box>
-            </Content>
-        <BtnContainer>
-        {!isConnected && account.length === 0 ? 
-        <>
-            <Button onClick={connect}>Connect Wallet</Button>
-        </> 
-        : 
-            <>
-                {isEligible ? 
+    return (
+        <MintPageContainer>
+            <MintPageContent>
+                <Navbar>
+                    <SubwayPowerVector
+                        group3="/group-3-1.svg"
+                        propAlignSelf="unset"
+                        propFlexDirection="row"
+                        propFlex="unset"
+                        propAlignSelf1="stretch"
+                    />
+                    <Box sx={{
+                        display: 'flex',
+                        gap: '20px',
+                        fontFamily: "var(--font-jetbrains-mono)",
+                    }}>
+                        <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
+                        <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
+                        <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
+                    </Box>
+                </Navbar>
+                <img src="./mint_page_bacground.png" alt='mint_page_img' />
+                <Content>
+                    <Box
+                        sx={{
+                            fontSize: 'var(--font-size-xs)',
+                            fontFamily: 'var(--font-krungthep)',
+                            background: "var(--color-black)",
+                            color: 'var(--color-white)',
+                            padding: '20px'
+                        }}
+                    >
+                        0/7777 MINTED
+                    </Box>
+                    <Box
+                        sx={{
+                            fontSize: 'var(--font-size-29xl)',
+                            fontFamily: 'var(--font-krungthep)',
+                            color: 'var(--color-white)',
+                            padding: '20px',
+                            textTransform: 'uppercase',
+                            '@media screen and (max-width: 800px)': {
+                                fontSize: 'var(--font-size-5xl)'
+                            }
+                        }}
+                    >
+                        let the orb choose you
+                    </Box>
+                    <Box
+                        sx={{
+                            fontSize: 'var(--font-size-xs)',
+                            fontFamily: 'var(--font-krungthep)',
+                            background: "var(--color-black)",
+                            color: 'var(--color-white)',
+                            padding: '20px',
+                            textTransform:'uppercase'
+                        }}
+                    >
+                        [open for whitelist only]
+                    </Box>
+                </Content>
+                <BtnContainer>
+                    {!isConnected && account.length === 0 ? 
                     <>
-                    <Button onClick={connect}>MINT</Button>
+                        <Button onClick={connect}>Connect Wallet</Button>
+                    </> 
+                    : 
+                    <>
+                        {isEligible ? 
+                            <>
+                            <Button onClick={connect}>MINT</Button>
+                            </>
+                        : 
+                            <Typography sx={{
+                                fontSize: "var(--font-size-s)",
+                                fontFamily: "var(--font-krungthep)",
+                                color: "#00000080",
+                                transition: "all .3s ease",
+                                padding: "5px 10px",
+                                border: "none",
+                                textAlign: "center",
+                                cursor: "pointer" 
+                            }}>NOT ELIGIBLE</Typography>
+                        }
                     </>
-                : 
-                    <Typography sx={{
-                        fontSize: "var(--font-size-s)",
-                        fontFamily: "var(--font-krungthep)",
-                        color: "#00000080",
-                        transition: "all .3s ease",
-                        padding: "5px 10px",
-                        border: "none",
-                        textAlign: "center",
-                        cursor: "pointer" 
-                    }}>NOT ELIGIBLE</Typography>
-                }
-            </>
-        }
-        </BtnContainer>
-        </MintPageContent>
-    </MintPageContainer>
-  )
+                    }
+                </BtnContainer>
+            </MintPageContent>
+        </MintPageContainer>
+    )
 }
 
 export default MintPage
