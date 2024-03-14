@@ -13,6 +13,7 @@ const RulesWrapper = styled.div`
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  font-size: var(--font-size-xs);
 `;
 const Rules = styled.div`
   display: flex;
@@ -22,50 +23,59 @@ const Rules = styled.div`
   // height: 100px;
   border-left: 2px solid #171717;
   padding: 10px;
+  font-size: var(--font-size-xs);
 `;
 
 const Gameplay: FunctionComponent = () => {
 
   useEffect(() => {
-    // Animate the text elements
-    gsap.from(".animate-text", {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".animate-text",
-        start: "top 80%", // Adjust the start position as needed
-      },
+    gsap.utils.toArray(".animate-text").forEach((text: any) => {
+      gsap.from(text, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: text,
+          start: "top 80%",
+          toggleActions: "restart none", // Restart the animation every time the element comes into view
+        },
+      });
     });
-
-    gsap.from(".animate-text-2", {
-      opacity: 0,
-      x: 50,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".animate-text",
-        start: "top 80%", // Adjust the start position as needed
-      },
+  
+    gsap.utils.toArray(".animate-text-2").forEach((text: any) => {
+      gsap.from(text, {
+        opacity: 0,
+        x: 50,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: text,
+          start: "top 80%",
+          toggleActions: "restart none", // Restart the animation every time the element comes into view
+        },
+      });
     });
-
-    gsap.from(".words", {
-      opacity: 0,
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      y: 50,
-      duration: 2,
-      stagger: 0.2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".words",
-        start: "top 80%",
-      },
+  
+    gsap.utils.toArray(".words").forEach((text: any) => {
+      gsap.from(text, {
+        opacity: 0,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        y: 50,
+        duration: 2,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: text,
+          start: "top 80%",
+          toggleActions: "restart none", // Restart the animation every time the element comes into view
+        },
+      });
     });
-
   }, []);
+  
 
   return (
     <section className={styles.gameplay}>
@@ -83,6 +93,7 @@ const Gameplay: FunctionComponent = () => {
                     alt=""
                     src="/gameiconsabstract030.svg"
                   />
+                  <span className={styles.iconText}>TERRA</span>
                 </div>
               </div>
             </div>
@@ -99,6 +110,8 @@ const Gameplay: FunctionComponent = () => {
                   alt=""
                   src="/vector-2.svg"
                 />
+                  <span className={styles.iconText}>TORRENT</span>
+
               </div>
             </div>
             <div className={styles.buyOrbFrameParent}>
@@ -110,6 +123,8 @@ const Gameplay: FunctionComponent = () => {
                   alt=""
                   src="/riblazefill-1.svg"
                 />
+                  <span className={styles.iconText}>BLAZE</span>
+
               </div>
             </div>
             <div className={styles.subtractFrame}>

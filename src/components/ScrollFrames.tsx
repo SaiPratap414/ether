@@ -72,24 +72,27 @@ const ScrollFrames = () => {
 
         {/* Images */}
         {visibleImages.map((imageId) => (
-          <div key={imageId} className={styles.rectangleParent}>
-            <img
-              className={`${styles.blazeChildIcon} ${
-                centeredImage === imageId ? styles.centered : ""
-              } ${imageId === "orange" ? styles.orangeIcon : ""}`}
-              alt=""
-              src={`/${imageId}.png`}
-              style={
-                centeredImage === imageId
-                  ? {
-                      transform: "scale(1.9)",
-                      boxShadow: "0 0 10px rgba(0, 0, 255, 0.7)",
-                    }
-                  : {}
-              }
-            />
-          </div>
-        ))}
+  <div key={imageId} className={styles.rectangleParent}>
+    <img
+      className={`${styles.blazeChildIcon} ${
+        centeredImage === imageId ? styles.centered : ""
+      } ${centeredImage === imageId && imageId === "orange" ? styles.orangeIcon : ""} ${centeredImage === imageId && imageId === "v" ? styles.violetIcon : ""} ${centeredImage === imageId && imageId === "green" ? styles.greenIcon : ""} ${centeredImage === imageId && imageId === "blue" ? styles.blueIcon : ""} ${centeredImage === imageId && imageId === "lightblue" ? styles.lightblueIcon : ""}
+      `}
+      alt=""
+      src={`/${imageId}.png`}
+      style={
+        centeredImage === imageId
+          ? {
+              transform: "scale(1.8)",
+              boxShadow: "0 0 10px rgba(0, 0, 255, 0.7)",
+              // animation: `glow-${imageId} 2s infinite ease-in-out`
+            }
+          : {}
+      }
+    />
+  </div>
+))}
+
 
         {/* Right arrow */}
         <div

@@ -21,6 +21,8 @@
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 10px lightgreen;
 }
 .gameIconsabstract030 {
   height: 88.7px;
@@ -33,11 +35,18 @@
   border-radius: 19.82px;
   overflow: hidden;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 4.4592413902282715px var(--padding-9xs) 4.4592413902282715px
     4.4592413902282715px;
+}
+
+.iconText {
+  text-align: center;
+  width: 100%;
+  margin-top: 5px;
+  margin-left: -2px;
 }
 .terra,
 .vectorParent {
@@ -45,7 +54,7 @@
   z-index: 1;
 }
 .terra {
-  top: 19.7px;
+  top: 23.7px;
   left: 20px;
   border-radius: 73.95px;
   width: 127px;
@@ -73,6 +82,8 @@
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 10px lightblue;
 }
 .blazeVectorGroup {
   height: 67.6px;
@@ -82,12 +93,12 @@
 }
 .torrent {
   position: absolute;
-  top: 23.2px;
+  top: 19.2px;
   left: 17.9px;
   border-radius: 66.71px;
   overflow: hidden;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 26.682825088500977px var(--padding-7xl) 26.682825088500977px
@@ -110,6 +121,8 @@
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 10px orange;
 }
 .riblazeFillIcon {
   height: 88.7px;
@@ -124,14 +137,14 @@
   z-index: 1;
 }
 .blaze {
-  top: 24.9px;
+  top: 20.9px;
   left: 24.5px;
-  border-radius: 65.68px;
+  /* border-radius: 65.68px; */
   width: 118px;
-  height: 118.2px;
+  height: 120.2px;
   overflow: hidden;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 14.777265548706055px var(--padding-mini) 14.777265548706055px
@@ -352,7 +365,7 @@
 .everyBattleIsContainer {
   width: 600px;
   position: relative;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   line-height: 120%;
   text-transform: uppercase;
   color: var(--color-gray-100);

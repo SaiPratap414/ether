@@ -83,6 +83,7 @@
   box-sizing: border-box;
   gap: var(--gap-xl);
   max-width: 100%;
+  cursor: pointer;
 }
 .whatsTheDeal {
   font-weight: 500;

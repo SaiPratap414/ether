@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import SubwayPowerVector from '../../components/SubwayPowerVector'
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import React, { useState } from 'react'
 import Web3 from 'web3'
 
@@ -11,30 +11,31 @@ const MintPageContainer = styled.div`
 `
 
 const Navbar = styled.nav`
-display: flex;
-justify-content: space-between;
-align-items: center;
-position: absolute;
-top: 0;
-z-index: 998;
-width: 100%;
-box-sizing: border-box;
-padding: 20px 50px;
-flex-wrap: wrap;
-@media screen and (max-width: 700px) {
-  flex-direction: column;
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    z-index: 998;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 50px;
+    flex-wrap: wrap;
+    @media screen and (max-width: 700px) {
+    flex-direction: column;
+    }
 `
 
 const Li = styled.li`
-  text-decoration: none;
-  color: #ffffff80;
-  display: block;
-  font-family: var(--font-jetbrains-mono);
-  a { 
     text-decoration: none;
     color: #ffffff80;
-  }
+    display: block;
+    font-family: var(--font-jetbrains-mono);
+    text-transform: uppercase;
+    a { 
+        text-decoration: none;
+        color: #ffffff80;
+    }
 `
 
 const Button = styled.button`
@@ -92,7 +93,8 @@ const MintPage = () => {
     const [account, setAccount] = useState('');
     const [isConnected, setIsConnected] = useState(false);
     const [isEligible, setIsEligible] = useState(false);
-
+    const [paid, setPaid] = useState(true);
+    const [message, setMessage] = useState('NOT ELIGIBLE');
     const [isConnecting, setIsConnecting] = useState(false);
 
     const ethereum  = (window as any).ethereum;
@@ -111,10 +113,25 @@ const MintPage = () => {
                 const account = accounts[0];
         
                 // call minter checking contract..
-                const result = await contract.methods._whitelisted_minters(account).send({from: account});
-        
-                console.log('Is whitelisted:', result);
-                setIsEligible(true);
+                const paid_whitelisted:boolean = await contract.methods._whitelisted_minters(account).call();
+                const free_whitelisted:boolean = await contract.methods._free_whitelisted_(account).call();
+                const hasclaimed:boolean = await contract.methods._hasClaimed(account).call();
+
+                if (hasclaimed) {
+                    setMessage('ALREADY MINTED');
+                    setIsEligible(false);
+                    return;
+                }
+
+                if (paid_whitelisted || free_whitelisted) {
+                    setIsEligible(true);
+                    if (free_whitelisted) {
+                        setMessage('MINT FOR FREE');
+                        setPaid(false);
+                    }
+                    return;
+                }
+
             } catch (err) {
                 console.log(err);
             }
@@ -125,18 +142,24 @@ const MintPage = () => {
 
 
     const mint = async () => {
+        if (!isEligible) return;
         if(isConnected && account.length != 0) {
             try {
 
                 // Get user's Ethereum account address
                 const accounts = await web3.eth.requestAccounts();
                 const account = accounts[0];
-
+                let transactionValue:string;
+                try{
+                    transactionValue = await contract.methods._price().call(); 
+                }catch{
+                    transactionValue = web3.utils.toWei('0.001', 'ether');
+                    console.log('Error fetching fee');
+                }
                 // the transaction value..
-                const transactionValue = web3.utils.toWei('0.001', 'ether');
-        
+                console.log('Transaction value:', transactionValue);
                 // Send transaction to mint
-                const result = await contract.methods.mint(account).send({
+                const result = await contract.methods.mint(account, transactionValue).send({
                     from: account,
                     value: transactionValue
                 });
@@ -158,12 +181,12 @@ const MintPage = () => {
         if (ethereum) {
             try {
                 setIsConnecting(true);
-                const chainId = await ethereum.request({ method: 'eth_accounts' });
+                const chainId = await ethereum.request({ method: 'eth_chainId' });
+                console.log('Chain ID:', chainId);
                 // Base EVM chain ID is '8453'
-                // if (chainId !== '0x2105') {
-                //     console.log('Please switch MetaMask to Base EVM chain');
-                //     return;
-                // }
+                if (chainId !== "0x2105") {
+                    await ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x2105' }] });
+                }
     
                 const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
                 setAccount(accounts[0]);
@@ -213,7 +236,7 @@ const MintPage = () => {
                             padding: '20px'
                         }}
                     >
-                        0/7777 MINTED
+                        {/* 0/7777 MINTED */}
                     </Box>
                     <Box
                         sx={{
@@ -250,22 +273,7 @@ const MintPage = () => {
                     : 
                     <>
                     {isConnecting ? "Loading" : <>
-                        {isEligible ? 
-                            <>
-                                <Button onClick={mint}>MINT</Button>
-                            </>
-                        : 
-                            <Typography sx={{
-                                fontSize: "var(--font-size-s)",
-                                fontFamily: "var(--font-krungthep)",
-                                color: "#00000080",
-                                transition: "all .3s ease",
-                                padding: "5px 10px",
-                                border: "none",
-                                textAlign: "center",
-                                cursor: "pointer" 
-                            }}>NOT ELIGIBLE</Typography>
-                        }
+                            <Button onClick={mint}>{message}</Button>
                         </>
                     }
                         

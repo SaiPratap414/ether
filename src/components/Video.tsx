@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import SubwayPowerVector from "./SubwayPowerVector";
 import styles from "./Video.module.css";
 import styled from "styled-components";
-import { Box } from "@mui/material";
-import { VolumeMute, VolumeOff, VolumeUpTwoTone } from "@mui/icons-material";
+import { Box, IconButton } from "@mui/material";
+import { ArrowDownward, VolumeMute, VolumeOff, VolumeUpTwoTone } from "@mui/icons-material";
 
 const HeaderSection = styled.div`
   width: 100%;
@@ -36,6 +36,10 @@ const Navbar = styled.nav`
   flex-wrap: wrap;
   @media screen and (max-width: 700px) {
     flex-direction: column;
+  }
+
+  &:hover #mouse-tracker-blob {
+    display: none;
   }
 `
 
@@ -98,6 +102,7 @@ const Li = styled.li`
   color: #ffffff80;
   display: block;
   font-family: var(--font-jetbrains-mono);
+  text-transform: uppercase;
   a { 
     text-decoration: none;
     color: #ffffff80;
@@ -107,6 +112,8 @@ const Li = styled.li`
 const Video: React.FunctionComponent = () => {
 
   const navigate = useNavigate();
+
+  const [isBlobShowing, setIsBlobShowing] = useState(true);
 
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isVideoMuted, setIsVideoMuted] = useState(true);
@@ -126,7 +133,8 @@ const Video: React.FunctionComponent = () => {
   };
 
   const scrollToSection = () => {
-    const section = document.getElementById("scroll-section");
+    const section = document.getElementById("homepage-sec");
+    console.log(section)
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -144,9 +152,34 @@ const Video: React.FunctionComponent = () => {
     };
   }, []);
 
+  const handleBlobShow = (isHovering: boolean) => {
+    setIsBlobShowing(isHovering);
+  }
+
   return (
     <HeaderSection>
       <VideoContainer>
+      
+      <Navbar onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)}>
+        <img
+          className={styles.groupVectorTerraChild}
+          loading="eager"
+          alt=""
+          src="/group-3-1.svg"
+        />
+
+        <Box sx={{
+            display: 'flex',
+            gap: '20px',
+            fontFamily: "var(--font-jetbrains-mono), sans-serif",
+            minWidth: '200px'
+
+        }}>
+            <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
+            <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
+            <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
+        </Box>
+    </Navbar>
         <video
           src="/video.mp4"
           autoPlay
@@ -181,7 +214,7 @@ const Video: React.FunctionComponent = () => {
                 </div>
               </div>
               <div className={styles.putContractAddress}></div>
-              <button className={styles.ponderAcquireOrbs}>
+              <button className={styles.ponderAcquireOrbs} onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)}>
                 <div className={styles.howToFrame}>
                   {/* <div className={styles.buyOrb} onClick={() => navigate("./mint")}>WHITELIST MINT</div> */}
                   <div className={styles.buyOrb}>WHITELIST MINT</div>
@@ -191,10 +224,13 @@ const Video: React.FunctionComponent = () => {
           </div>
         </HeaderContent>
       </VideoContainer>
-
-      <MouseTrackerBtn style={{ transform: `translate(${mousePosition.x - 50}px, ${mousePosition.y - 50}px)` }}>
+      {isBlobShowing && <MouseTrackerBtn id="mouse-tracker-blob" style={{ transform: `translate(${mousePosition.x - 25}px, ${mousePosition.y - 25}px)` }}>
           {isVideoPlaying ? <VolumeOff /> : <VolumeUpTwoTone />}
-      </MouseTrackerBtn>
+      </MouseTrackerBtn>}
+
+      <IconButton sx={{position: 'absolute', bottom: 0, height: '70px', width: '100%', zIndex: 9999, color: '#ffffff40', borderRadius: '0px', background: 'linear-gradient(to bottom, #00000000, #00000070)', padding: '10px 20px', fontFamily: 'var(--font-jetbrains-mono)', fontSize: 'var(--font-size-s)'}} onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)} onClick={scrollToSection}>
+        <ArrowDownward /> &nbsp;SCROLL DOWN
+      </IconButton>
     </HeaderSection>
   );
 };

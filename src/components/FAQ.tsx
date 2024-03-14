@@ -14,7 +14,7 @@ const FAQItem: FunctionComponent<FAQItemProps> = ({ question, answer }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className={styles.helpMyORBParent}>
+    <div className={styles.helpMyORBParent} onClick={() => setIsExpanded(!isExpanded)}>
       <div className={styles.helpMyORB} >
         <div className={styles.howDoI}>{question}</div>
         {isExpanded && <div className={styles.theDualNature1}>{answer}</div>}
