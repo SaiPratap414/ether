@@ -155,7 +155,7 @@ const DEV: FunctionComponent<DEVProps> = ({ onLoaded }) => {
         ))}
       </Box> */}
 
-      <section className={styles.homepage}>
+      <section id="homepage-sec" className={styles.homepage}>
           <OrbImage src="./47a24665e0318a667eacee5805c98c02.png" />
         
         <FrameComponent />

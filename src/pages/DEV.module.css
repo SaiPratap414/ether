@@ -1,10 +1,13 @@
 .ec93494c0d0f43b692577e7ac4Icon {
-  height: 564.7px;
-  width: 564.7px;
+  height: 500.0px;
+  width: 500.7px;
   position: absolute;
   margin: 0 !important;
-  top: -344.4px;
-  left: calc(50% - 283.9px);
+  top: -300.4px;
+  left: calc(50% - 247.9px);
+  /* top: 0;
+  left: 0;
+  transform: translate(50%, 50%); */
   object-fit: contain;
 }
 .ec93494c0d0f43b692577e7ac4Parent {
@@ -18,7 +21,7 @@
   position: relative;
   max-width: 100%;
   flex-shrink: 0;
-  margin-top: -3rem;
+  margin-top: -7rem;
 }
 .dev,
 .homepage {
@@ -32,7 +35,7 @@
   align-self: stretch;
   overflow: hidden;
   align-items: center;
-  padding: var(--padding-31xl) var(--padding-31xl) var(--padding-33xl);
+  padding: 10px var(--padding-33xl);
   box-sizing: border-box;
   gap: var(--gap-366xl);
   background-image: url(/public/homepage@3x.png);

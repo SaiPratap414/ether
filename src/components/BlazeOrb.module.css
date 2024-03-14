@@ -182,6 +182,10 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
+.gameIconsaquarius {
+  margin-top: 5px;
+}
 .subwaypowerIcon2 {
   height: 9px;
   width: 8px;
@@ -316,6 +320,7 @@
 .pondering {
   position: relative;
   font-weight: 500;
+  margin-top: 2.5px;
 }
 .strategyInfo,
 .whatIsORB {
