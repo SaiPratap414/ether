@@ -47,7 +47,7 @@
 }
 
 .fungiParent1 .wrapper {
-  margin-top: -20px; /* Adjust the value as needed */
+  margin-top: 30px; /* Adjust the value as needed */
 }
 .fungiParent .rectangleFrames{
   margin-bottom: 40px;
@@ -329,6 +329,8 @@
 .fungiParent1 {
   transform: translateY(3rem);
 }
+
+
 /* Responsive adjustments */
 @media screen and (max-width: 750px) {
   .buyOrbParent {
