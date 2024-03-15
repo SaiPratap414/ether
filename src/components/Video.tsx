@@ -107,6 +107,7 @@ const Li = styled.li`
     text-decoration: none;
     color: #ffffff80;
     position: relative;
+    transition: text-decoration 0.3s ease; /* Add transition for smooth effect */
   }
 
   .consto::after {
@@ -117,17 +118,25 @@ const Li = styled.li`
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
-    padding: 5px 10px;
+    padding: 3px 8px; /* Adjust padding as needed */
     border-radius: 5px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
+    font-size: 10px; /* Adjust font size as needed */
   }
+  
 
   .consto:hover::after {
     opacity: 1;
   }
-`
+
+  /* Add underline effect on hover */
+  a:hover {
+    text-decoration: underline;
+  }
+`;
+ 
 
 const Video: React.FunctionComponent = () => {
 
