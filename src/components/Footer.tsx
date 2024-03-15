@@ -25,8 +25,8 @@ const Footer: FunctionComponent = () => {
 
         
         <div className={styles.twitterParent}>
-          <a href="https://twitter.com/etherorbxyz"><div className={styles.twitter}>twitter</div></a>
-          <div className={styles.telegram}>telegram</div>
+          <a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener"><div className={styles.twitter}>twitter</div></a>
+          <a href="https://t.me/EtherOrb404" target="_blank" rel="noopener"><div className={styles.telegram}>telegram</div></a>
           <div className={styles.docs}>DOCS</div>
         </div>
       </footer>

@@ -200,8 +200,7 @@ const Gameplay: FunctionComponent = () => {
                 02
               </Box>
               <p className="animate-text-2">
-              MINT YOUR ORB NFT AND ENTER DUELS TO WAGER THE $ORB AGAINST OTHER
-              PONDEROOORS!
+              MINT YOUR ORB NFT AND ENTER DUELS TO BATTLE THE ORB AGAINST OTHER PONDEROOORS!
               </p>
             </Rules>
           </RulesWrapper>
@@ -308,15 +307,11 @@ const Gameplay: FunctionComponent = () => {
       </div>
       <div className={styles.everyBattleIsContainer}>
         <p className={styles.everyBattleIs}>
-          Every battle is a blend of predicting your opponent's choices and
-          making moves based on your ORB's elemental intensity score, adding a
-          layer of depth to the game's tactical decision-making.
+        EVERY BATTLE IS A BLEND OF PREDICTING YOUR OPPONENT'S CHOICES AND MAKING MOVES BASED ON YOUR ORB'S ELEMENTAL INTENSITY SCORE, ADDING A LAYER OF DEPTH TO THE GAME'S TACTICAL DECISION-MAKING.
         </p>
         <p className={styles.blankLine9}>&nbsp;</p>
         <p className={styles.whetherYoureBetting}>
-          Whether you’re betting a fragment or a full token, every battle is a
-          chance to acquire more $ORB. More orbs means more power, and more
-          pondering!"
+        WHETHER YOU’RE BETTING A FRAGMENT OR A FULL TOKEN, EVERY BATTLE IS A CHANCE TO ACQUIRE MORE ORBS. MORE ORBS MEANS MORE POWER, AND MORE PONDERING!"
         </p>
       </div>
     </section>

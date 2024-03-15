@@ -175,9 +175,9 @@ const Video: React.FunctionComponent = () => {
             minWidth: '200px'
 
         }}>
-            <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
-            <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
-            <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
+            <Li><a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">twitter</a></Li>
+            <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener"> telegram</a></Li>
+            <Li><a href="">docs</a></Li>
         </Box>
     </Navbar>
         <video
@@ -210,7 +210,7 @@ const Video: React.FunctionComponent = () => {
                 />
                 </div>
                 <div className={styles.etherOrbsIntroduces}>
-                Ether Orbs introduces the first PvP wagering iteration of the ERC404 standard allowing “wizards” to wager their ERC404 tokens in a zero-sum strategy game. 7777 unique $ORBS will be minted and burned in the process of a good old-fashioned ORB duel.
+                ETHER ORBS INTRODUCES THE FIRST PVP GAME OF SKILL LEVERAGING THE ERC404 STANDARD ALLOWING “WIZARDS” TO BATTLE THEIR ORBS IN A ZERO-SUM STRATEGY GAME. 7777 UNIQUE ORBS WILL BE MINTED AND BURNED IN THE PROCESS OF A GOOD OLD-FASHIONED ORB DUEL.
                 </div>
               </div>
               <div className={styles.putContractAddress}></div>
