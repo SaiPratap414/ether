@@ -22,7 +22,10 @@ const Navbar = styled.nav`
     padding: 20px 50px;
     flex-wrap: wrap;
     @media screen and (max-width: 700px) {
-    flex-direction: column;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
     }
 `
 const Li = styled.li`
@@ -54,8 +57,14 @@ const Li = styled.li`
     }
 `
 
-
-
+const WalletAddress = styled.div`
+    color: white;
+    font-size: 14px;
+    margin-right: -20px;
+    @media screen and (max-width: 700px) {
+        margin: 20px auto;
+    }
+`
 
 const Button = styled.button`
     font-size: var(--font-size-s);
@@ -90,10 +99,23 @@ const BtnContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    overflow: hidden;
+    flex-direction: column;
+    gap: 65px;
     color: red;
 `
+
+const DisconnectButton = styled(Button)`
+    margin-bottom: -100px; /* Adjusted margin top for Disconnect button */
+    color: #000;
+    font-weight: bold;
+    transition: border 0.3s; /* Add transition for border */
+    &:hover,
+    &:active {
+        border: 2px solid black; /* Add border on hover or click */
+    }
+`;
+
+
 
 const Content = styled.div`
     height: 450px;
@@ -196,6 +218,17 @@ const MintPage = () => {
         
     };
 
+    const disconnect = async () => {
+        if (ethereum && isConnected) {
+            try {
+                await ethereum.request({ method: 'wallet_disconnect' });
+                setAccount('');
+                setIsConnected(false);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+    };
 
     const connect = async () => {
         if (ethereum) {
@@ -244,6 +277,9 @@ const MintPage = () => {
                     <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener">telegram</a></Li>
                     <Li><a href="#" className="consto">docs</a></Li>
                 </Box>
+                {isConnected && account.length > 0 && (
+                    <WalletAddress>{account}</WalletAddress>
+                )}
             </Navbar>
                 <img src="./mint_page_bacground.png" alt='mint_page_img' />
                 <Content>
@@ -292,10 +328,12 @@ const MintPage = () => {
                     </> 
                     : 
                     <>
-                    {isConnecting ? "Loading" : <>
-                            <Button onClick={mint}>{message}</Button>
-                        </>
-                    }
+                        {isConnecting ? "Loading" : 
+                            <>
+                                <Button onClick={mint}>{message}</Button>
+                                <DisconnectButton onClick={disconnect}>Disconnect Wallet</DisconnectButton>
+                            </>
+                        }
                         
                     </>
                     }
