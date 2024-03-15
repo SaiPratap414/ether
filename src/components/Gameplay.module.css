@@ -10,11 +10,11 @@
   display: inline-block;
   max-width: 100%;
 }
-.frameChild {
+/* .frameChild {
   height: 0;
   width: 40px;
   display: none;
-}
+} */
 .vectorIcon {
   position: absolute;
   top: 0;
@@ -131,8 +131,7 @@
   overflow: hidden;
   flex-shrink: 0;
 }
-.blaze,
-.buyOrbFrameParent {
+.blaze {
   position: absolute;
   z-index: 1;
 }
@@ -329,7 +328,8 @@
   padding-left: var(--padding-lgi);
 }
 .howToPonderContainer {
-  width: 461.7px;
+  flex: 1;
+  /* width: 461.7px; */
   position: relative;
   font-size: var(--font-size-sm);
   line-height: 120%;
@@ -388,6 +388,7 @@
   font-size: var(--font-size-13xl);
   color: var(--color-white);
   font-family: var(--font-jetbrains-mono);
+  overflow: hidden;
 }
 
 /* .frameParent {
