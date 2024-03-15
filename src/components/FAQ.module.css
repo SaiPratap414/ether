@@ -3,6 +3,7 @@
   font-size: var(--font-size-5xl);
   font-family: var(--font-krungthep);
   color: var(--color-white);
+  line-height: 30px;
 }
 .blankLine,
 .theDualNature {

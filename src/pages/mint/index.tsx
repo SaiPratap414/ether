@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import SubwayPowerVector from '../../components/SubwayPowerVector'
-import { Box } from '@mui/material'
+import { Box, CircularProgress } from '@mui/material'
 import React, { useState } from 'react'
 import Web3 from 'web3'
 
@@ -9,14 +9,25 @@ import ABI from "../../constants/contractABI.json"
 const MintPageContainer = styled.div`
     
 `
-
+const WalletInfoSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    z-index: 999;
+`
 const Navbar = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
     position: absolute;
     top: 0;
-    z-index: 998;
+    z-index: 1000;
     width: 100%;
     box-sizing: border-box;
     padding: 20px 50px;
@@ -40,6 +51,8 @@ const Li = styled.li`
         color: #ffffff80;
         position: relative; /* Add relative positioning to the anchor element */
         &:hover {
+            text-decoration: underline;
+            color: #ffffff;
             &.consto::after { /* Add hover effect to the ::after pseudo-element */
                 content: "coming soon";
                 position: absolute;
@@ -55,12 +68,19 @@ const Li = styled.li`
             }
         }
     }
+
+    a:hover {
+        text-decoration: underline;
+        color: #ffffff;
+    }
 `
 
 const WalletAddress = styled.div`
     color: white;
+    font-family: var(--font-jetbrains-mono);
+    margin: 10px auto;
     font-size: 14px;
-    margin-right: -20px;
+    // margin-right: -20px;
     @media screen and (max-width: 700px) {
         margin: 20px auto;
     }
@@ -92,21 +112,35 @@ const MintPageContent = styled.div`
 
 const BtnContainer = styled.div`
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: 1vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 65px;
-    color: red;
+    color: #ffffff;
+    z-index: 999;
+    margin-top: 4vh;
+
+    button {
+        max-width: 150px;
+        text-align: center;
+    }
+
+    // @media screen and (max-width: 680px) {
+    //     margin-top: -1vh;
+    // }
 `
 
 const DisconnectButton = styled(Button)`
-    margin-bottom: -100px; /* Adjusted margin top for Disconnect button */
-    color: #000;
+    color: #ffffff;
+    background: #000000;
+    max-width: 300px;
+    margin: 0 auto;
     font-weight: bold;
     transition: border 0.3s; /* Add transition for border */
     &:hover,
@@ -127,7 +161,6 @@ const Content = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
 `
 
 
@@ -277,23 +310,10 @@ const MintPage = () => {
                     <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener">telegram</a></Li>
                     <Li><a href="#" className="consto">docs</a></Li>
                 </Box>
-                {isConnected && account.length > 0 && (
-                    <WalletAddress>{account}</WalletAddress>
-                )}
             </Navbar>
                 <img src="./mint_page_bacground.png" alt='mint_page_img' />
                 <Content>
-                    <Box
-                        sx={{
-                            fontSize: 'var(--font-size-xs)',
-                            fontFamily: 'var(--font-krungthep)',
-                            background: "var(--color-black)",
-                            color: 'var(--color-white)',
-                            padding: '20px'
-                        }}
-                    >
-                        {/* 0/7777 MINTED */}
-                    </Box>
+                    
                     <Box
                         sx={{
                             fontSize: 'var(--font-size-29xl)',
@@ -315,30 +335,34 @@ const MintPage = () => {
                             background: "var(--color-black)",
                             color: 'var(--color-white)',
                             padding: '20px',
-                            textTransform:'uppercase'
+                            textTransform:'uppercase',
+                            marginTop: '-20px'
                         }}
                     >
                         [open for whitelist only]
                     </Box>
-                </Content>
-                <BtnContainer>
-                    {!isConnected && account.length === 0 ? 
-                    <>
-                        <Button onClick={connect}>Connect Wallet</Button>
-                    </> 
-                    : 
-                    <>
-                        {isConnecting ? "Loading" : 
+                    <BtnContainer>
+                        {!isConnected && account.length === 0 ? 
                             <>
-                                <Button onClick={mint}>{message}</Button>
-                                <DisconnectButton onClick={disconnect}>Disconnect Wallet</DisconnectButton>
+                                <Button onClick={connect}>Connect Wallet</Button>
+                            </> 
+                            : 
+                            <>  
+                            {isConnecting ? <CircularProgress color="primary" /> : message === "NOT ELIGIBLE" ? <Button>NOT ELIGIBLE</Button> : <Button onClick={mint}>MINT</Button> }
                             </>
                         }
-                        
-                    </>
-                    }
-                </BtnContainer>
+                    </BtnContainer>
+                </Content>
             </MintPageContent>
+            <WalletInfoSection>
+
+            {isConnected && account.length > 0 && (
+                    <WalletAddress>{account} [{message}]</WalletAddress>
+            )}
+
+            {isConnected && <DisconnectButton onClick={disconnect}>Disconnect Wallet</DisconnectButton>}
+
+        </WalletInfoSection>
         </MintPageContainer>
     )
 }

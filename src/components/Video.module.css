@@ -76,6 +76,7 @@
   cursor: pointer;
   border: 0.7px solid var(--color-white);
   padding: 0 var(--padding-6xs) 0 8.522583961486816px;
+  margin-top: -25px;
   background-color: var(--color-black);
   border-radius: 2.84px;
   transition: all .3s ease;

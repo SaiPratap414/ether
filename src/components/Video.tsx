@@ -27,6 +27,7 @@ const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
   position: absolute;
   top: 0;
   z-index: 998;
@@ -53,6 +54,7 @@ const HeaderContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
   
   &::after {
     content: "";
@@ -62,6 +64,7 @@ const HeaderContent = styled.div`
     background: rgba(0,0,0,0.6);
     width: 100%;
     height: 100%;
+    margin-top: -20px;
     z-index: -1; /* Ensure pseudo-element is below HeaderContent */
   }
 `;
@@ -89,6 +92,7 @@ const MouseTrackerBtn = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1;
   }
@@ -107,6 +111,11 @@ const Li = styled.li`
     text-decoration: none;
     color: #ffffff80;
     position: relative;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: #ffffff;
   }
 
   .consto::after {

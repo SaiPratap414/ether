@@ -8,7 +8,23 @@ import styled from "styled-components";
 import { Box } from "@mui/material";
 
 gsap.registerPlugin(TextPlugin, ScrollTrigger); // Register TextPlugin
+const GameplayMainContainer = styled.div`
+  max-width: 1150px;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  overflow: hidden;
 
+  @media screen and (max-width: 680px) {
+    max-width: 95%;
+  }
+`
 const RulesWrapper = styled.div`
   display: flex;
   gap: 20px;
@@ -18,13 +34,27 @@ const RulesWrapper = styled.div`
 const Rules = styled.div`
   display: flex;
   flex: 1;
-  max-width: 300px;
+  min-width: 200px;
   gap: 10px;
-  // height: 100px;
   border-left: 2px solid #171717;
   padding: 10px;
   font-size: var(--font-size-xs);
 `;
+
+const Image = styled.img`
+  height: 500px;
+  min-width: 250px;
+  flex: 1;
+  text-align: center;
+
+  @media screen and (max-width: 1000px) {
+    height: 400px;
+  }
+
+  @media screen and (max-width: 680px) {
+    height: 250px;
+  }
+`
 
 const Gameplay: FunctionComponent = () => {
 
@@ -69,8 +99,8 @@ const Gameplay: FunctionComponent = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: text,
-          start: "top 80%",
-          toggleActions: "restart none", // Restart the animation every time the element comes into view
+          start: "top 100%",
+          toggleActions: "restart", // Restart the animation every time the element comes into view
         },
       });
     });
@@ -80,83 +110,12 @@ const Gameplay: FunctionComponent = () => {
   return (
     <section className={styles.gameplay}>
       <h1 className={styles.gameplay1}>gameplay</h1>
-      <div className={styles.frameParent}>
-        <div className={styles.frameChild} />
-        <div className={styles.frameWrapper}>
-          <div className={styles.frameGroup}>
-            <div className={styles.vectorParent}>
-              <img className={styles.vectorIcon} alt="" src="/vector.svg" />
-              <div className={styles.terra}>
-                <div className={styles.ether}>
-                  <img
-                    className={styles.gameIconsabstract030}
-                    alt=""
-                    src="/gameiconsabstract030.svg"
-                  />
-                  <span className={styles.iconText}>TERRA</span>
-                </div>
-              </div>
-            </div>
-            <div className={styles.torrentVectorGroupParent}>
-              <img
-                className={styles.torrentVectorGroup}
-                alt=""
-                src="/vector.svg"
-              />
-              <div className={styles.torrent}>
-                <img
-                  className={styles.blazeVectorGroup}
-                  loading="eager"
-                  alt=""
-                  src="/vector-2.svg"
-                />
-                  <span className={styles.iconText}>TORRENT</span>
+      <GameplayMainContainer>
+        <Image src="/gameplay-sec-img.svg" />
 
-              </div>
-            </div>
-            <div className={styles.buyOrbFrameParent}>
-              <img className={styles.buyOrbFrame} alt="" src="/vector.svg" />
-              <div className={styles.blaze}>
-                <img
-                  className={styles.riblazeFillIcon}
-                  loading="eager"
-                  alt=""
-                  src="/riblazefill-1.svg"
-                />
-                  <span className={styles.iconText}>BLAZE</span>
+        {/*  */}
 
-              </div>
-            </div>
-            <div className={styles.subtractFrame}>
-              <img
-                className={styles.subtractIcon}
-                alt=""
-                src="/subtract@2x.png"
-              />
-              <div className={styles.beatsParent}>
-                <div className={styles.beats}>Beats</div>
-                <img
-                  className={styles.bxsupArrowIcon}
-                  loading="eager"
-                  alt=""
-                  src="/bxsuparrow@2x.png"
-                />
-              </div>
-              <img
-                className={styles.subtractIcon1}
-                loading="eager"
-                alt=""
-                src="/frame-3@2x.png"
-              />
-              <img
-                className={styles.twoFramesIcon}
-                loading="eager"
-                alt=""
-                src="/frame-17@2x.png"
-              />
-            </div>
-          </div>
-        </div>
+
         <div className={styles.howToPonderContainer}>
           <p className={`${styles.howToPonder} animate-text`}>
             <b>How to Ponder?</b>
@@ -304,7 +263,9 @@ const Gameplay: FunctionComponent = () => {
             </li>
           </ul>
         </div>
-      </div>
+
+
+      </GameplayMainContainer>
       <div className={styles.everyBattleIsContainer}>
         <p className={styles.everyBattleIs}>
         EVERY BATTLE IS A BLEND OF PREDICTING YOUR OPPONENT'S CHOICES AND MAKING MOVES BASED ON YOUR ORB'S ELEMENTAL INTENSITY SCORE, ADDING A LAYER OF DEPTH TO THE GAME'S TACTICAL DECISION-MAKING.
