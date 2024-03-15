@@ -184,9 +184,8 @@ const MintPage = () => {
 
     React.useEffect(() => {
         const fetchSold = async () => {
-            alert('Fetching sold');
-            const sold:string = ((await contract.methods._sold_count().call()) as any).toString();
-            const total:string = ((await contract.methods._max_supply().call()) as any).toString();
+            const sold:string = ((await extra_contract.methods._sold_count().call()) as any).toString();
+            const total:string = ((await extra_contract.methods._max_supply().call()) as any).toString();
             setSold(sold);
             setTotal(total);
         }
@@ -344,7 +343,7 @@ const MintPage = () => {
                         </> 
                         : 
                         <>  
-                        {isConnecting ? <CircularProgress color="primary" /> : message === "NOT ELIGIBLE" ? <Button>NOT ELIGIBLE</Button> : <Button onClick={mint}>MINT</Button> }
+                        {isConnecting ? <CircularProgress color="primary" /> : !isEligible ? <Button>{message}</Button> : <Button onClick={mint}>{message}</Button> }
                         </>
                     }
                 </BtnContainer>
