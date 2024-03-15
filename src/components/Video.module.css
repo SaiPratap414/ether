@@ -45,6 +45,26 @@
   transition: all .3s ease;
   padding: 5px 10px;
 }
+.buyOrb:hover {
+  color: #000; /* Change text color on hover */
+}
+
+.buyOrb:hover::after {
+  content: "Coming Soon"; /* Show "Coming Soon" text on hover */
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  font-size: medium;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
 .howToFrame {
   display: flex;
   flex-direction: row;
@@ -146,6 +166,8 @@
   color: var(--color-gray-100);
   font-family: var(--font-jetbrains-mono);
 }
+
+
 @media screen and (max-width: 1050px) {
   .video {
     padding-top: var(--padding-43xl);
