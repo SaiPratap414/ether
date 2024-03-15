@@ -129,7 +129,25 @@
   font-family: var(--font-krungthep);
 }
 
+.chooseYourOrb1:hover .chooseYourOrb2::after {
+  content: "Coming Soon";
+  position: absolute;
+  top: 170%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
 
+.chooseYourOrb1:hover .chooseYourOrb2::after {
+  opacity: 1;
+}
 
 @media screen and (max-width: 1280px) {
   .text {

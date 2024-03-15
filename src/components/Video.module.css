@@ -64,6 +64,7 @@
   pointer-events: none;
   transition: opacity 0.3s ease;
   font-size: 10px;
+  white-space: nowrap;
 }
 
 .howToFrame {

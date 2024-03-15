@@ -124,6 +124,7 @@ const Li = styled.li`
     pointer-events: none;
     transition: opacity 0.3s ease;
     font-size: 10px; /* Adjust font size as needed */
+    white-space: nowrap;
   }
   
 

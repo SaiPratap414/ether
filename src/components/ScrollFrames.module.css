@@ -421,6 +421,27 @@
   margin-right: -1.5rem;
 }
 
+.ponderAcquireOrbs:hover .buyOrb::after {
+  content: "Coming Soon";
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 2px 5px; /* Adjusted padding */
+  border-radius: 5px;
+  font-size: 0.6rem; /* Adjusted font size */
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap; /* Ensure text appears in one line */
+  transition: opacity 0.3s ease;
+}
+
+.ponderAcquireOrbs:hover .buyOrb::after {
+  opacity: 1;
+}
+
 
 
 @media screen and (max-width: 600px) {

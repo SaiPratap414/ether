@@ -45,7 +45,7 @@ const ScrollFrames = () => {
   };
 
   const handleButtonClick = () => {
-    window.open("", "_blank"); // Open Uniswap in a new tab
+    window.open("", ""); // Open Uniswap in a new tab
   };
 
   let visibleImages = images;
