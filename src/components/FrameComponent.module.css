@@ -81,6 +81,39 @@ twitterParent a:visited {
   color: var(--color-white);
 }
 
+.docs,
+.play {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
+.docs:hover::after,
+.play:hover::after {
+  content: "Coming Soon";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.docs:hover::after,
+.play:hover::after {
+  opacity: 1;
+}
+
+.docs:hover,
+.play:hover {
+  text-decoration: underline;
+}
+
 
 @media screen and (max-width: 680px) {
  .twitter,

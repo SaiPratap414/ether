@@ -15,10 +15,14 @@ const FrameComponent: FunctionComponent = () => {
             propAlignSelf1="stretch"
           />
           <div className={styles.twitterParent}>
-            <a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener"><div className={styles.twitter}>twitter</div></a>
-            <a href="https://t.me/EtherOrb404"target="_blank" rel="noopener"><div className={styles.telegram}>telegram</div></a>
-            <a href="#"><div className={styles.docs}>docs</div></a>
-            <a href="#"><div className={styles.play}>play</div></a>
+            <a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">
+              <div className={styles.twitter}>twitter</div>
+            </a>
+            <a href="https://t.me/EtherOrb404" target="_blank" rel="noopener">
+              <div className={styles.telegram}>telegram</div>
+            </a>
+            <a href="#" className={styles.docs}>docs</a>
+            <a href="#" className={styles.play}>play</a>
           </div>
         </div>
       </div>

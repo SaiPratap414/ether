@@ -45,7 +45,7 @@ const ScrollFrames = () => {
   };
 
   const handleButtonClick = () => {
-    window.location.href = "https://uniswap.org"; // Navigate to Uniswap
+    window.open("https://uniswap.org", "_blank"); // Open Uniswap in a new tab
   };
 
   let visibleImages = images;

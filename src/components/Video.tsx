@@ -106,6 +106,26 @@ const Li = styled.li`
   a { 
     text-decoration: none;
     color: #ffffff80;
+    position: relative;
+  }
+
+  .consto::after {
+    content: "Coming Soon";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .consto:hover::after {
+    opacity: 1;
   }
 `
 
@@ -114,7 +134,6 @@ const Video: React.FunctionComponent = () => {
   const navigate = useNavigate();
 
   const [isBlobShowing, setIsBlobShowing] = useState(true);
-
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isVideoMuted, setIsVideoMuted] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -159,27 +178,26 @@ const Video: React.FunctionComponent = () => {
   return (
     <HeaderSection>
       <VideoContainer>
-      
-      <Navbar onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)}>
-        <img
-          className={styles.groupVectorTerraChild}
-          loading="eager"
-          alt=""
-          src="/group-3-1.svg"
-        />
+        <Navbar onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)}>
+          <img
+            className={styles.groupVectorTerraChild}
+            loading="eager"
+            alt=""
+            src="/group-3-1.svg"
+          />
 
-        <Box sx={{
-            display: 'flex',
-            gap: '20px',
-            fontFamily: "var(--font-jetbrains-mono), sans-serif",
-            minWidth: '200px'
+          <Box sx={{
+              display: 'flex',
+              gap: '20px',
+              fontFamily: "var(--font-jetbrains-mono), sans-serif",
+              minWidth: '200px'
 
-        }}>
-            <Li><a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">twitter</a></Li>
-            <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener"> telegram</a></Li>
-            <Li><a href="">docs</a></Li>
-        </Box>
-    </Navbar>
+          }}>
+              <Li><a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">twitter</a></Li>
+              <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener"> telegram</a></Li>
+              <Li><a href="#" className="consto">docs</a></Li>
+          </Box>
+        </Navbar>
         <video
           src="/video.mp4"
           autoPlay
@@ -201,23 +219,25 @@ const Video: React.FunctionComponent = () => {
             <div className={styles.orbIntroFrame}>
               <div className={styles.etherVectorGroup}>
                 <div className="logoBox">
-                <SubwayPowerVector
-                  group3="/group-3-1.svg"
-                  propAlignSelf="unset"
-                  propFlexDirection="row"
-                  propFlex="unset"
-                  propAlignSelf1="stretch"
-                />
+                  <SubwayPowerVector
+                    group3="/group-3-1.svg"
+                    propAlignSelf="unset"
+                    propFlexDirection="row"
+                    propFlex="unset"
+                    propAlignSelf1="stretch"
+                  />
                 </div>
                 <div className={styles.etherOrbsIntroduces}>
-                ETHER ORBS INTRODUCES THE FIRST PVP GAME OF SKILL LEVERAGING THE ERC404 STANDARD ALLOWING “WIZARDS” TO BATTLE THEIR ORBS IN A ZERO-SUM STRATEGY GAME. 7777 UNIQUE ORBS WILL BE MINTED AND BURNED IN THE PROCESS OF A GOOD OLD-FASHIONED ORB DUEL.
+                  ETHER ORBS INTRODUCES THE FIRST PVP GAME OF SKILL LEVERAGING THE ERC404 STANDARD ALLOWING “WIZARDS” TO BATTLE THEIR ORBS IN A ZERO-SUM STRATEGY GAME. 7777 UNIQUE ORBS WILL BE MINTED AND BURNED IN THE PROCESS OF A GOOD OLD-FASHIONED ORB DUEL.
                 </div>
               </div>
               <div className={styles.putContractAddress}></div>
               <button className={styles.ponderAcquireOrbs} onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)}>
                 <div className={styles.howToFrame}>
-                  {/* <div className={styles.buyOrb} onClick={() => navigate("./mint")}>WHITELIST MINT</div> */}
-                  <div className={styles.buyOrb}>WHITELIST MINT</div>
+                     {/* <div className={styles.buyOrb} onClick={() => navigate("./mint")}>WHITELIST MINT</div> */}
+                  <div className="consto">
+                    <div className={styles.buyOrb}>WHITELIST MINT</div>
+                  </div>
                 </div>
               </button>
             </div>

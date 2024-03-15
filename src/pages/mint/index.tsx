@@ -25,18 +25,37 @@ const Navbar = styled.nav`
     flex-direction: column;
     }
 `
-
 const Li = styled.li`
     text-decoration: none;
     color: #ffffff80;
     display: block;
     font-family: var(--font-jetbrains-mono);
     text-transform: uppercase;
+    position: relative; /* Add relative positioning to the parent element */
     a { 
         text-decoration: none;
         color: #ffffff80;
+        position: relative; /* Add relative positioning to the anchor element */
+        &:hover {
+            &.consto::after { /* Add hover effect to the ::after pseudo-element */
+                content: "coming soon";
+                position: absolute;
+                top: 100%; /* Position below the anchor element */
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 0.8rem;
+                background-color: black; /* Set background color to black */
+                color: white; /* Set text color to white */
+                padding: 0.2rem 0.5rem;
+                border-radius: 0.2rem;
+                z-index: 1;
+            }
+        }
     }
 `
+
+
+
 
 const Button = styled.button`
     font-size: var(--font-size-s);
@@ -88,6 +107,7 @@ const Content = styled.div`
     flex-direction: column;
     gap: 20px;
 `
+
 
 const MintPage = () => {
     const [account, setAccount] = useState('');
@@ -220,9 +240,9 @@ const MintPage = () => {
                     minWidth: '200px'
                     
                 }}>
-                    <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
-                    <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
-                    <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
+                    <Li><a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">twitter</a></Li>
+                    <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener">telegram</a></Li>
+                    <Li><a href="#" className="consto">docs</a></Li>
                 </Box>
             </Navbar>
                 <img src="./mint_page_bacground.png" alt='mint_page_img' />
