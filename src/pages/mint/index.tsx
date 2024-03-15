@@ -8,7 +8,7 @@ import ABI from "../../constants/contractABI.json";
 
 const MintPageContainer = styled.div`
     
-`;
+`
 
 const WalletInfoSection = styled.div`
     display: flex;
@@ -26,17 +26,21 @@ const Navbar = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
     position: absolute;
     top: 0;
-    z-index: 998;
+    z-index: 1000;
     width: 100%;
     box-sizing: border-box;
     padding: 20px 50px;
     flex-wrap: wrap;
     @media screen and (max-width: 700px) {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
     }
-`;
+`
 
 const Li = styled.li`
     text-decoration: none;
@@ -115,6 +119,7 @@ const BtnContainer = styled.div`
     left: 0;
     width: 100%;
     height: 100vh;
+    height: 100svh;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -123,7 +128,16 @@ const BtnContainer = styled.div`
     color: #ffffff;
     z-index: 999;
     margin-top: 4vh;
-`;
+
+    button {
+        max-width: 150px;
+        text-align: center;
+    }
+
+    // @media screen and (max-width: 680px) {
+    //     margin-top: -1vh;
+    // }
+`
 
 const Content = styled.div`
     height: 450px;
@@ -271,90 +285,81 @@ const MintPage = () => {
 
     return (
         <MintPageContainer>
-            <MintPageContent>
-                <Navbar>
-                    <SubwayPowerVector
-                        group3="/group-3-1.svg"
-                        propAlignSelf="unset"
-                        propFlexDirection="row"
-                        propFlex="unset"
-                        propAlignSelf1="stretch"
-                    />
-                    <Box sx={{
-                        display: 'flex',
-                        gap: '20px',
-                        fontFamily: "var(--font-jetbrains-mono), sans-serif",
-                        minWidth: '200px'
-                    }}>
-                        <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
-                        <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
-                        <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
-                    </Box>
-                </Navbar>
-                <img src="./mint_page_bacground.png" alt='mint_page_img' />
-                <Content>
-                    <Box
-                        sx={{
-                            fontSize: 'var(--font-size-xs)',
-                            fontFamily: 'var(--font-krungthep)',
-                            background: "var(--color-black)",
-                            color: 'var(--color-white)',
-                            padding: '20px'
-                        }}
-                    >
-                        {sold} / {total} MINTED
-                    </Box>
-                    <Box
-                        sx={{
-                            fontSize: 'var(--font-size-29xl)',
-                            fontFamily: 'var(--font-krungthep)',
-                            color: 'var(--color-white)',
-                            padding: '20px',
-                            textTransform: 'uppercase',
-                            '@media screen and (max-width: 800px)': {
-                                fontSize: 'var(--font-size-5xl)'
-                            }
-                        }}
-                    >
-                        let the orb choose you
-                    </Box>
-                    <Box
-                        sx={{
-                            fontSize: 'var(--font-size-xs)',
-                            fontFamily: 'var(--font-krungthep)',
-                            background: "var(--color-black)",
-                            color: 'var(--color-white)',
-                            padding: '20px',
-                            textTransform:'uppercase',
-                            marginTop: '-20px'
-                        }}
-                    >
-                        [open for whitelist only]
-                    </Box>
-                </Content>
+        <MintPageContent>
+        <Navbar>
+            <SubwayPowerVector
+                group3="/group-3-1.svg"
+                propAlignSelf="unset"
+                propFlexDirection="row"
+                propFlex="unset"
+                propAlignSelf1="stretch"
+            />
+
+            <Box sx={{
+                display: 'flex',
+                gap: '20px',
+                fontFamily: "var(--font-jetbrains-mono), sans-serif",
+                minWidth: '200px'
+                
+            }}>
+                <Li><a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">twitter</a></Li>
+                <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener">telegram</a></Li>
+                <Li><a href="#" className="consto">docs</a></Li>
+            </Box>
+        </Navbar>
+            <img src="./mint_page_bacground.png" alt='mint_page_img' />
+            <Content>
+                
+                <Box
+                    sx={{
+                        fontSize: 'var(--font-size-29xl)',
+                        fontFamily: 'var(--font-krungthep)',
+                        color: 'var(--color-white)',
+                        padding: '20px',
+                        textTransform: 'uppercase',
+                        '@media screen and (max-width: 800px)': {
+                            fontSize: 'var(--font-size-5xl)'
+                        }
+                    }}
+                >
+                    let the orb choose you
+                </Box>
+                <Box
+                    sx={{
+                        fontSize: 'var(--font-size-xs)',
+                        fontFamily: 'var(--font-krungthep)',
+                        background: "var(--color-black)",
+                        color: 'var(--color-white)',
+                        padding: '20px',
+                        textTransform:'uppercase',
+                        marginTop: '-20px'
+                    }}
+                >
+                    [open for whitelist only]
+                </Box>
                 <BtnContainer>
                     {!isConnected && account.length === 0 ? 
-                    <>
-                        <Button onClick={connect}>Connect Wallet</Button>
-                    </> 
-                    : 
-                    <>
-                    {isConnecting ? "Loading" : <>
-                            <Button onClick={mint}>{message}</Button>
+                        <>
+                            <Button onClick={connect}>Connect Wallet</Button>
+                        </> 
+                        : 
+                        <>  
+                        {isConnecting ? <CircularProgress color="primary" /> : message === "NOT ELIGIBLE" ? <Button>NOT ELIGIBLE</Button> : <Button onClick={mint}>MINT</Button> }
                         </>
                     }
-                        
-                    </>
-                    }
                 </BtnContainer>
-            </MintPageContent>
-            <WalletInfoSection>
-                {isConnected && account.length > 0 && (
-                    <WalletAddress>{account} [{message}]</WalletAddress>
-                )}
-                {isConnected && <DisconnectButton onClick={disconnect}>Disconnect Wallet</DisconnectButton>}
-            </WalletInfoSection>
-        </MintPageContainer>
+            </Content>
+        </MintPageContent>
+        <WalletInfoSection>
+
+        {isConnected && account.length > 0 && (
+                <WalletAddress>{account} [{message}]</WalletAddress>
+        )}
+
+        {isConnected && <DisconnectButton onClick={disconnect}>Disconnect Wallet</DisconnectButton>}
+
+    </WalletInfoSection>
+    </MintPageContainer>
     );
 };
 
