@@ -115,11 +115,10 @@ const MintPageContent = styled.div`
 
 const BtnContainer = styled.div`
     position: absolute;
-    top: 0;
+    top: 10vh; /* Adjusted position */
     left: 0;
     width: 100%;
     height: 100vh;
-    height: 100svh;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -127,7 +126,7 @@ const BtnContainer = styled.div`
     flex-direction: column;
     color: #ffffff;
     z-index: 999;
-    margin-top: 4vh;
+    margin-top: 4vh; /* Optional: Keep this margin if needed */
 
     button {
         max-width: 150px;
@@ -138,6 +137,7 @@ const BtnContainer = styled.div`
     //     margin-top: -1vh;
     // }
 `
+
 
 const Content = styled.div`
     height: 450px;
