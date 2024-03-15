@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import SubwayPowerVector from '../../components/SubwayPowerVector'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Web3 from 'web3'
 
@@ -11,59 +11,30 @@ const MintPageContainer = styled.div`
 `
 
 const Navbar = styled.nav`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    z-index: 998;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 20px 50px;
-    flex-wrap: wrap;
-    @media screen and (max-width: 700px) {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-    }
-`
-const Li = styled.li`
-    text-decoration: none;
-    color: #ffffff80;
-    display: block;
-    font-family: var(--font-jetbrains-mono);
-    text-transform: uppercase;
-    position: relative; /* Add relative positioning to the parent element */
-    a { 
-        text-decoration: none;
-        color: #ffffff80;
-        position: relative; /* Add relative positioning to the anchor element */
-        &:hover {
-            &.consto::after { /* Add hover effect to the ::after pseudo-element */
-                content: "coming soon";
-                position: absolute;
-                top: 100%; /* Position below the anchor element */
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 0.8rem;
-                background-color: black; /* Set background color to black */
-                color: white; /* Set text color to white */
-                padding: 0.2rem 0.5rem;
-                border-radius: 0.2rem;
-                z-index: 1;
-            }
-        }
-    }
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: absolute;
+top: 0;
+z-index: 998;
+width: 100%;
+box-sizing: border-box;
+padding: 20px 50px;
+flex-wrap: wrap;
+@media screen and (max-width: 700px) {
+  flex-direction: column;
+}
 `
 
-const WalletAddress = styled.div`
-    color: white;
-    font-size: 14px;
-    margin-right: -20px;
-    @media screen and (max-width: 700px) {
-        margin: 20px auto;
-    }
+const Li = styled.li`
+  text-decoration: none;
+  color: #ffffff80;
+  display: block;
+  font-family: var(--font-jetbrains-mono);
+  a { 
+    text-decoration: none;
+    color: #ffffff80;
+  }
 `
 
 const Button = styled.button`
@@ -99,23 +70,10 @@ const BtnContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    gap: 65px;
+    width: 100px;
+    overflow: hidden;
     color: red;
 `
-
-const DisconnectButton = styled(Button)`
-    margin-bottom: -100px; /* Adjusted margin top for Disconnect button */
-    color: #000;
-    font-weight: bold;
-    transition: border 0.3s; /* Add transition for border */
-    &:hover,
-    &:active {
-        border: 2px solid black; /* Add border on hover or click */
-    }
-`;
-
-
 
 const Content = styled.div`
     height: 450px;
@@ -130,22 +88,36 @@ const Content = styled.div`
     gap: 20px;
 `
 
-
 const MintPage = () => {
     const [account, setAccount] = useState('');
     const [isConnected, setIsConnected] = useState(false);
     const [isEligible, setIsEligible] = useState(false);
-    const [paid, setPaid] = useState(true);
     const [message, setMessage] = useState('NOT ELIGIBLE');
     const [isConnecting, setIsConnecting] = useState(false);
+    const [sold, setSold] = useState<string>("0");
+    const [total, setTotal] = useState<string>("850");
 
     const ethereum  = (window as any).ethereum;
 
     const web3 = new Web3(ethereum)
-    const contractAddress = '0x2F6C135F6881cFdD77d8816f546f52B4693F3233';
+    const web3_extra = new Web3('https://rpc.ankr.com/base');
+    const contractAddress = '0xE1Df0d4b0FdeD95fc98AD12CF7f1FedfeB666b99';
 
     const contract = new web3.eth.Contract(ABI, contractAddress);
+    const extra_contract = new web3_extra.eth.Contract(ABI, contractAddress);
 
+    React.useEffect(() => {
+        const fetchSold = async () => {
+            alert('Fetching sold');
+            const sold:string = ((await contract.methods._sold_count().call()) as any).toString();
+            const total:string = ((await contract.methods._max_supply().call()) as any).toString();
+            setSold(sold);
+            setTotal(total);
+        }
+
+        fetchSold();
+
+    },[])
     React.useEffect(() => { 
         const CheckEligibility = async () => {
             if (!isConnected) return;
@@ -153,11 +125,11 @@ const MintPage = () => {
             try {
                 const accounts = await web3.eth.requestAccounts();
                 const account = accounts[0];
-        
+                console.log('Account:', account);
                 // call minter checking contract..
-                const paid_whitelisted:boolean = await contract.methods._whitelisted_minters(account).call();
-                const free_whitelisted:boolean = await contract.methods._free_whitelisted_(account).call();
+                const whitelisted:boolean = await contract.methods._whitelisted_minters(account).call();
                 const hasclaimed:boolean = await contract.methods._hasClaimed(account).call();
+
 
                 if (hasclaimed) {
                     setMessage('ALREADY MINTED');
@@ -165,12 +137,9 @@ const MintPage = () => {
                     return;
                 }
 
-                if (paid_whitelisted || free_whitelisted) {
+                if (whitelisted) {
+                    setMessage('MINT');
                     setIsEligible(true);
-                    if (free_whitelisted) {
-                        setMessage('MINT FOR FREE');
-                        setPaid(false);
-                    }
                     return;
                 }
 
@@ -193,6 +162,7 @@ const MintPage = () => {
                 const account = accounts[0];
                 let transactionValue:string;
                 try{
+                    console.log(await contract.methods._price().call());
                     transactionValue = await contract.methods._price().call(); 
                 }catch{
                     transactionValue = web3.utils.toWei('0.001', 'ether');
@@ -201,7 +171,7 @@ const MintPage = () => {
                 // the transaction value..
                 console.log('Transaction value:', transactionValue);
                 // Send transaction to mint
-                const result = await contract.methods.mint(account, transactionValue).send({
+                const result = await contract.methods.mint(1).send({
                     from: account,
                     value: transactionValue
                 });
@@ -218,17 +188,6 @@ const MintPage = () => {
         
     };
 
-    const disconnect = async () => {
-        if (ethereum && isConnected) {
-            try {
-                await ethereum.request({ method: 'wallet_disconnect' });
-                setAccount('');
-                setIsConnected(false);
-            } catch (err) {
-                console.error(err);
-            }
-        }
-    };
 
     const connect = async () => {
         if (ethereum) {
@@ -273,13 +232,10 @@ const MintPage = () => {
                     minWidth: '200px'
                     
                 }}>
-                    <Li><a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">twitter</a></Li>
-                    <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener">telegram</a></Li>
-                    <Li><a href="#" className="consto">docs</a></Li>
+                    <Li><a href="https://twitter.com/etherorbxyz">twitter</a></Li>
+                    <Li><a href="https://twitter.com/etherorbxyz">telegram</a></Li>
+                    <Li><a href="https://twitter.com/etherorbxyz">docs</a></Li>
                 </Box>
-                {isConnected && account.length > 0 && (
-                    <WalletAddress>{account}</WalletAddress>
-                )}
             </Navbar>
                 <img src="./mint_page_bacground.png" alt='mint_page_img' />
                 <Content>
@@ -292,7 +248,7 @@ const MintPage = () => {
                             padding: '20px'
                         }}
                     >
-                        {/* 0/7777 MINTED */}
+                        {sold} / {total} MINTED
                     </Box>
                     <Box
                         sx={{
@@ -328,12 +284,10 @@ const MintPage = () => {
                     </> 
                     : 
                     <>
-                        {isConnecting ? "Loading" : 
-                            <>
-                                <Button onClick={mint}>{message}</Button>
-                                <DisconnectButton onClick={disconnect}>Disconnect Wallet</DisconnectButton>
-                            </>
-                        }
+                    {isConnecting ? "Loading" : <>
+                            <Button onClick={mint}>{message}</Button>
+                        </>
+                    }
                         
                     </>
                     }
