@@ -13,10 +13,13 @@ const MintPageContainer = styled.div`
 const WalletInfoSection = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
+    box-sizing: border-box;
+    text-align: center;
     margin-bottom: 20px;
     box-sizing: border-box;
     z-index: 999;
@@ -115,10 +118,10 @@ const MintPageContent = styled.div`
 
 const BtnContainer = styled.div`
     position: absolute;
-    top: 10vh; /* Adjusted position */
+    top: 39vh; /* Adjusted position */
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -126,6 +129,7 @@ const BtnContainer = styled.div`
     flex-direction: column;
     color: #ffffff;
     z-index: 999;
+    // background: red;
     margin-top: 4vh; /* Optional: Keep this margin if needed */
 
     button {
@@ -144,7 +148,7 @@ const Content = styled.div`
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: 50%;
+    bottom: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,6 +176,8 @@ const MintPage = () => {
     const [isConnecting, setIsConnecting] = useState(false);
     const [sold, setSold] = useState<string>("0");
     const [total, setTotal] = useState<string>("850");
+
+    const [price, setPrice] = useState<number>(0);
 
     const ethereum = (window as any).ethereum;
 
@@ -204,6 +210,8 @@ const MintPage = () => {
                 const whitelisted:boolean = await contract.methods._whitelisted_minters(account).call();
                 const hasclaimed:boolean = await contract.methods._hasClaimed(account).call();
 
+                const price:number = await contract.methods._price(account).call();
+
                 if (hasclaimed) {
                     setMessage('ALREADY MINTED');
                     setIsEligible(false);
@@ -214,6 +222,10 @@ const MintPage = () => {
                     setMessage('MINT');
                     setIsEligible(true);
                     return;
+                }
+
+                if (price) {
+                    setPrice(Number(price)/10**18)
                 }
 
             } catch (err) {
@@ -336,6 +348,23 @@ const MintPage = () => {
                 >
                     [open for whitelist only]
                 </Box>
+
+                <Box
+                    sx={{
+                        fontSize: 'var(--font-size-xs)',
+                        fontFamily: 'var(--font-krungthep)',
+                        color: 'var(--color-white)',
+                        padding: '20px',
+                        textTransform: 'uppercase',
+                        '@media screen and (max-width: 800px)': {
+                            fontSize: 'var(--font-size-5xl)'
+                        }
+                    }}
+                >
+                    {isConnected && <> PRICE [{price}] ETH</>}
+                </Box>
+
+
                 <BtnContainer>
                     {!isConnected && account.length === 0 ? 
                         <>
