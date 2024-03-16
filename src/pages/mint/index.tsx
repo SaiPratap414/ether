@@ -176,6 +176,8 @@ const MintPage = () => {
     const [sold, setSold] = useState<string>("0");
     const [total, setTotal] = useState<string>("850");
 
+    const [title, setTitle] = useState<string>("let the orb choose you")
+
     const navigate = useNavigate();
 
     const [price, setPrice] = useState<number>(0);
@@ -188,6 +190,12 @@ const MintPage = () => {
 
     const contract = new web3.eth.Contract(ABI, contractAddress);
     const extra_contract = new web3_extra.eth.Contract(ABI, contractAddress);
+
+    React.useEffect(() => {
+        if (!isEligible) {
+            setTitle('Council is pondering')
+        }
+    }, [isEligible])
 
     React.useEffect(() => {
         const fetchSold = async () => {
@@ -360,7 +368,7 @@ const MintPage = () => {
                         }
                     }}
                 >
-                    let the orb choose you
+                    {title}
                 </Box>
                 {!isConnected && <Box
                     sx={{
@@ -388,7 +396,7 @@ const MintPage = () => {
                         marginTop: '-20px'
                     }}
                 >
-                    [You are not on the whitelist, watch this space for updates]
+                    You are not on the whitelist, watch this space for updates
                 </Box>}
 
                 {isConnected && isEligible && <Box
