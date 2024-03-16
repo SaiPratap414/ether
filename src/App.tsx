@@ -4,7 +4,7 @@ import DEV from "./pages/Homepage";
 import Figma from "./pages/Figma"; // Import the new page component
 import LoadingScreen from "./components/LoadingScreen";
 import { useLocation, useNavigate } from "react-router-dom"; // Import useNavigate and useLocation
-import { MintPage } from "./pages";
+import { MintPage, MintPageSuccess } from "./pages";
 
 
 function App() {
@@ -60,6 +60,7 @@ function App() {
         <Route path="/" element={<DEV onLoaded={handleLoadingComplete} />} />
         <Route path="/home" element={<DEV onLoaded={handleLoadingComplete} />} /> {/* Pass the handleLoadingComplete function as a prop */}
         <Route path = "/mint" element={<MintPage />} />
+        <Route path = "/mint/success" element={<MintPageSuccess />} />
       </Routes>
     </>
   );
