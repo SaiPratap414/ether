@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import SubwayPowerVector from "./SubwayPowerVector";
+// import SubwayPowerVector from "./SubwayPowerVector"; // Removed import
 import styles from "./FrameComponent.module.css";
 
 const FrameComponent: FunctionComponent = () => {
@@ -7,14 +7,14 @@ const FrameComponent: FunctionComponent = () => {
     <div className={styles.navParent} id="scroll-section">
       <div className={styles.nav}>
         <div className={styles.nav1}>
-          <SubwayPowerVector
+          {/* <SubwayPowerVector
             group3="/group-3-1.svg"
             propAlignSelf="unset"
             propFlexDirection="row"
             propFlex="unset"
             propAlignSelf1="stretch"
-          />
-          <div className={styles.twitterParent}>
+          /> */}
+          {/*<div className={styles.twitterParent}>
             <a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">
               <div className={styles.twitter}>twitter</div>
             </a>
@@ -23,7 +23,7 @@ const FrameComponent: FunctionComponent = () => {
             </a>
             <a href="#" className={styles.docs}>docs</a>
             <a href="#" className={styles.play}>play</a>
-          </div>
+          </div>*/}
         </div>
       </div>
       <div className={styles.acquiringOrbIs}>
