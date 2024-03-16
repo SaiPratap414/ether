@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Web3 from 'web3';
 
 import ABI from "../../constants/contractABI.json";
+import { useNavigate } from 'react-router-dom';
 
 const MintPageContainer = styled.div`
     
@@ -118,28 +119,23 @@ const MintPageContent = styled.div`
 
 const BtnContainer = styled.div`
     position: absolute;
-    top: 39vh; /* Adjusted position */
+    top: 0;
     left: 0;
     width: 100%;
-    height: 100px;
-    box-sizing: border-box;
+    height: 100vh;
+    height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    color: #ffffff;
     z-index: 999;
-    // background: red;
-    margin-top: 4vh; /* Optional: Keep this margin if needed */
+    color: #ffffff;
 
     button {
-        max-width: 150px;
+        max-width: 110px;
         text-align: center;
+        margin-top: 10px;
+        background: transparent;
     }
-
-    // @media screen and (max-width: 680px) {
-    //     margin-top: -1vh;
-    // }
 `
 
 
@@ -148,11 +144,14 @@ const Content = styled.div`
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: 45%;
+    bottom: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    @media screen and (max-width: 680px) {
+        bottom: 43%;
+    }
 `;
 
 const DisconnectButton = styled(Button)`
@@ -177,6 +176,10 @@ const MintPage = () => {
     const [sold, setSold] = useState<string>("0");
     const [total, setTotal] = useState<string>("850");
 
+    const [title, setTitle] = useState<string>("let the orb choose you")
+
+    const navigate = useNavigate();
+
     const [price, setPrice] = useState<number>(0);
 
     const ethereum = (window as any).ethereum;
@@ -189,6 +192,12 @@ const MintPage = () => {
     const extra_contract = new web3_extra.eth.Contract(ABI, contractAddress);
 
     React.useEffect(() => {
+        if (!isEligible) {
+            setTitle('Council is pondering')
+        }
+    }, [isEligible])
+
+    React.useEffect(() => {
         const fetchSold = async () => {
             const sold:string = ((await extra_contract.methods._sold_count().call()) as any).toString();
             const total:string = ((await extra_contract.methods._max_supply().call()) as any).toString();
@@ -198,6 +207,13 @@ const MintPage = () => {
 
         fetchSold();
     }, []);
+
+    React.useEffect(() => {
+        if(message === 'ALREADY MINTED') {
+            console.log(message);
+            navigate('../mint/success');
+        }
+    }, [message])
 
     React.useEffect(() => {
         const CheckEligibility = async () => {
@@ -257,6 +273,7 @@ const MintPage = () => {
                 });
 
                 console.log('Transaction successful:', result);
+                setMessage('ALREADY MINTED');
             } catch (error) {
                 console.error('Error minting:', error);
             }
@@ -316,10 +333,28 @@ const MintPage = () => {
                 <Li><a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">twitter</a></Li>
                 <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener">telegram</a></Li>
                 <Li><a href="#" className="consto">docs</a></Li>
+                <Li><a href="#" className="consto">PLAY</a></Li>
             </Box>
         </Navbar>
             <img src="./mint_page_bacground.png" alt='mint_page_img' />
             <Content>
+
+                {isConnected && isEligible && <Box
+                    sx={{
+                        fontSize: 'var(--font-size-s)',
+                        fontFamily: 'var(--font-krungthep)',
+                        background: "var(--color-black)",
+                        color: 'var(--color-white)',
+                        padding: '20px',
+                        textAlign: 'center',
+                        textTransform:'uppercase',
+                        marginTop: '-20px'
+                    }}
+                >
+                    <span style={{color: '#ffffff50'}}>{sold}</span>/{total} PASSES MINTED
+                    <br /> 
+                    <span style={{color: '#ffffff50'}}>WHITELIST ONLY</span>
+                </Box>}
                 
                 <Box
                     sx={{
@@ -333,9 +368,9 @@ const MintPage = () => {
                         }
                     }}
                 >
-                    let the orb choose you
+                    {title}
                 </Box>
-                <Box
+                {!isConnected && <Box
                     sx={{
                         fontSize: 'var(--font-size-xs)',
                         fontFamily: 'var(--font-krungthep)',
@@ -347,7 +382,36 @@ const MintPage = () => {
                     }}
                 >
                     [open for whitelist only]
-                </Box>
+                </Box>}
+
+                {isConnected && !isEligible && <Box
+                    sx={{
+                        fontSize: 'var(--font-size-xs)',
+                        fontFamily: 'var(--font-krungthep)',
+                        background: "var(--color-black)",
+                        color: 'var(--color-white)',
+                        padding: '20px',
+                        width: '200px',
+                        textTransform:'uppercase',
+                        marginTop: '-20px'
+                    }}
+                >
+                    You are not on the whitelist, watch this space for updates
+                </Box>}
+
+                {isConnected && isEligible && <Box
+                    sx={{
+                        fontSize: 'var(--font-size-xs)',
+                        fontFamily: 'var(--font-krungthep)',
+                        background: "var(--color-black)",
+                        color: 'var(--color-white)',
+                        padding: '20px',
+                        textTransform:'uppercase',
+                        marginTop: '-20px'
+                    }}
+                >
+                    [You are on the whitelist, mint now]
+                </Box>}
 
                 <Box
                     sx={{
@@ -356,37 +420,34 @@ const MintPage = () => {
                         color: 'var(--color-white)',
                         padding: '20px',
                         textTransform: 'uppercase',
-                        '@media screen and (max-width: 800px)': {
-                            fontSize: 'var(--font-size-5xl)'
-                        }
+                        marginTop: '-10px'
                     }}
                 >
-                    {isConnected && <> PRICE [{price}] ETH</>}
+                    {isConnected && <> PRICE [{price} ETH]</>}
                 </Box>
 
-
-                <BtnContainer>
-                    {!isConnected && account.length === 0 ? 
-                        <>
-                            <Button onClick={connect}>Connect Wallet</Button>
-                        </> 
-                        : 
-                        <>  
-                        {isConnecting ? <CircularProgress color="primary" /> : !isEligible ? <Button>{message}</Button> : <Button onClick={mint}>{message}</Button> }
-                        </>
-                    }
-                </BtnContainer>
             </Content>
         </MintPageContent>
         <WalletInfoSection>
 
-        {isConnected && account.length > 0 && (
-                <WalletAddress>{account} [{message}]</WalletAddress>
-        )}
+            {(isConnected && account.length > 0) ? (
+                    <WalletAddress>{account} [{message}]</WalletAddress>
+            ) : <WalletAddress>NOT CONNECTED</WalletAddress>}
 
-        {isConnected && <DisconnectButton onClick={disconnect}>Disconnect Wallet</DisconnectButton>}
+            {isConnected && <DisconnectButton onClick={disconnect}>Disconnect Wallet</DisconnectButton>}
 
-    </WalletInfoSection>
+        </WalletInfoSection>
+        <BtnContainer>
+            {!isConnected && account.length === 0 ? 
+                <>
+                    <Button onClick={connect}>Connect Wallet</Button>
+                </> 
+                : 
+                <>  
+                {isConnecting ? <CircularProgress color="primary" /> : !isEligible ? <Button>{message}</Button> : <Button onClick={mint}>{message}</Button> }
+                </>
+            }
+        </BtnContainer>
     </MintPageContainer>
     );
 };
