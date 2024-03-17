@@ -1,485 +1,538 @@
-import styled from 'styled-components';
-import SubwayPowerVector from '../../components/SubwayPowerVector';
-import { Box, CircularProgress } from '@mui/material'; // Updated import
-import React, { useState } from 'react';
-import Web3 from 'web3';
+import styled from "styled-components"
+import { useAccount, useConnections,useDisconnect } from "wagmi"
+import { useAccountModal } from "@rainbow-me/rainbowkit"
+import { useWeb3Signer } from "../../components/WalletConnector"
+import SubwayPowerVector from "../../components/SubwayPowerVector"
+import { Box, CircularProgress } from "@mui/material" // Updated import
+import React, { useState } from "react"
+import Web3 from "web3"
 
-import ABI from "../../constants/contractABI.json";
-import { useNavigate } from 'react-router-dom';
+import ABI from "../../constants/contractABI.json"
+import { useNavigate } from "react-router-dom"
+import ConnectWallet from "../../components/ConnectWallet"
 
-const MintPageContainer = styled.div`
-    
-`
+const MintPageContainer = styled.div``
 
 const WalletInfoSection = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    z-index: 1000;
-`;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+`
 
 const Navbar = styled.nav`
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 50px;
+  flex-wrap: wrap;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
-    position: absolute;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 20px 50px;
-    flex-wrap: wrap;
-    @media screen and (max-width: 700px) {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-    }
+    padding: 20px;
+  }
 `
 
 const Li = styled.li`
+  text-decoration: none;
+  color: #ffffff80;
+  display: block;
+  font-family: var(--font-jetbrains-mono);
+  a {
     text-decoration: none;
     color: #ffffff80;
     display: block;
     font-family: var(--font-jetbrains-mono);
-    a { 
-        text-decoration: none;
-        color: #ffffff80;
-        display: block;
-        font-family: var(--font-jetbrains-mono);
-        text-transform: uppercase;
-        position: relative;
-        &:hover {
-            text-decoration: underline;
-            color: #ffffff;
-            &.consto::after {
-                content: "coming soon";
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 0.8rem;
-                background-color: black;
-                color: white;
-                padding: 0.2rem 0.5rem;
-                border-radius: 0.2rem;
-                z-index: 1;
-            }
-        }
-    }
-
-    a:hover {
-        text-decoration: underline;
-        color: #ffffff;
-    }
-`;
-
-const WalletAddress = styled.div`
-    color: white;
-    font-family: var(--font-jetbrains-mono);
-    margin: 10px auto;
-    font-size: 14px;
-    @media screen and (max-width: 700px) {
-        margin: 20px auto;
-    }
-`;
-
-const Button = styled.button`
-    font-size: var(--font-size-s);
-    font-family: var(--font-krungthep);
-    color: #00000080;
-    transition: all .3s ease;
-    padding: 10px 20px;
-    border: none;
-    text-align: center;
-    cursor: pointer;
-    background: transparent;
     text-transform: uppercase;
-`;
-
-const MintPageContent = styled.div`
-    width: 100%;
-    height: 100vh;
     position: relative;
-    img {
-        width:100%;
-        height: 100%;
-        object-fit: cover;
+    &:hover {
+      text-decoration: underline;
+      color: #ffffff;
+      &.consto::after {
+        content: "coming soon";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.8rem;
+        background-color: black;
+        color: white;
+        padding: 0.2rem 0.5rem;
+        border-radius: 0.2rem;
+        z-index: 1;
+      }
     }
-`;
+  }
 
-const BtnContainer = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    height: 100svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
+  a:hover {
+    text-decoration: underline;
     color: #ffffff;
-
-    button {
-        max-width: 110px;
-        text-align: center;
-        margin-top: 10px;
-        background: transparent;
-    }
+  }
 `
 
+const WalletAddress = styled.div`
+  color: white;
+  font-family: var(--font-jetbrains-mono);
+  margin: 10px auto;
+  font-size: 14px;
+  @media screen and (max-width: 700px) {
+    margin: 20px auto;
+  }
+`
+
+const Button = styled.button`
+  font-size: var(--font-size-s);
+  font-family: var(--font-krungthep);
+  color: #00000080;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  background: transparent;
+  text-transform: uppercase;
+`
+
+const MintPageContent = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`
+
+const BtnContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  color: #ffffff;
+
+  button {
+    max-width: 110px;
+    text-align: center;
+    margin-top: 10px;
+    background: transparent;
+  }
+`
 
 const Content = styled.div`
-    height: 450px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    @media screen and (max-width: 680px) {
-        bottom: 43%;
-    }
-`;
+  height: 450px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @media screen and (max-width: 680px) {
+    bottom: 43%;
+  }
+`
 
 const DisconnectButton = styled(Button)`
-    color: #ffffff;
-    background: #000000;
-    max-width: 300px;
-    margin: 0 auto;
-    font-weight: bold;
-    transition: border 0.3s;
-    &:hover,
-    &:active {
-        border: 2px solid black;
-    }
-`;
+  color: #ffffff;
+  background: #000000;
+  max-width: 300px;
+  margin: 0 auto;
+  font-weight: bold;
+  transition: border 0.3s;
+  &:hover,
+  &:active {
+    border: 2px solid black;
+  }
+`
 
 const FollowButton = styled.button`
-    font-size: var(--font-size-xs);
-    font-family: var(--font-krungthep);
-    color: #ffffff;
-    background: #000000;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
-    text-transform: uppercase;
-    transition: all .3s ease;
-    &:hover {
-        text-decoration: underline;
-    }
-`;
+  font-size: var(--font-size-xs);
+  font-family: var(--font-krungthep);
+  color: #ffffff;
+  background: #000000;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  &:hover {
+    text-decoration: underline;
+  }
+`
 
 const MintPage = () => {
-    const [account, setAccount] = useState('');
-    const [isConnected, setIsConnected] = useState(false);
-    const [isEligible, setIsEligible] = useState(false);
-    const [message, setMessage] = useState('NOT ELIGIBLE');
-    const [isConnecting, setIsConnecting] = useState(false);
-    const [sold, setSold] = useState<string>("0");
-    const [total, setTotal] = useState<string>("850");
+  const [account, setAccount] = useState("")
+  const [isConnected, setIsConnected] = useState(false)
+  const [isEligible, setIsEligible] = useState(false)
+  const [message, setMessage] = useState("NOT ELIGIBLE")
+  const [isConnecting, setIsConnecting] = useState(false)
+  const [sold, setSold] = useState<string>("0")
+  const [total, setTotal] = useState<string>("850")
+  const [contract, setContract] = useState<any>()
+  const wagmiAccount = useAccount()
+  const disconnecthook = useDisconnect()
+  const {openAccountModal} = useAccountModal()
 
-    const [title, setTitle] = useState<string>("let the orb choose you")
+  ;(window as any).wagmiAccount = wagmiAccount
 
-    const navigate = useNavigate();
+  const [title, setTitle] = useState<string>("let the orb choose you")
 
-    const [price, setPrice] = useState<number>(0);
+  const navigate = useNavigate()
 
-    const ethereum = (window as any).ethereum;
+  const [price, setPrice] = useState<string>("0")
 
-    const web3 = new Web3(ethereum);
-    const web3_extra = new Web3('https://rpc.ankr.com/base');
-    const contractAddress = '0xE1Df0d4b0FdeD95fc98AD12CF7f1FedfeB666b99';
+  let web3: any = useWeb3Signer()
+  const web3_extra = new Web3("https://rpc.ankr.com/base")
+  const contractAddress = "0x1980A8103dA167ee656410f5E77FD15C50c51da4"
+  const extra_contract = new web3_extra.eth.Contract(ABI, contractAddress)
 
-    const contract = new web3.eth.Contract(ABI, contractAddress);
-    const extra_contract = new web3_extra.eth.Contract(ABI, contractAddress);
+  React.useEffect(() => {
+    if (isConnected && !isEligible) {
+      setTitle("Council is pondering")
+    } else {
+      setTitle("Let the orb choose you")
+    }
+  }, [isEligible, setIsEligible, isConnected])
 
-    React.useEffect(() => {
-        if (isConnected && !isEligible) {
-            setTitle('Council is pondering')
+  React.useEffect(() => {
+    if (!wagmiAccount.address){
+      setIsConnected(false)
+      setIsConnecting(false)
+      setIsEligible(false)
+      setMessage("NOT ELIGIBLE")
+      setAccount("")
+      return;
+    }
+    if (!web3) return;
+    setIsConnected(true)
+    setIsConnecting(false)
+    connectWalletCallback()
+  }, [wagmiAccount])
+
+  React.useEffect(() => {
+    const fetchSold = async () => {
+      const sold: string = (
+        (await extra_contract.methods._sold_count().call()) as any
+      ).toString()
+      const total: string = (
+        (await extra_contract.methods._max_supply().call()) as any
+      ).toString()
+      setSold(sold)
+      setTotal(total)
+    }
+
+    fetchSold()
+  }, [])
+
+  React.useEffect(() => {
+    if (message === "ALREADY MINTED") {
+      console.log(message)
+      navigate("../mint/success")
+    }
+  }, [message])
+
+  React.useEffect(() => {
+    const CheckEligibility = async () => {
+      if (!isConnected) return
+
+      try {
+        const accounts = await web3.eth.requestAccounts()
+        console.log("Accounts:", accounts)
+        const account = accounts[0]
+        console.log("Account:", account)
+        let contract = new web3.eth.Contract(ABI, contractAddress)
+        const whitelisted: boolean = await contract.methods
+          ._whitelisted_minters(account)
+          .call()
+        const hasclaimed: boolean = await contract.methods
+          ._hasClaimed(account)
+          .call()
+
+        const price: number = await contract.methods._price(account).call()
+        console.log("hasclaimed", hasclaimed)
+        console.log("whitelisted", whitelisted)
+        console.log("price", price)
+        if (price) {
+          setPrice(web3_extra.utils.fromWei(price, "ether"))
         }
-        else {
-            setTitle('Let the orb choose you')
-        }
-    }, [isEligible, setIsEligible, isConnected])
-
-    React.useEffect(() => {
-        const fetchSold = async () => {
-            const sold:string = ((await extra_contract.methods._sold_count().call()) as any).toString();
-            const total:string = ((await extra_contract.methods._max_supply().call()) as any).toString();
-            setSold(sold);
-            setTotal(total);
+        if (hasclaimed) {
+          setMessage("ALREADY MINTED")
+          setIsEligible(false)
+          return
         }
 
-        fetchSold();
-    }, []);
-
-    React.useEffect(() => {
-        if(message === 'ALREADY MINTED') {
-            console.log(message);
-            navigate('../mint/success');
+        if (whitelisted) {
+          setMessage("MINT")
+          setIsEligible(true)
+          return
         }
-    }, [message])
+      } catch (err) {
+        console.log(err)
+      }
+    }
 
-    React.useEffect(() => {
-        const CheckEligibility = async () => {
-            if (!isConnected) return;
+    CheckEligibility()
+  }, [isConnected, setIsConnected])
 
-            try {
-                const accounts = await web3.eth.requestAccounts();
-                const account = accounts[0];
-                console.log('Account:', account);
-                const whitelisted:boolean = await contract.methods._whitelisted_minters(account).call();
-                const hasclaimed:boolean = await contract.methods._hasClaimed(account).call();
-
-                const price:number = await contract.methods._price(account).call();
-
-                if (hasclaimed) {
-                    setMessage('ALREADY MINTED');
-                    setIsEligible(false);
-                    return;
-                }
-
-                if (whitelisted) {
-                    setMessage('MINT');
-                    setIsEligible(true);
-                    return;
-                }
-
-                if (price) {
-                    setPrice(Number(price)/10**18)
-                }
-
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        CheckEligibility();
-    }, [isConnected, setIsConnected]);
-
-    const mint = async () => {
-        if (!isEligible) return;
-        if (isConnected && account.length !== 0) {
-            try {
-                const accounts = await web3.eth.requestAccounts();
-                const account = accounts[0];
-                let transactionValue:string;
-                try {
-                    console.log(await contract.methods._price().call());
-                    transactionValue = await contract.methods._price().call(); 
-                } catch {
-                    transactionValue = web3.utils.toWei('0.001', 'ether');
-                    console.log('Error fetching fee');
-                }
-                console.log('Transaction value:', transactionValue);
-                const result = await contract.methods.mint(1).send({
-                    from: account,
-                    value: transactionValue
-                });
-
-                console.log('Transaction successful:', result);
-                setMessage('ALREADY MINTED');
-            } catch (error) {
-                console.error('Error minting:', error);
-            }
-        } else {
-            return ;
+  const mint = async () => {
+    if (!isEligible) return
+    if (isConnected && account.length !== 0) {
+      try {
+        const accounts = await web3.eth.requestAccounts()
+        const account = accounts[0]
+        setMessage("MINTING")
+        let contract = new web3.eth.Contract(ABI, contractAddress)
+        let transactionValue: string
+        try {
+          console.log(await contract.methods._price().call())
+          transactionValue = await contract.methods._price().call()
+        } catch {
+          transactionValue = web3_extra.utils.toWei("0.001", "ether")
+          console.log("Error fetching fee")
         }
-    };
+        console.log("Transaction value:", transactionValue)
+        const result = await contract.methods.mint(1).send({
+          from: account,
+          value: transactionValue,
+        })
 
-    const connect = async () => {
-        if (ethereum) {
-            try {
-                setIsConnecting(true);
-                const chainId = await ethereum.request({ method: 'eth_chainId' });
-                console.log('Chain ID:', chainId);
-                if (chainId !== "0x2105") {
-                    await ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x2105' }] });
-                }
+        console.log("Transaction successful:", result)
+        setMessage("ALREADY MINTED")
+      } catch (error) {
+        console.error("Error minting:", error)
+      }
+    } else {
+      return
+    }
+  }
 
-                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-                setAccount(accounts[0]);
-                setIsConnected(true);
-                setIsConnecting(false);
-            } catch (err) {
-                console.error(err);
-                setIsConnecting(false);
-                setIsConnected(false);
-            }
-        }
-    };
+  const connectWalletCallback = async () => {
+    const accounts = await web3.eth.requestAccounts()
+    setAccount(accounts[0])
+  }
 
-    const disconnect = () => {
-        setIsConnected(false);
-        setAccount('');
-        setIsEligible(false);
-        setMessage('NOT ELIGIBLE');
-    };
+  const disconnect = () => {
+    // disconnecthook.disconnect();
+    (openAccountModal as any)()
+    // setIsConnected(false)
+    // setAccount("")
+    // setIsEligible(false)
+    // setMessage("NOT ELIGIBLE")
+  }
 
-    const followTwitter = () => {
-        window.open('https://twitter.com/etherorbxyz', '_blank');
-    };
+  const followTwitter = () => {
+    window.open("https://twitter.com/etherorbxyz", "_blank")
+  }
 
-    return (
-        <MintPageContainer>
-        <MintPageContent>
+  return (
+    <MintPageContainer>
+      <MintPageContent>
         <Navbar>
-            <SubwayPowerVector
-                group3="/group-3-1.svg"
-                propAlignSelf="unset"
-                propFlexDirection="row"
-                propFlex="unset"
-                propAlignSelf1="stretch"
-            />
+          <SubwayPowerVector
+            group3="/group-3-1.svg"
+            propAlignSelf="unset"
+            propFlexDirection="row"
+            propFlex="unset"
+            propAlignSelf1="stretch"
+          />
 
-            <Box sx={{
-                display: 'flex',
-                gap: '20px',
-                fontFamily: "var(--font-jetbrains-mono), sans-serif",
-                minWidth: '200px'
-                
-            }}>
-                <Li><a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">twitter</a></Li>
-                <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener">telegram</a></Li>
-                <Li><a href="#" className="consto">docs</a></Li>
-                <Li><a href="#" className="consto">PLAY</a></Li>
-            </Box>
-        </Navbar>
-            <img src="./mint_page_bacground.png" alt='mint_page_img' />
-            <Content>
-
-                {isConnected && isEligible && <Box
-                    sx={{
-                        fontSize: 'var(--font-size-s)',
-                        fontFamily: 'var(--font-krungthep)',
-                        background: "var(--color-black)",
-                        color: 'var(--color-white)',
-                        padding: '20px',
-                        textAlign: 'center',
-                        textTransform:'uppercase',
-                        marginTop: '-20px'
-                    }}
-                >
-                    <span style={{color: '#ffffff50'}}>{sold}</span>/{total} PASSES MINTED
-                    <br /> 
-                    <span style={{color: '#ffffff50'}}>WHITELIST ONLY</span>
-                </Box>}
-                
-                <Box
-                    sx={{
-                        fontSize: 'var(--font-size-29xl)',
-                        fontFamily: 'var(--font-krungthep)',
-                        color: 'var(--color-white)',
-                        padding: '20px',
-                        textTransform: 'uppercase',
-                        '@media screen and (max-width: 800px)': {
-                            fontSize: 'var(--font-size-5xl)'
-                        }
-                    }}
-                >
-                    {title}
-                </Box>
-                {!isConnected && <Box
-                    sx={{
-                        fontSize: 'var(--font-size-xs)',
-                        fontFamily: 'var(--font-krungthep)',
-                        background: "var(--color-black)",
-                        color: 'var(--color-white)',
-                        padding: '20px',
-                        textTransform:'uppercase',
-                        marginTop: '-20px'
-                    }}
-                >
-                    [open for whitelist only]
-                </Box>}
-
-                {isConnected && !isEligible && (
-    <>
-        <Box
+          <Box
             sx={{
-                fontSize: 'var(--font-size-xs)',
-                fontFamily: 'var(--font-krungthep)',
-                background: "var(--color-black)",
-                color: 'var(--color-white)',
-                padding: '20px',
-                width: '200px',
-                textTransform:'uppercase',
-                marginTop: '-20px'
+              display: "flex",
+              gap: "20px",
+              fontFamily: "var(--font-jetbrains-mono), sans-serif",
+              minWidth: "200px",
             }}
-        >
-            You are not on the whitelist, watch this space for updates
-        </Box>
-        <FollowButton onClick={followTwitter}>Follow on X</FollowButton>
+          >
+            <Li>
+              <a
+                href="https://twitter.com/etherorbxyz"
+                target="_blank"
+                rel="noopener"
+              >
+                twitter
+              </a>
+            </Li>
+            <Li>
+              <a href="https://t.me/EtherOrb404" target="_blank" rel="noopener">
+                telegram
+              </a>
+            </Li>
+            <Li>
+              <a href="#" className="consto">
+                docs
+              </a>
+            </Li>
+            <Li>
+              <a href="#" className="consto">
+                PLAY
+              </a>
+            </Li>
+          </Box>
+        </Navbar>
+        <img src="./mint_page_bacground.png" alt="mint_page_img" />
+        <Content>
+          {isConnected && isEligible && (
+            <Box
+              sx={{
+                fontSize: "var(--font-size-s)",
+                fontFamily: "var(--font-krungthep)",
+                background: "var(--color-black)",
+                color: "var(--color-white)",
+                padding: "20px",
+                textAlign: "center",
+                textTransform: "uppercase",
+                marginTop: "-20px",
+              }}
+            >
+              <span style={{ color: "#ffffff50" }}>{sold}</span>/{total} PASSES
+              MINTED
+              <br />
+              <span style={{ color: "#ffffff50" }}>WHITELIST ONLY</span>
+            </Box>
+          )}
 
-    </>
-)}
+          <Box
+            sx={{
+              fontSize: "var(--font-size-29xl)",
+              fontFamily: "var(--font-krungthep)",
+              color: "var(--color-white)",
+              padding: "20px",
+              textTransform: "uppercase",
+              "@media screen and (max-width: 800px)": {
+                fontSize: "var(--font-size-5xl)",
+              },
+            }}
+          >
+            {title}
+          </Box>
+          {!isConnected && (
+            <Box
+              sx={{
+                fontSize: "var(--font-size-xs)",
+                fontFamily: "var(--font-krungthep)",
+                background: "var(--color-black)",
+                color: "var(--color-white)",
+                padding: "20px",
+                textTransform: "uppercase",
+                marginTop: "-20px",
+              }}
+            >
+              [open for whitelist only]
+            </Box>
+          )}
 
+          {isConnected && !isEligible && (
+            <>
+              <Box
+                sx={{
+                  fontSize: "var(--font-size-xs)",
+                  fontFamily: "var(--font-krungthep)",
+                  background: "var(--color-black)",
+                  color: "var(--color-white)",
+                  padding: "20px",
+                  width: "200px",
+                  textTransform: "uppercase",
+                  marginTop: "-20px",
+                }}
+              >
+                You are not on the whitelist, watch this space for updates
+              </Box>
+              <FollowButton onClick={followTwitter}>Follow on X</FollowButton>
+            </>
+          )}
 
+          {isConnected && isEligible && (
+            <Box
+              sx={{
+                fontSize: "var(--font-size-xs)",
+                fontFamily: "var(--font-krungthep)",
+                background: "var(--color-black)",
+                color: "var(--color-white)",
+                padding: "20px",
+                textTransform: "uppercase",
+                marginTop: "-20px",
+              }}
+            >
+              [You are on the whitelist, mint now]
+            </Box>
+          )}
 
-                {isConnected && isEligible && <Box
-                    sx={{
-                        fontSize: 'var(--font-size-xs)',
-                        fontFamily: 'var(--font-krungthep)',
-                        background: "var(--color-black)",
-                        color: 'var(--color-white)',
-                        padding: '20px',
-                        textTransform:'uppercase',
-                        marginTop: '-20px'
-                    }}
-                >
-                    [You are on the whitelist, mint now]
-                </Box>}
+          <Box
+            sx={{
+              fontSize: "var(--font-size-xs)",
+              fontFamily: "var(--font-krungthep)",
+              color: "var(--color-white)",
+              padding: "20px",
+              textTransform: "uppercase",
+              marginTop: "-10px",
+            }}
+          >
+            {isConnected && <> PRICE [{price} ETH]</>}
+          </Box>
+        </Content>
+      </MintPageContent>
+      <WalletInfoSection>
+        {isConnected && account.length > 0 ? (
+          <WalletAddress>
+            {account} [{message}]
+          </WalletAddress>
+        ) : (
+          <WalletAddress>NOT CONNECTED</WalletAddress>
+        )}
 
-                <Box
-                    sx={{
-                        fontSize: 'var(--font-size-xs)',
-                        fontFamily: 'var(--font-krungthep)',
-                        color: 'var(--color-white)',
-                        padding: '20px',
-                        textTransform: 'uppercase',
-                        marginTop: '-10px'
-                    }}
-                >
-                    {isConnected && <> PRICE [{price} ETH]</>}
-                </Box>
-
-            </Content>
-        </MintPageContent>
-        <WalletInfoSection>
-
-            {(isConnected && account.length > 0) ? (
-                    <WalletAddress>{account} [{message}]</WalletAddress>
-            ) : <WalletAddress>NOT CONNECTED</WalletAddress>}
-
-            {isConnected && <DisconnectButton onClick={disconnect}>Disconnect Wallet</DisconnectButton>}
-
-        </WalletInfoSection>
-        <BtnContainer>
-            {!isConnected && account.length === 0 ? 
-                <>
-                    <Button onClick={connect}>Connect Wallet</Button>
-                </> 
-                : 
-                <>  
-                {isConnecting ? <CircularProgress color="primary" /> : !isEligible ? <Button>{message}</Button> : <Button onClick={mint}>{message}</Button> }
-                </>
-            }
-        </BtnContainer>
+        {isConnected && (
+          <DisconnectButton onClick={disconnect}>
+            Disconnect Wallet
+          </DisconnectButton>
+        )}
+      </WalletInfoSection>
+      <BtnContainer>
+        {!isConnected && account.length === 0 ? (
+          <>
+            <ConnectWallet
+              onConnect={connectWalletCallback}
+              onClickCallback={connectWalletCallback}
+              message={message}
+            />
+          </>
+        ) : (
+          <>
+            {isConnecting ? (
+              <CircularProgress color="primary" />
+            ) : !isEligible ? (
+              <Button>{message}</Button>
+            ) : (
+              <Button onClick={mint}>{message}</Button>
+            )}
+          </>
+        )}
+      </BtnContainer>
     </MintPageContainer>
-    );
-};
+  )
+}
 
-export default MintPage;
+export default MintPage
