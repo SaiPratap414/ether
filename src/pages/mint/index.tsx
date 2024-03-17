@@ -23,7 +23,7 @@ const WalletInfoSection = styled.div`
     text-align: center;
     margin-bottom: 20px;
     box-sizing: border-box;
-    z-index: 999;
+    z-index: 1000;
 `;
 
 const Navbar = styled.nav`
@@ -207,10 +207,13 @@ const MintPage = () => {
     const extra_contract = new web3_extra.eth.Contract(ABI, contractAddress);
 
     React.useEffect(() => {
-        if (!isEligible) {
+        if (isConnected && !isEligible) {
             setTitle('Council is pondering')
         }
-    }, [isEligible])
+        else {
+            setTitle('Let the orb choose you')
+        }
+    }, [isEligible, setIsEligible, isConnected])
 
     React.useEffect(() => {
         const fetchSold = async () => {
