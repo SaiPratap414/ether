@@ -203,9 +203,14 @@ const MintPageSuccess = () => {
         </PassImageWrapper> 
 
         <PassContent>
-            <ShareButton onClick={() => window.location.href="https://x.com"}>SHARE ON X</ShareButton>
+            <a
+                href="https://twitter.com/intent/tweet?text=Some%20Custom%20Text&url=https://store-images.s-microsoft.com/image/apps.60673.9007199266244427.4d45042b-d7a5-4a83-be66-97779553b24d.5d82b7eb-9734-4b51-b65d-a0383348ab1b&hashtags=etherorb,example"
+                data-size="large"
+            ><ShareButton >SHARE ON X</ShareButton></a>
             <WalletAddress>[CONNECTED]</WalletAddress>
         </PassContent>
+
+        {/*  onClick={() => window.location.href="https://twitter.com/intent/tweet?text="} */}
     </MintPageSuccessContainer>
   )
 }
