@@ -167,6 +167,21 @@ const DisconnectButton = styled(Button)`
     }
 `;
 
+const FollowButton = styled.button`
+    font-size: var(--font-size-xs);
+    font-family: var(--font-krungthep);
+    color: #ffffff;
+    background: #000000;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    text-transform: uppercase;
+    transition: all .3s ease;
+    &:hover {
+        text-decoration: underline;
+    }
+`;
+
 const MintPage = () => {
     const [account, setAccount] = useState('');
     const [isConnected, setIsConnected] = useState(false);
@@ -311,6 +326,10 @@ const MintPage = () => {
         setMessage('NOT ELIGIBLE');
     };
 
+    const followTwitter = () => {
+        window.open('https://twitter.com/etherorbxyz', '_blank');
+    };
+
     return (
         <MintPageContainer>
         <MintPageContent>
@@ -384,20 +403,28 @@ const MintPage = () => {
                     [open for whitelist only]
                 </Box>}
 
-                {isConnected && !isEligible && <Box
-                    sx={{
-                        fontSize: 'var(--font-size-xs)',
-                        fontFamily: 'var(--font-krungthep)',
-                        background: "var(--color-black)",
-                        color: 'var(--color-white)',
-                        padding: '20px',
-                        width: '200px',
-                        textTransform:'uppercase',
-                        marginTop: '-20px'
-                    }}
-                >
-                    You are not on the whitelist, watch this space for updates
-                </Box>}
+                {isConnected && !isEligible && (
+    <>
+        <Box
+            sx={{
+                fontSize: 'var(--font-size-xs)',
+                fontFamily: 'var(--font-krungthep)',
+                background: "var(--color-black)",
+                color: 'var(--color-white)',
+                padding: '20px',
+                width: '200px',
+                textTransform:'uppercase',
+                marginTop: '-20px'
+            }}
+        >
+            You are not on the whitelist, watch this space for updates
+        </Box>
+        <FollowButton onClick={followTwitter}>Follow on X</FollowButton>
+
+    </>
+)}
+
+
 
                 {isConnected && isEligible && <Box
                     sx={{
