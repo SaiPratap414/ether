@@ -310,7 +310,7 @@ const MintPage = () => {
           console.log(await contract.methods._price().call())
           transactionValue = await contract.methods._price().call()
         } catch {
-          transactionValue = web3_extra.utils.toWei("0.001", "ether")
+          transactionValue = web3_extra.utils.toWei("0.05", "ether")
           console.log("Error fetching fee")
         }
         console.log("Transaction value:", transactionValue)
