@@ -125,7 +125,6 @@ const BtnContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
