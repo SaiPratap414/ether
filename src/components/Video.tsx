@@ -254,8 +254,8 @@ const Video: React.FunctionComponent = () => {
               <div className={styles.putContractAddress}></div>
               <button className={styles.ponderAcquireOrbs} onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)}>
                 <div className={styles.howToFrame}>
-                     {/* <div className={styles.buyOrb} onClick={() => navigate("./mint")}>WHITELIST MINT</div> */}
-                     <div className={styles.buyOrb}>WHITELIST MINT</div>
+                     { <div className={styles.buyOrb} onClick={() => navigate("./mint")}>WHITELIST MINT</div>}
+                    
                      
                 </div>
               </button>
