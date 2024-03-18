@@ -181,7 +181,7 @@ const MintPageSuccess = () => {
                 >
                     welcome to the cabal
                 </Box>
-            <img src="/81de590d633d15456c0cb70408d74b19.png" />
+            <video src="/mint.MP4" autoPlay loop muted />
             <Box
                 sx={{
                     fontSize: 'var(--font-size-s)',
