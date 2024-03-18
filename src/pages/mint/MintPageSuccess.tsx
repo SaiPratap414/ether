@@ -145,10 +145,9 @@ const WalletAddress = styled.div`
 
 const generateTwitterShareUrl = () => {
     const text = encodeURIComponent("Just minted @etherorbxyz Orb Cabal 404 token and joined the ranks of Ponderooors!");
-    const mintPageUrl = encodeURIComponent("https://www.etherorb.xyz/mint"); // URL to your mint page
-    return `https://twitter.com/intent/tweet?text=${text}&url=${mintPageUrl}`;
+    const videoUrl = encodeURIComponent("https://vimeo.com/924644629?share=copy"); // Vimeo video URL
+    return `https://twitter.com/intent/tweet?text=${text}&url=${videoUrl}`;
 };
-
 
 
 
