@@ -200,7 +200,7 @@ const MintPageSuccess = () => {
                 <Box
                     sx={{
                         fontSize: 'var(--font-size-s)',
-                        width: '300px',
+                        width: '500px',
                         margin: '30px',
                         textAlign: 'center',
                         fontFamily: 'var(--font-jetbrains-mono)',
