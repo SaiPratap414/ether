@@ -145,9 +145,12 @@ const WalletAddress = styled.div`
 
 const generateTwitterShareUrl = () => {
     const text = encodeURIComponent("Just minted @etherorbxyz Orb Cabal 404 token and joined the ranks of Ponderooors!");
-    const videoUrl = encodeURIComponent("https://vimeo.com/924631119?share=copy"); // Vimeo video URL
-    return `https://twitter.com/intent/tweet?text=${text}&url=${videoUrl}`;
+    const mintPageUrl = encodeURIComponent("https://www.etherorb.xyz/mint"); // URL to your mint page
+    return `https://twitter.com/intent/tweet?text=${text}&url=${mintPageUrl}`;
 };
+
+
+
 
 
 const MintPageSuccess = () => {
@@ -210,7 +213,8 @@ const MintPageSuccess = () => {
                         }
                     }}
                 >
-                    orb token will be airdropped upon token launch
+                    You successfully minted Orb Cabal 404 token. 
+Holding this will grant a 1:1 airdrop of Orb token at TGE
                 </Box>
             </PassImageWrapper> 
 

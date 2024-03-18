@@ -207,7 +207,7 @@ const MintPage = () => {
 
   let web3: any = useWeb3Signer()
   const web3_extra = new Web3("https://rpc.ankr.com/base")
-  const contractAddress = "0x19c92bed563744D1bcE6f04EB32a972Fa03FEeD4"
+  const contractAddress = "0xE89875C01571bB3e9b62B44B87BF12208A4e52Ad"
   const extra_contract = new web3_extra.eth.Contract(ABI, contractAddress)
 
   React.useEffect(() => {
