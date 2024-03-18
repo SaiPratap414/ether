@@ -144,10 +144,11 @@ const WalletAddress = styled.div`
 `;
 
 const generateTwitterShareUrl = () => {
-    const text = encodeURIComponent("Just minted my Orb Cabal 404 token and joined the ranks of Ponderooors! #etherorb #example");
-    const url = encodeURIComponent("https://example.com"); // Replace with your video URL
-    return `https://twitter.com/intent/tweet?text=${text}&url=${url}&hashtags=etherorb,example`;
+    const text = encodeURIComponent("Just minted @etherorbxyz Orb Cabal 404 token and joined the ranks of Ponderooors!");
+    const videoUrl = encodeURIComponent("https://vimeo.com/924631119?share=copy"); // Vimeo video URL
+    return `https://twitter.com/intent/tweet?text=${text}&url=${videoUrl}`;
 };
+
 
 const MintPageSuccess = () => {
     const twitterShareUrl = generateTwitterShareUrl();
