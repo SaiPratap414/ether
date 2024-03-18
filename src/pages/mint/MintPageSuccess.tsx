@@ -197,8 +197,7 @@ const MintPageSuccess = () => {
                     }
                 }}
             >
-                orb token will be airdropped
-                upon token launch
+                This token will grant an airdrop (1:1) of the main token at TGE
             </Box>
         </PassImageWrapper> 
 

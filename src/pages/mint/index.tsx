@@ -188,6 +188,7 @@ const MintPage = () => {
   const [isConnected, setIsConnected] = useState(false)
   const [isEligible, setIsEligible] = useState(false)
   const [message, setMessage] = useState("NOT ELIGIBLE")
+  const [updateMessage, setUpdateMessage] = useState("You are not on the whitelist, watch this space for updates")
   const [isConnecting, setIsConnecting] = useState(false)
   const [sold, setSold] = useState<string>("0")
   const [total, setTotal] = useState<string>("850")
@@ -206,7 +207,7 @@ const MintPage = () => {
 
   let web3: any = useWeb3Signer()
   const web3_extra = new Web3("https://rpc.ankr.com/base")
-  const contractAddress = "0x1980A8103dA167ee656410f5E77FD15C50c51da4"
+  const contractAddress = "0x19c92bed563744D1bcE6f04EB32a972Fa03FEeD4"
   const extra_contract = new web3_extra.eth.Contract(ABI, contractAddress)
 
   React.useEffect(() => {
@@ -264,6 +265,13 @@ const MintPage = () => {
         const account = accounts[0]
         console.log("Account:", account)
         let contract = new web3.eth.Contract(ABI, contractAddress)
+        const mintEnabled = await contract.methods._mintEnabled().call()
+        if (!mintEnabled){
+          setMessage("Coming Soon");
+        }
+        const guranteedWhitelisted:boolean = await contract.methods
+          ._guranteed_minters(account)
+          .call()
         const whitelisted: boolean = await contract.methods
           ._whitelisted_minters(account)
           .call()
@@ -283,10 +291,34 @@ const MintPage = () => {
           setIsEligible(false)
           return
         }
-
-        if (whitelisted) {
+        if (guranteedWhitelisted) {
+          if (!mintEnabled) {
+            setUpdateMessage("You're on the whitelist,   Your mints starts at 4 PM UTC")
+            return;
+          }
           setMessage("MINT")
           setIsEligible(true)
+          return
+        }
+
+        if (whitelisted) {
+          if (!mintEnabled) {
+            setUpdateMessage("You're on the whitelist, Your mints starts at 6 PM UTC")
+            return;
+          }
+          let start_time = (await contract.methods._startTime().call()).toString()*(1000)
+          let now = Date.now()
+          // if now - start_time is more then 2 hours enable else diosable
+          console.log("Start time", start_time)
+          let time_until_wait = 2*60*60*1000;
+          if (now - start_time > time_until_wait){
+            setMessage("MINT")
+            setIsEligible(true)
+            return
+          }
+          setMessage("Coming Soon")
+          setUpdateMessage("You're on the whitelist, Your mints starts at 6 PM UTC")
+          setIsEligible(false)
           return
         }
       } catch (err) {
@@ -459,9 +491,9 @@ const MintPage = () => {
                   marginTop: "-20px",
                 }}
               >
-                You are not on the whitelist, watch this space for updates
+                {updateMessage}
               </Box>
-              <FollowButton onClick={followTwitter}>Follow on X</FollowButton>
+              {/* <FollowButton onClick={followTwitter}>Follow on X</FollowButton> */}
             </>
           )}
 
