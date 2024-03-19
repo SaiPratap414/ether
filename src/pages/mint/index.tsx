@@ -558,26 +558,28 @@ const MintPage = () => {
         )}
       </WalletInfoSection>
       <BtnContainer>
-        {!isConnected && account.length === 0 ? (
-          <>
-            <ConnectWallet
-              onConnect={connectWalletCallback}
-              onClickCallback={connectWalletCallback}
-              message={message}
-            />
-          </>
-        ) : (
-          <>
-            {isConnecting ? (
-              <CircularProgress color="primary" />
-            ) : !isEligible ? (
-              <Button>{message}</Button>
-            ) : (
-              <Button onClick={mint}>{message}</Button>
-            )}
-          </>
-        )}
-      </BtnContainer>
+  {!isConnected && account.length === 0 ? (
+    <>
+      <ConnectWallet
+        onConnect={connectWalletCallback}
+        onClickCallback={connectWalletCallback}
+        message={message}
+      />
+    </>
+  ) : (
+    <>
+      {isConnecting ? (
+        <CircularProgress color="primary" />
+      ) : (
+        <>
+          <Button disabled>Minting Closed</Button> // 
+           
+        </>
+      )}
+    </>
+  )}
+</BtnContainer>
+
   
       {/* New section for mint quantity */}
       <Box
