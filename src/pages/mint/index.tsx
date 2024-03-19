@@ -514,7 +514,7 @@ const MintPage = () => {
               sx={{
                 fontSize: "var(--font-size-xs)",
                 fontFamily: "var(--font-krungthep)",
-                background: "var(--color-black)",
+                
                 color: "var(--color-white)",
                 padding: "20px",textTransform: "uppercase",
                 marginTop: "-20px",
