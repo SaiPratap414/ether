@@ -187,6 +187,7 @@ const MintPage = () => {
   const [isConnected, setIsConnected] = useState(false)
   const [isEligible, setIsEligible] = useState(false)
   const [message, setMessage] = useState("NOT ELIGIBLE")
+  const [mintedAmount, setMintedAmount] = useState(0)
   const [updateMessage, setUpdateMessage] = useState("You are not on the whitelist, watch this space for updates")
   const [isConnecting, setIsConnecting] = useState(false)
   const [sold, setSold] = useState<string>("0")
@@ -207,7 +208,7 @@ const MintPage = () => {
 
   let web3: any = useWeb3Signer()
   const web3_extra = new Web3("https://rpc.ankr.com/base")
-  const contractAddress = "0xE89875C01571bB3e9b62B44B87BF12208A4e52Ad"
+  const contractAddress = "0x4cDb78d79adB7FE0735C6676921b98d1b4749837"
   const extra_contract = new web3_extra.eth.Contract(ABI, contractAddress)
 
   React.useEffect(() => {
@@ -275,20 +276,24 @@ const MintPage = () => {
         const whitelisted: boolean = await contract.methods
           ._whitelisted_minters(account)
           .call()
-        const hasclaimed: boolean = await contract.methods
-          ._hasClaimed(account)
-          .call()
-
+        console.log("Whitelisted:", whitelisted)
+        const mintedAmount: number =  await contract.methods._minted_amount(account).call()
+        setMintedAmount(mintedAmount);
         const price: number = await contract.methods._price(account).call()
-        console.log("hasclaimed", hasclaimed)
+        const isPublic: boolean = await contract.methods._isPublic().call()
         console.log("whitelisted", whitelisted)
         console.log("price", price)
         if (price) {
           setPrice(web3_extra.utils.fromWei(price, "ether"))
         }
-        if (hasclaimed) {
+        if (mintedAmount == 3) {
           setMessage("ALREADY MINTED")
           setIsEligible(false)
+          return
+        }
+        if (isPublic) {
+          setMessage("MINT")
+          setIsEligible(true)
           return
         }
         if (guranteedWhitelisted) {
@@ -306,20 +311,9 @@ const MintPage = () => {
             setUpdateMessage("You're on the whitelist, Your mints starts at 6 PM UTC")
             return;
           }
-          let start_time = (await contract.methods._startTime().call()).toString()*(1000)
-          let now = Date.now()
-          // if now - start_time is more then 2 hours enable else diosable
-          console.log("Start time", start_time)
-          let time_until_wait = 2*60*60*1000;
-          if (now - start_time > time_until_wait){
             setMessage("MINT")
             setIsEligible(true)
             return
-          }
-          setMessage("Coming Soon")
-          setUpdateMessage("You're on the whitelist, Your mints starts at 6 PM UTC")
-          setIsEligible(false)
-          return
         }
       } catch (err) {
         console.log(err)
@@ -355,12 +349,14 @@ const MintPage = () => {
         try {
           console.log(await contract.methods._price().call())
           transactionValue = await contract.methods._price().call()
+          let price = web3_extra.utils.fromWei(transactionValue, "ether")
+          transactionValue = web3_extra.utils.toWei((Number(price) * mintQuantity).toFixed(2), "ether")
         } catch {
-          transactionValue = web3_extra.utils.toWei("0.05", "ether")
+          transactionValue = web3_extra.utils.toWei((Number(price) * mintQuantity).toFixed(2), "ether")
           console.log("Error fetching fee")
         }
         console.log("Transaction value:", transactionValue)
-        const result = await contract.methods.mint(1).send({
+        const result = await contract.methods.mint(mintQuantity).send({
           from: account,
           value: transactionValue,
         })
@@ -525,6 +521,8 @@ const MintPage = () => {
               }}
             >
               [You are on the whitelist, mint now]
+              <br/>
+              <p>{"    "}</p>You've Minted {mintedAmount.toString()} of 3 ORBS 
             </Box>
           )}
           <Box
