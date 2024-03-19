@@ -149,9 +149,6 @@ const generateTwitterShareUrl = () => {
     return `https://twitter.com/intent/tweet?text=${text}&url=${videoUrl}`;
 };
 
-
-
-
 const MintPageSuccess = () => {
     const twitterShareUrl = generateTwitterShareUrl();
 
