@@ -132,7 +132,11 @@ const ShareButton = styled.button`
   &:active {
     border: 1px solid black;
   }
+  &:focus {
+    outline: none; /* Added to remove focus outline */
+  }
 `;
+
 
 const WalletAddress = styled.div`
   color: white;
