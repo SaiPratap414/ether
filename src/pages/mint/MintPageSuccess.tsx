@@ -209,7 +209,7 @@ const MintPageSuccess = () => {
   const toggleConnection = () => {
     if (connected) {
       // Disconnect wallet if already connected
-      disconnect(); // Call the disconnect function to disconnect
+      disconnect; // Call the disconnect function to disconnect
     }
     setConnected((prevState) => !prevState); // Toggle connection status
   };
@@ -305,7 +305,7 @@ const MintPageSuccess = () => {
           <ShareButton>SHARE ON X</ShareButton>
         </a>
         <WalletAddress onClick={toggleConnection}>
-          {connected ? "CONNECTED" : "NOT CONNECTED"}
+          {connected ? "CONNECTED" : "DISCONNECTED"}
         </WalletAddress>
       </PassContent>
     </MintPageSuccessContainer>
