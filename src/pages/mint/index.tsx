@@ -3,7 +3,7 @@ import { useAccount, useConnections,useDisconnect } from "wagmi"
 import { useAccountModal } from "@rainbow-me/rainbowkit"
 import { useWeb3Signer } from "../../components/WalletConnector"
 import SubwayPowerVector from "../../components/SubwayPowerVector"
-import { Box, CircularProgress, Typography } from "@mui/material" // Updated import
+import { Box, CircularProgress } from "@mui/material" // Updated import
 import React, { useState } from "react"
 import Web3 from "web3"
 
@@ -195,7 +195,6 @@ const MintPage = () => {
   const wagmiAccount = useAccount()
   const disconnecthook = useDisconnect()
   const {openAccountModal} = useAccountModal()
-  const [mintQuantity, setMintQuantity] = useState(1);
 
   ;(window as any).wagmiAccount = wagmiAccount
 
@@ -324,24 +323,10 @@ const MintPage = () => {
       } catch (err) {
         console.log(err)
       }
-      
     }
 
     CheckEligibility()
-  }, [isConnected, setIsConnected]);
-
-  const increaseMintQuantity = () => {
-    if (mintQuantity < 3) {
-      setMintQuantity(mintQuantity + 1);
-    }
-  };
-
-  // Function to handle decreasing mint quantity
-  const decreaseMintQuantity = () => {
-    if (mintQuantity > 1) {
-      setMintQuantity(mintQuantity - 1);
-    }
-  };
+  }, [isConnected, setIsConnected])
 
   const mint = async () => {
     if (!isEligible) return
@@ -364,6 +349,7 @@ const MintPage = () => {
           from: account,
           value: transactionValue,
         })
+
         console.log("Transaction successful:", result)
         setMessage("ALREADY MINTED")
       } catch (error) {
@@ -380,12 +366,12 @@ const MintPage = () => {
   }
 
   const disconnect = () => {
-    disconnecthook.disconnect();
+    // disconnecthook.disconnect();
     (openAccountModal as any)()
-    setIsConnected(false)
-    setAccount("")
-    setIsEligible(false)
-    setMessage("NOT ELIGIBLE")
+    // setIsConnected(false)
+    // setAccount("")
+    // setIsEligible(false)
+    // setMessage("NOT ELIGIBLE")
   }
 
   const followTwitter = () => {
@@ -403,6 +389,7 @@ const MintPage = () => {
             propFlex="unset"
             propAlignSelf1="stretch"
           />
+
           <Box
             sx={{
               display: "flex",
@@ -440,28 +427,25 @@ const MintPage = () => {
         <img src="./mint_page_bacground.png" alt="mint_page_img" />
         <Content>
           {isConnected && isEligible && (
-              <Box
-                sx={{
-                  fontSize: "var(--font-size-s)",
-                  fontFamily: "var(--font-krungthep)",
-                  background: "var(--color-black)",
-                  color: "var(--color-white)",
-                  padding: "20px",
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  marginTop: "-20px",
-                  '@media screen and (max-width: 680px)': {
-                    fontSize: '12px',
-                    marginTop: '-6vh'
-                  }
-                }}
-              >
-                <span style={{ color: "#ffffff50" }}>{sold}</span>/{total} PASSES
-                MINTED
-                <br />
-                <span style={{ color: "#ffffff50" }}>WHITELIST ONLY</span>
-              </Box>
-            )}
+            <Box
+              sx={{
+                fontSize: "var(--font-size-s)",
+                fontFamily: "var(--font-krungthep)",
+                background: "var(--color-black)",
+                color: "var(--color-white)",
+                padding: "20px",
+                textAlign: "center",
+                textTransform: "uppercase",
+                marginTop: "-20px",
+              }}
+            >
+              <span style={{ color: "#ffffff50" }}>{sold}</span>/{total} PASSES
+              MINTED
+              <br />
+              <span style={{ color: "#ffffff50" }}>WHITELIST ONLY</span>
+            </Box>
+          )}
+
           <Box
             sx={{
               fontSize: "var(--font-size-29xl)",
@@ -470,8 +454,7 @@ const MintPage = () => {
               padding: "20px",
               textTransform: "uppercase",
               "@media screen and (max-width: 800px)": {
-                fontSize: "16px",
-                marginTop: '-20px'
+                fontSize: "var(--font-size-5xl)",
               },
             }}
           >
@@ -492,6 +475,7 @@ const MintPage = () => {
               [open for whitelist only]
             </Box>
           )}
+
           {isConnected && !isEligible && (
             <>
               <Box
@@ -511,7 +495,7 @@ const MintPage = () => {
               {/* <FollowButton onClick={followTwitter}>Follow on X</FollowButton> */}
             </>
           )}
-  
+
           {isConnected && isEligible && (
             <Box
               sx={{
@@ -519,13 +503,15 @@ const MintPage = () => {
                 fontFamily: "var(--font-krungthep)",
                 background: "var(--color-black)",
                 color: "var(--color-white)",
-                padding: "20px",textTransform: "uppercase",
+                padding: "20px",
+                textTransform: "uppercase",
                 marginTop: "-20px",
               }}
             >
               [You are on the whitelist, mint now]
             </Box>
           )}
+
           <Box
             sx={{
               fontSize: "var(--font-size-xs)",
@@ -533,13 +519,10 @@ const MintPage = () => {
               color: "var(--color-white)",
               padding: "20px",
               textTransform: "uppercase",
-              marginTop: "-25px",
-              '@media screen and (max-width: 680px)': {
-                marginTop: '-30px'
-              }
+              marginTop: "-10px",
             }}
           >
-            {isConnected && <> PRICE [{(Number(price) * mintQuantity).toFixed(2)} ETH]</>}
+            {isConnected && <> PRICE [{price} ETH]</>}
           </Box>
         </Content>
       </MintPageContent>
@@ -551,7 +534,7 @@ const MintPage = () => {
         ) : (
           <WalletAddress>NOT CONNECTED</WalletAddress>
         )}
-  
+
         {isConnected && (
           <DisconnectButton onClick={disconnect}>
             Disconnect Wallet
@@ -579,59 +562,8 @@ const MintPage = () => {
           </>
         )}
       </BtnContainer>
-  
-      {/* New section for mint quantity */}
-      <Box
-      sx={{
-        position: 'absolute',
-        width: '100%',
-        boxSizing: 'border-box',
-        height: '70px',
-        top: 0,
-        left: 0,
-        zIndex: 999,
-        color: '#ffffff',
-        marginTop: '28vh',
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontFamily: 'var(--font-jetbrains-mono)',
-        '@media screen and (max-width: 680px)': {
-          marginTop: '30vh'
-        }
-      }}
-      >
-        {/* Display the buttons, quantity, and transaction value */}
-        {isConnected && isEligible && (
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-              marginTop: "-15px", // Adjust the margin as needed
-              height: '100%',
-              width: '150px'
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: "-80px",
-              }}
-            >
-             <Button style={{color: `${mintQuantity === 1 ? "#ffffff50" : "#ffffff"}`, border: '1px solid #ffffff', padding: '5px 10px', fontSize: '12px'}} onClick={decreaseMintQuantity}>-</Button>
-  <p style={{margin: '0 20px', fontSize: '14px'}}>{mintQuantity}</p>
-  <Button style={{color: `${mintQuantity === 3 ? "#ffffff50" : "#ffffff"}`, border: '1px solid #ffffff', padding: '5px 10px', fontSize: '12px'}} onClick={increaseMintQuantity}>+</Button>
-</Box>
-          </Box>
-        )}
-      </Box>
-
     </MintPageContainer>
-  );
-}  
+  )
+}
 
 export default MintPage
