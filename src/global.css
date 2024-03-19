@@ -9,6 +9,7 @@
 body {
   margin: 0;
   line-height: normal;
+  background: #000000;
 }
 :root {
   /* fonts */

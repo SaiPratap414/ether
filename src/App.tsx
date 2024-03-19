@@ -6,6 +6,7 @@ import LoadingScreen from "./components/LoadingScreen";
 import { useLocation, useNavigate } from "react-router-dom"; // Import useNavigate and useLocation
 import { MintPage, MintPageSuccess } from "./pages";
 
+import "./home.css"
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -53,7 +54,7 @@ function App() {
   };
 
   return (
-    <>
+    <div id="app">
       {isLoading && <LoadingScreen />} {/* Conditionally render the LoadingScreen component */}
       <Routes>
         {/* <Route path="/" element={<Figma onSkip={handleSkip} />} /> */}
@@ -62,7 +63,7 @@ function App() {
         <Route path = "/mint" element={<MintPage />} />
         <Route path = "/mint/success" element={<MintPageSuccess />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
