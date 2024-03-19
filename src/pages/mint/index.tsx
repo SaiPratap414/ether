@@ -520,10 +520,13 @@ const MintPage = () => {
                 marginTop: "-20px",
               }}
             >
-              [You are on the whitelist, mint now]
-              <br/>
-              <p>{"    "}</p>You've Minted {mintedAmount.toString()} of 3 ORBS 
-            </Box>
+             {/* 
+    [You are on the whitelist, mint now]
+    <br/>
+    <p>{"    "}</p>
+  
+  You've Minted {mintedAmount.toString()} of 3 ORBS */}
+</Box>
           )}
           <Box
             sx={{
