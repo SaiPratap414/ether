@@ -541,7 +541,7 @@ const MintPage = () => {
               }
             }}
           >
-            {isConnected && <> PRICE [{(Number(price) * mintQuantity).toFixed(2)} ETH]</>}
+           {/* {isConnected && <> PRICE [{(Number(price) * mintQuantity).toFixed(2)} ETH]</>} */}
           </Box>
         </Content>
       </MintPageContent>
@@ -618,18 +618,21 @@ const MintPage = () => {
               width: '150px'
             }}
           >
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: "-36px",
-              }}
-            >
-              <Button style={{color: `${mintQuantity === 1 ? "#ffffff50" : "#ffffff"}`, border: '1px solid #ffffff', padding: '5px 10px'}} onClick={decreaseMintQuantity}>-</Button>
-              <p style={{margin: '0 20px'}}>{mintQuantity}</p>
-              <Button style={{color: `${mintQuantity === 3 ? "#ffffff50" : "#ffffff"}`, border: '1px solid #ffffff', padding: '5px 10px'}} onClick={increaseMintQuantity}>+</Button>
-            </Box>
+            {/* 
+<Box
+  sx={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: "-36px",
+  }}
+>
+  <Button style={{color: `${mintQuantity === 1 ? "#ffffff50" : "#ffffff"}`, border: '1px solid #ffffff', padding: '5px 10px'}} onClick={decreaseMintQuantity}>-</Button>
+  <p style={{margin: '0 20px'}}>{mintQuantity}</p>
+  <Button style={{color: `${mintQuantity === 3 ? "#ffffff50" : "#ffffff"}`, border: '1px solid #ffffff', padding: '5px 10px'}} onClick={increaseMintQuantity}>+</Button>
+</Box>
+*/}
+
           </Box>
         )}
       </Box>
