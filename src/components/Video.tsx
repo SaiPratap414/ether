@@ -107,16 +107,29 @@ const Li = styled.li`
   display: block;
   font-family: var(--font-jetbrains-mono);
   text-transform: uppercase;
-  a { 
+  position: relative; /* Add position relative */
+  cursor: pointer; /* Add cursor pointer */
+
+  a {
     text-decoration: none;
     color: #ffffff80;
     position: relative;
-    transition: text-decoration 0.3s ease; /* Add transition for smooth effect */
+    transition: text-decoration 0.3s ease;
   }
 
-  a:hover {
-    text-decoration: underline;
-    color: #ffffff;
+  /* Add pseudo-element for "Coming Soon" */
+  &:hover::after {
+    content: "Coming Soon";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 10px;
+    white-space: nowrap;
   }
 
   .consto::after {
@@ -127,25 +140,25 @@ const Li = styled.li`
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
-    padding: 3px 8px; /* Adjust padding as needed */
+    padding: 3px 8px;
     border-radius: 5px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    font-size: 10px; /* Adjust font size as needed */
+    font-size: 10px;
     white-space: nowrap;
   }
-  
 
   .consto:hover::after {
     opacity: 1;
   }
 
-  /* Add underline effect on hover */
-  a:hover {
+  .consto:hover {
     text-decoration: underline;
+    color: #ffffff; /* Change color on hover */
   }
 `;
+
  
 
 const Video: React.FunctionComponent = () => {
@@ -254,9 +267,7 @@ const Video: React.FunctionComponent = () => {
               <div className={styles.putContractAddress}></div>
               <button className={styles.ponderAcquireOrbs} onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)}>
                 <div className={styles.howToFrame}>
-                     { <div className={styles.buyOrb} onClick={() => navigate("")}>LAUNCHPAD</div>}
-                    
-                     
+                     { <div className={styles.buyOrb} onClick={() => navigate("")}>LAUNCHPAD SALE</div>}   
                 </div>
               </button>
             </div>
