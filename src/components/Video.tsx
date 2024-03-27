@@ -117,20 +117,7 @@ const Li = styled.li`
     transition: text-decoration 0.3s ease;
   }
 
-  /* Add pseudo-element for "Coming Soon" */
-  &:hover::after {
-    content: "Coming Soon";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 3px 8px;
-    border-radius: 5px;
-    font-size: 10px;
-    white-space: nowrap;
-  }
+  
 
   .consto::after {
     content: "Coming Soon";
