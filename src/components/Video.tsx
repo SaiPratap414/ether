@@ -251,12 +251,16 @@ const Video: React.FunctionComponent = () => {
                   ETHER ORB INTRODUCES THE FIRST PVP GAME OF SKILL LEVERAGING THE ERC404 STANDARD ALLOWING “WIZARDS” TO BATTLE THEIR ORBS IN A ZERO-SUM STRATEGY GAME. 7777 UNIQUE ORBS WILL BE MINTED AND BURNED IN THE PROCESS OF A GOOD OLD-FASHIONED ORB DUEL.
                 </div>
               </div>
-              <div className={styles.putContractAddress}></div>
-              <button className={styles.ponderAcquireOrbs} onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)}>
-                <div className={styles.howToFrame}>
-                     { <div className={styles.buyOrb} onClick={() => navigate("")}>LAUNCHPAD SALE</div>}   
-                </div>
-              </button>
+              <div className={styles.putContractAddress}>
+  CA: 0x655325df2528d3896C6BE2D8f5B98CD4020F3191
+</div>
+<button className={styles.ponderAcquireOrbs} onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)}>
+  <div className={styles.howToFrame}>
+    <a href="https://app.uniswap.org/swap?outputCurrency=0x655325df2528d3896C6BE2D8f5B98CD4020F3191&inputCurrency=ETH&chain=base" target="_blank" rel="noopener noreferrer" className={styles.buyOrb} onClick={() => navigate("")}>Buy $Orb</a>
+  </div>
+</button>
+
+
             </div>
           </div>
         </HeaderContent>

@@ -208,10 +208,11 @@ const ScrollFrames = () => {
       )}
 
 <button className={styles.ponderAcquireOrbs} onClick={handleButtonClick}>
-            <div className={styles.howToFrame}>
-              <div className={styles.buyOrb}>buy $orb</div>
-            </div>
-          </button>
+  <div className={styles.howToFrame}>
+    <a href="https://app.uniswap.org/swap?outputCurrency=0x655325df2528d3896C6BE2D8f5B98CD4020F3191&inputCurrency=ETH&chain=base" target="_blank" rel="noopener noreferrer" className={styles.buyOrb} style={{ textDecoration: 'none' }}>buy $orb</a>
+  </div>
+</button>
+
     </div>
   );
 };
