@@ -45,8 +45,10 @@ const ScrollFrames = () => {
   };
 
   const handleButtonClick = () => {
-    window.open("", ""); // Open Uniswap in a new tab
+    // Open Uniswap link in a new tab
+    window.open("https://app.uniswap.org/swap?outputCurrency=0x655325df2528d3896C6BE2D8f5B98CD4020F3191&inputCurrency=ETH&chain=base", "_blank");
   };
+  
 
   let visibleImages = images;
   if (windowWidth <= 440) {

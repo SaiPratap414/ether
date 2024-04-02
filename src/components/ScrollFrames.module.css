@@ -215,7 +215,6 @@
   flex-shrink: 0;
 }
 
-
 .blaze1 {
   width: 68px;
   height: 68.2px;
@@ -307,8 +306,6 @@
   border-radius: 2.84px;
 }
 
-
-
 .scrollFrames {
   flex: 1;
   justify-content: center;
@@ -329,7 +326,6 @@
 .fungiParent1 {
   transform: translateY(3rem);
 }
-
 
 /* Responsive adjustments */
 @media screen and (max-width: 750px) {
@@ -359,18 +355,15 @@
   transform: translate(-50%, -99%);
 }
 
-
 /* Additional adjustments */
 .torrentIcon {
   border-radius: 37.88px; /* Add border-radius as needed */
 }
-
 .etherIcon,
 .terraIcon,
 .aerIcon {
   border-radius: 50%; /* Add border-radius as needed */
 }
-
 .ponderAcquireOrbs {
   cursor: pointer;
   border: 0.7px solid var(--color-white);
@@ -379,14 +372,12 @@
   border-radius: 2.84px;
   transition: all .3s ease;
 }
-
 .ponderAcquireOrbs:hover {
   background-color: var(--color-white);
 }
 .ponderAcquireOrbs:hover .buyOrb {
   color: #000;
 }
-
 .layerFrame,
 .orbIntroFrame,
 .ponderAcquireOrbs {
@@ -422,7 +413,6 @@
 }
 
 .ponderAcquireOrbs:hover .buyOrb::after {
-  content: "Coming Soon";
   position: absolute;
   top: 130%;
   left: 50%;
