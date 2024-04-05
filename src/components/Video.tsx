@@ -154,12 +154,12 @@ const PoweredByImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -22px; /* Adjust the margin-top as needed */
+  margin-top: -50px; /* Adjust the margin-top as needed */
 `;
 
 
 const Image = styled.img`
-  width: 100px; /* Adjust the width as needed */
+  width: 80px; /* Adjust the width as needed */
   height: auto; /* Maintain aspect ratio */
 `;
 
@@ -272,7 +272,7 @@ const Video: React.FunctionComponent = () => {
                 </div>
               </button>
               <div className={styles.putContractAddress}>
-                Powered by
+                
               </div>
               <PoweredByImage>
                 <Image src="/base.png" alt="" />
