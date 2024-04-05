@@ -117,6 +117,11 @@ const Li = styled.li`
     transition: text-decoration 0.3s ease;
   }
 
+  &:hover a {
+    text-decoration: underline;
+    color: #ffffff; /* Change color on hover */
+  }
+
   .consto::after {
     content: "Coming Soon";
     position: absolute;
@@ -143,6 +148,7 @@ const Li = styled.li`
     color: #ffffff; /* Change color on hover */
   }
 `;
+
 
 const PoweredByImage = styled.div`
   display: flex;
