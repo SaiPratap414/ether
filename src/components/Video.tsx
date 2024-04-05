@@ -226,7 +226,7 @@ const Video: React.FunctionComponent = () => {
           }}>
               <Li><a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">twitter</a></Li>
               <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener"> telegram</a></Li>
-              <Li><a href="#" className="consto">docs</a></Li>
+              <Li><a href="https://etherorb.gitbook.io/etherorb/" target="_blank" rel="noopener">docs</a></Li>
               <Li><a href="#" className="consto">Play</a></Li>
           </Box>
         </Navbar>

@@ -131,10 +131,12 @@ twitterParent a:visited {
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
-
-.docs:hover::after {
-  opacity: 1;
+.docs:hover {
+  text-decoration: underline;
 }
+
+
+
 
 @media screen and (max-width: 1050px) {
   .ether,

@@ -27,7 +27,7 @@ const Footer: FunctionComponent = () => {
         <div className={styles.twitterParent}>
           <a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener"><div className={styles.twitter}>twitter</div></a>
           <a href="https://t.me/EtherOrb404" target="_blank" rel="noopener"><div className={styles.telegram}>telegram</div></a>
-          <div className={styles.docs}>DOCS</div>
+         <a href="https://etherorb.gitbook.io/etherorb/" target="_blank" rel="noopener"><div className={styles.docs}>docs</div></a>
         </div>
       </footer>
       <b className={styles.link}>© All rights reserved, 2024</b>
