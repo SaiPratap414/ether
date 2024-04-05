@@ -130,7 +130,6 @@
 }
 
 .chooseYourOrb1:hover .chooseYourOrb2::after {
-  content: "Coming Soon";
   position: absolute;
   top: 170%;
   left: 50%;
@@ -144,6 +143,19 @@
   transition: opacity 0.3s ease;
   white-space: nowrap;
 }
+/* Add this CSS to your Orb.module.css file */
+
+.chooseYourOrb2 {
+  /* Your existing styles */
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+
+  /* New styles to override default link styles */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Use the parent's color */
+}
+
 
 .chooseYourOrb1:hover .chooseYourOrb2::after {
   opacity: 1;

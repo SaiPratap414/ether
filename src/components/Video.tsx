@@ -117,8 +117,6 @@ const Li = styled.li`
     transition: text-decoration 0.3s ease;
   }
 
-  
-
   .consto::after {
     content: "Coming Soon";
     position: absolute;
@@ -146,10 +144,20 @@ const Li = styled.li`
   }
 `;
 
- 
+const PoweredByImage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -22px; /* Adjust the margin-top as needed */
+`;
+
+
+const Image = styled.img`
+  width: 100px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+`;
 
 const Video: React.FunctionComponent = () => {
-
   const navigate = useNavigate();
 
   const [isBlobShowing, setIsBlobShowing] = useState(true);
@@ -172,7 +180,6 @@ const Video: React.FunctionComponent = () => {
 
   const scrollToSection = () => {
     const section = document.getElementById("homepage-sec");
-    console.log(section)
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -210,7 +217,6 @@ const Video: React.FunctionComponent = () => {
               gap: '20px',
               fontFamily: "var(--font-jetbrains-mono), sans-serif",
               minWidth: '200px'
-
           }}>
               <Li><a href="https://twitter.com/etherorbxyz" target="_blank" rel="noopener">twitter</a></Li>
               <Li><a href="https://t.me/EtherOrb404" target="_blank" rel="noopener"> telegram</a></Li>
@@ -252,15 +258,19 @@ const Video: React.FunctionComponent = () => {
                 </div>
               </div>
               <div className={styles.putContractAddress}>
-  CA: 0x655325df2528d3896C6BE2D8f5B98CD4020F3191
-</div>
-<button className={styles.ponderAcquireOrbs} onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)}>
-  <div className={styles.howToFrame}>
-    <a href="https://app.uniswap.org/swap?outputCurrency=0x655325df2528d3896C6BE2D8f5B98CD4020F3191&inputCurrency=ETH&chain=base" target="_blank" rel="noopener noreferrer" className={styles.buyOrb} onClick={() => navigate("")}>Buy $Orb</a>
-  </div>
-</button>
-
-
+                CA: 0x655325df2528d3896C6BE2D8f5B98CD4020F3191
+              </div>
+              <button className={styles.ponderAcquireOrbs} onMouseEnter={() => handleBlobShow(false)} onMouseLeave={() => handleBlobShow(true)}>
+                <div className={styles.howToFrame}>
+                  <a href="https://app.uniswap.org/swap?outputCurrency=0x655325df2528d3896C6BE2D8f5B98CD4020F3191&inputCurrency=ETH&chain=base" target="_blank" rel="noopener noreferrer" className={styles.buyOrb} onClick={() => navigate("")}>Buy $Orb on Base</a>
+                </div>
+              </button>
+              <div className={styles.putContractAddress}>
+                Powered by
+              </div>
+              <PoweredByImage>
+                <Image src="/base.png" alt="" />
+              </PoweredByImage>
             </div>
           </div>
         </HeaderContent>

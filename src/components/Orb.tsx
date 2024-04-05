@@ -3,6 +3,7 @@ import BlazeOrb from "./BlazeOrb";
 import styles from "./Orb.module.css";
 
 const Orb: FunctionComponent = () => {
+  
   return (
     <section className={styles.orb}>
       <div className={styles.ponderTheOrbAnonParent}>
@@ -10,9 +11,6 @@ const Orb: FunctionComponent = () => {
         <div className={styles.frameWrapper}>
           <div className={styles.vectorWrapper}>
             <div className={styles.vector}>
-              <div className={styles.chooseYourOrb}>
-                choose your orb to start wagering.
-              </div>
               <div className={styles.text}>
                 <BlazeOrb
                   oRB0245="ORB #0245"
@@ -46,7 +44,7 @@ const Orb: FunctionComponent = () => {
               </div>
               <div className={styles.frameLayout}>
                 <div className={styles.chooseYourOrb1}>
-                  <div className={styles.chooseYourOrb2}>choose your orb</div>
+                <a href="https://opensea.io/collection/ether-orb" target="_blank" rel="noopener" className={styles.chooseYourOrb2}>choose your orb</a>
                 </div>
               </div>
             </div>
