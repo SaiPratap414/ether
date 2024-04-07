@@ -1,0 +1,461 @@
+.frameChild {
+  align-self: stretch;
+  height: 1.2px;
+  position: relative;
+  border-top: 1.2px solid var(--color-white);
+  box-sizing: border-box;
+}
+.lineWrapper {
+  width: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-55xl-9) 0 0;
+  box-sizing: border-box;
+}
+.mar30,
+.marWeek3 {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+  display: inline-block;
+  min-width: 101px;
+}
+.mar30 {
+  min-width: 61px;
+}
+.mar30 {
+  margin-right: -42px; /* Adjust the margin as needed */
+}
+
+.marWeek3Parent {
+  width: 268.1px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 var(--padding-xl) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+}
+.ido,
+.presale {
+  margin: 0;
+}
+.presaleIdo {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.frameItem {
+  width: 34.5px;
+  height: 1.2px;
+  position: relative;
+  border-top: 1.2px solid var(--color-white);
+  box-sizing: border-box;
+}
+.lineContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xl-4) 0 0;
+}
+.stealthLaunch,
+.xyzOnEth {
+  margin: 0;
+}
+.stealthLaunchXyzContainer {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.frameInner {
+  width: 34.5px;
+  height: 1.2px;
+  position: relative;
+  border-top: 1.2px solid var(--color-white);
+  box-sizing: border-box;
+}
+.lineFrame {
+  flex-direction: column;
+  padding: var(--padding-xl-4) 0 0;
+}
+.frameGroup,
+.frameWrapper,
+.lineFrame,
+.presaleIdoParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.presaleIdoParent {
+  align-self: stretch;
+  flex-direction: row;
+  gap: var(--gap-mini-4);
+  font-size: var(--font-size-9xl-8);
+  font-family: var(--font-krungthep);
+}
+.frameGroup,
+.frameWrapper {
+  flex-direction: column;
+}
+.frameGroup {
+  align-self: stretch;
+  gap: var(--gap-3xs-2);
+}
+.frameWrapper {
+  flex: 1;
+  padding: var(--padding-6xl-3) 0 0;
+  box-sizing: border-box;
+  min-width: 309px;
+  max-width: 100%;
+  color: var(--color-darkslategray);
+}
+.ongoing {
+  width: 91px;
+  line-height: 120%;
+  text-transform: uppercase;
+  display: inline-block;
+  padding-right: var(--padding-xl);
+}
+.aprWeek1,
+.lineDiv,
+.ongoing {
+  position: relative;
+  box-sizing: border-box;
+}
+.lineDiv {
+  width: 38.1px;
+  height: 4.8px;
+  border-top: 4.8px solid var(--color-lightgreen);
+}
+.aprWeek1 {
+  width: 121px;
+  line-height: 120%;
+  text-transform: uppercase;
+  display: inline-block;
+  padding-right: var(--padding-xl);
+}
+.airdropAnd,
+.partnerships {
+  margin: 0;
+}
+.airdropAndPartnershipsContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.frameChild1 {
+  position: absolute;
+  top: 1.8px;
+  left: 230.4px;
+  border-top: 1.2px solid var(--color-white);
+  box-sizing: border-box;
+  width: 34.5px;
+  height: 1.2px;
+}
+.airdropAndPartnershipsParent {
+  align-self: stretch;
+  height: 70px;
+  position: relative;
+  font-size: var(--font-size-9xl-8);
+  font-family: var(--font-krungthep);
+}
+.lineParent,
+.ongoingParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.lineParent {
+  gap: var(--gap-4xs-2);
+  color: var(--color-white);
+}
+.ongoingParent {
+  gap: var(--gap-xs);
+}
+.frameChild2,
+.rectangleIcon {
+  height: 72px;
+  width: 72px;
+  position: relative;
+  border-radius: var(--br-mini-4);
+  object-fit: cover;
+  min-height: 72px;
+}
+.frameContainer,
+.rectangleParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rectangleParent {
+  height: 72px;
+  flex-direction: row;
+  padding: 0 var(--padding-xl) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-mini-4);
+}
+.frameContainer {
+  width: 263.7px;
+  flex-direction: column;
+  gap: var(--gap-3xs-1);
+  color: var(--color-lightgreen);
+}
+.upcoming {
+  width: 101px;
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-right: var(--padding-xl);
+}
+.frameChild3 {
+  width: 38.1px;
+  height: 4.8px;
+  border-top: 4.8px solid var(--color-lightsalmon);
+}
+.aprWeek11,
+.frameChild3,
+.frameChild4 {
+  position: relative;
+  box-sizing: border-box;
+}
+.aprWeek11 {
+  width: 121px;
+  line-height: 120%;
+  text-transform: uppercase;
+  display: inline-block;
+  padding-right: var(--padding-xl);
+}
+.frameChild4 {
+  height: 1.2px;
+  width: 34.5px;
+  border-top: 1.2px solid var(--color-white);
+}
+.lineWrapper1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.game,
+.testnet {
+  margin: 0;
+}
+.gameTestnet {
+  width: 136px;
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-right: var(--padding-xl);
+}
+.frameParent1 {
+  gap: var(--gap-12xs-4);
+  font-size: var(--font-size-9xl-8);
+  font-family: var(--font-krungthep);
+}
+.frameParent1,
+.lineGroup,
+.upcomingParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.lineGroup {
+  gap: var(--gap-5xs-4);
+  color: var(--color-white);
+}
+.upcomingParent {
+  gap: var(--gap-xs);
+}
+.aprWeek2,
+.frameDiv {
+  box-sizing: border-box;
+}
+.frameDiv {
+  width: 163.7px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-9xs-3) 0 0;
+  color: var(--color-lightsalmon);
+}
+.aprWeek2 {
+  width: 121px;
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+  display: inline-block;
+  padding-right: var(--padding-xl);
+}
+.nftArt,
+.reveal {
+  margin: 0;
+}
+.frameChild5,
+.nftArtRevealContainer {
+  position: relative;
+  flex-shrink: 0;
+  debug_commit: f6aba90;
+}
+.nftArtRevealContainer {
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.frameChild5 {
+  width: 34.5px;
+  height: 1.2px;
+  border-top: 1.2px solid var(--color-white);
+  box-sizing: border-box;
+}
+.lineWrapper2 {
+  flex-direction: column;
+  padding: var(--padding-xl-4) 0 0;
+}
+.aprWeek2Parent,
+.frameWrapper1,
+.lineWrapper2,
+.nftArtRevealParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.nftArtRevealParent {
+  flex-direction: row;
+  gap: var(--gap-mini-4);
+  font-size: var(--font-size-9xl-8);
+  color: var(--color-gray);
+  font-family: var(--font-krungthep);
+}
+.aprWeek2Parent,
+.frameWrapper1 {
+  flex-direction: column;
+}
+.aprWeek2Parent {
+  gap: var(--gap-3xs-2);
+}
+.frameWrapper1 {
+  padding: var(--padding-6xl-3) 0 0;
+}
+.aprWeek3 {
+  width: 121px;
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-right: var(--padding-xl);
+}
+.game1,
+.mainnet {
+  margin: 0;
+}
+.gameMainnet {
+  position: relative;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.frameChild6 {
+  align-self: stretch;
+  height: 1.2px;
+  position: relative;
+  border-top: 1.2px solid var(--color-white);
+  box-sizing: border-box;
+}
+.gameMainnetParent,
+.lineWrapper3 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.lineWrapper3 {
+  width: 75px;
+  flex-direction: column;
+  padding: var(--padding-xl-4) 0 0;
+  box-sizing: border-box;
+}
+.gameMainnetParent {
+  flex-direction: row;
+  gap: var(--gap-mini-4);
+  font-size: var(--font-size-9xl-8);
+  color: var(--color-gray);
+  font-family: var(--font-krungthep);
+}
+.aprWeek3Parent {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-3xs-2);
+}
+.aprWeek3Parent,
+.frameParent,
+.frameWrapper2 {
+  display: flex;
+  align-items: flex-start;
+}
+.frameWrapper2 {
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-6xl-3) 0 0;
+}
+
+/* Add this CSS to your FrameComponent.module.css file */
+
+/* Add this CSS to your FrameComponent.module.css file */
+
+.upcomingParent:hover  {
+  font-size: 1.2em; /* Increase font size on hover */
+}
+
+.aprWeek2Parent:hover .nftArtRevealContainer {
+  font-size: 1.3em; /* Increase font size on hover */
+  color: white; /* Change text color to white on hover */
+}
+.aprWeek3Parent:hover .gameMainnetParent {
+  font-size: 2em; /* Increase font size on hover */
+  color: white; /* Change text color to white on hover */
+}
+
+.frameParent {
+  align-self: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-mini-4);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-base-8);
+  color: var(--color-white);
+  font-family: var(--font-jetbrains-mono);
+}
+
+@media screen and (max-width: 450px) {
+  .presaleIdo,
+  .stealthLaunchXyzContainer {
+    font-size: var(--font-size-4xl);
+    line-height: 28px;
+  }
+  .presaleIdoParent {
+    flex-wrap: wrap;
+  }
+  .airdropAndPartnershipsContainer,
+  .gameMainnet,
+  .gameTestnet,
+  .nftArtRevealContainer {
+    font-size: var(--font-size-4xl);
+    line-height: 28px;
+  }
+}

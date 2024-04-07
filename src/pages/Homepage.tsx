@@ -13,6 +13,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Box } from "@mui/material";
 import styled from "styled-components";
+import FF from "../components/roadmap/FF";
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -171,6 +172,7 @@ const DEV: FunctionComponent<DEVProps> = ({ onLoaded }) => {
       </section>
       <Gameplay />
       <Orb />
+      <FF />
       <FAQ />
       <Footer />
     </div>
