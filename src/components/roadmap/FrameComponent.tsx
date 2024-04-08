@@ -52,37 +52,63 @@ const FrameComponent: FunctionComponent = memo(() => {
     <FrameMainContainer className="frameParent">
 
     <SectionWrapper className="scrollWrapper">
-      <div className="panel">
-      <Section>
-          <OffWhiteText>
-              MAR WEEK 3
-          </OffWhiteText>
-          <HeadText>
-            <OffWhiteText>
-                PRESALE
-            </OffWhiteText>
-            <OffWhiteText>
-                +IDO
-            </OffWhiteText>
-          </HeadText>
-      </Section>
-      </div>
+    <div className="panel">
+  <Section>
+    <Typography sx={{
+      color: '#3472BB',
+      fontSize: 'var(--font-size-base-8)',
+      fontFamily: 'var(--font-jetbrains-mono)',
+      marginTop: '-45px'
+    }}>
+      COMPLETED
+    </Typography>
+    <Divider sx={{
+      width: '30px',
+      height: '3px',
+      background: '#3472BB'
+    }} />
+    <OffWhiteText>
+      MAR WEEK 3
+    </OffWhiteText>
+    <HeadText>
+      <OffWhiteText>
+        PRESALE
+      </OffWhiteText>
+      <OffWhiteText>
+        +IDO
+      </OffWhiteText>
+    </HeadText>
+  </Section>
+</div>
 
-      <div className="panel">
-      <Section>
-          <OffWhiteText>
-              MAR 30
-          </OffWhiteText>
-          <HeadText>
-            <OffWhiteText>
-                STEALTH LAUNCH
-            </OffWhiteText>
-            <OffWhiteText>
-                $XYZ ON ETH
-            </OffWhiteText>
-          </HeadText>
-      </Section>
-      </div>
+<div className="panel">
+  <Section>
+    <Typography sx={{
+      color: '#3472BB',
+      fontSize: 'var(--font-size-base-8)',
+      fontFamily: 'var(--font-jetbrains-mono)',
+      marginTop: '-45px'
+    }}>
+      COMPLETED
+    </Typography>
+    <Divider sx={{
+      width: '30px',
+      height: '3px',
+      background: '#3472BB'
+    }} />
+    <OffWhiteText>
+      MAR 30
+    </OffWhiteText>
+    <HeadText>
+      <OffWhiteText>
+        STEALTH LAUNCH
+      </OffWhiteText>
+      <OffWhiteText>
+        $XYZ ON ETH
+      </OffWhiteText>
+    </HeadText>
+  </Section>
+</div>
 
 
       <div className="panel">
