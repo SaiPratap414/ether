@@ -48,6 +48,10 @@ export const Section = styled.section`
     align-self: flex-start;
     position: relative;
     // opacity: 0.4;
+    &:hover {
+        cursor: pointer;
+        font-size: 1.3em; /* Increase font size */
+    }
 `
 
 export const HeadText = styled.span`

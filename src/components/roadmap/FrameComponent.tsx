@@ -34,7 +34,7 @@ const FrameComponent: FunctionComponent = memo(() => {
     const roadmapContainer = document.getElementById("roadmap");
 
     gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
+      xPercent: -100 * (sections.length - 2),
       ease: "none",
       overwrite: "auto",
       scrollTrigger: {
@@ -175,6 +175,19 @@ const FrameComponent: FunctionComponent = memo(() => {
 
       <div className="panel">
       <Section>
+      <Typography sx={{
+            color: '#EE8868',
+            fontSize: 'var(--font-size-base-8)',
+            fontFamily: 'var(--font-jetbrains-mono)',
+            marginTop: '-45px'
+          }}>
+            UPCOMING
+          </Typography>
+          <Divider sx={{
+            width: '30px',
+            height: '3px',
+            background: '#EE8868'
+          }} />
           <span>
               APR WEEK 2
           </span>
@@ -192,6 +205,19 @@ const FrameComponent: FunctionComponent = memo(() => {
 
       <div className="panel">
       <Section>
+      <Typography sx={{
+            color: '#EE8868',
+            fontSize: 'var(--font-size-base-8)',
+            fontFamily: 'var(--font-jetbrains-mono)',
+            marginTop: '-45px'
+          }}>
+            UPCOMING
+          </Typography>
+          <Divider sx={{
+            width: '30px',
+            height: '3px',
+            background: '#EE8868'
+          }} />
           <span>
               APR WEEK 3
           </span>
@@ -205,8 +231,6 @@ const FrameComponent: FunctionComponent = memo(() => {
           </HeadText>
       </Section>
       </div>
-
-
       </SectionWrapper>
     </FrameMainContainer>
   )

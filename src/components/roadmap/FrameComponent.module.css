@@ -429,6 +429,8 @@
   color: white; /* Change text color to white on hover */
 }
 
+
+
 .frameParent {
   align-self: stretch;
   flex-direction: row;
