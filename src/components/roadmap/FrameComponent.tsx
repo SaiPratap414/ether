@@ -164,7 +164,7 @@ const FrameComponent: FunctionComponent = memo(() => {
             height: '3px',
             background: '#EE8868'
           }} />
-            <span>APR WEEK 1</span>
+            <span>APR WEEK 2</span>
           <HeadText>
             <span>GAME</span>
             <span>TESTNET</span>
@@ -189,7 +189,7 @@ const FrameComponent: FunctionComponent = memo(() => {
             background: '#EE8868'
           }} />
           <span>
-              APR WEEK 2
+              APR WEEK 3
           </span>
           <HeadText>
             <OffWhiteText>
@@ -219,7 +219,7 @@ const FrameComponent: FunctionComponent = memo(() => {
             background: '#EE8868'
           }} />
           <span>
-              APR WEEK 3
+              APR WEEK 4
           </span>
           <HeadText>
             <OffWhiteText>
