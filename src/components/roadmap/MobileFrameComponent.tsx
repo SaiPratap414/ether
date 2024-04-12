@@ -20,45 +20,72 @@ const MobileFrameComponent: FunctionComponent = memo(() => {
     <FrameMainContainer>
 
     <SectionWrapper>
-      <div className="panel">
-      <Section>
-          <OffWhiteText>
-              MAR WEEK 3
-          </OffWhiteText>
-          <HeadText>
-            <OffWhiteText>
-                PRESALE
-            </OffWhiteText>
-            <OffWhiteText>
-                +IDO
-            </OffWhiteText>
-          </HeadText>
-      </Section>
-      </div>
+    <div className="panel">
+  <Section>
+    <Typography sx={{
+      color: '#3472BB',
+      fontSize: 'var(--font-size-base-8)',
+      fontFamily: 'var(--font-jetbrains-mono)',
+      marginTop: '-45px'
+    }}>
+      COMPLETED
+    </Typography>
+    <Divider sx={{
+      width: '30px',
+      height: '3px',
+      background: '#3472BB'
+    }} />
+    <OffWhiteText>
+      MAR WEEK 3
+    </OffWhiteText>
+    <HeadText>
+      <OffWhiteText>
+        PRESALE
+      </OffWhiteText>
+      <OffWhiteText>
+        +IDO
+      </OffWhiteText>
+    </HeadText>
+  </Section>
+</div>
 
-      <div className="panel">
-      <Section>
-          <OffWhiteText>
-              MAR 30
-          </OffWhiteText>
-          <HeadText>
-            <OffWhiteText>
-                STEALTH LAUNCH
-            </OffWhiteText>
-            <OffWhiteText>
-                $XYZ ON ETH
-            </OffWhiteText>
-          </HeadText>
-      </Section>
-      </div>
+<div className="panel">
+  <Section>
+    <Typography sx={{
+      color: '#3472BB',
+      fontSize: 'var(--font-size-base-8)',
+      fontFamily: 'var(--font-jetbrains-mono)',
+      marginTop: '-45px'
+    }}>
+      COMPLETED
+    </Typography>
+    <Divider sx={{
+      width: '30px',
+      height: '3px',
+      background: '#3472BB'
+    }} />
+    <OffWhiteText>
+      MAR 30
+    </OffWhiteText>
+    <HeadText>
+      <OffWhiteText>
+        STEALTH LAUNCH
+      </OffWhiteText>
+      <OffWhiteText>
+        $XYZ ON ETH
+      </OffWhiteText>
+    </HeadText>
+  </Section>
+</div>
 
 
-      <div className="panel">
+<div className="panel">
       <Section>
           <Typography sx={{
             color: '#83C878',
             fontSize: 'var(--font-size-base-8)',
             fontFamily: 'var(--font-jetbrains-mono)',
+            marginTop: '-45px'
           }}>
             ONGOING
           </Typography>
@@ -96,6 +123,7 @@ const MobileFrameComponent: FunctionComponent = memo(() => {
             color: '#EE8868',
             fontSize: 'var(--font-size-base-8)',
             fontFamily: 'var(--font-jetbrains-mono)',
+            marginTop: '-45px'
           }}>
             UPCOMING
           </Typography>
@@ -104,7 +132,7 @@ const MobileFrameComponent: FunctionComponent = memo(() => {
             height: '3px',
             background: '#EE8868'
           }} />
-            <span>APR WEEK 1</span>
+            <span>APR WEEK 2</span>
           <HeadText>
             <span>GAME</span>
             <span>TESTNET</span>
@@ -115,8 +143,21 @@ const MobileFrameComponent: FunctionComponent = memo(() => {
 
       <div className="panel">
       <Section>
+      <Typography sx={{
+            color: '#EE8868',
+            fontSize: 'var(--font-size-base-8)',
+            fontFamily: 'var(--font-jetbrains-mono)',
+            marginTop: '-45px'
+          }}>
+            UPCOMING
+          </Typography>
+          <Divider sx={{
+            width: '30px',
+            height: '3px',
+            background: '#EE8868'
+          }} />
           <span>
-              APR WEEK 2
+              APR WEEK 3
           </span>
           <HeadText>
             <OffWhiteText>
@@ -132,8 +173,21 @@ const MobileFrameComponent: FunctionComponent = memo(() => {
 
       <div className="panel">
       <Section>
+      <Typography sx={{
+            color: '#EE8868',
+            fontSize: 'var(--font-size-base-8)',
+            fontFamily: 'var(--font-jetbrains-mono)',
+            marginTop: '-45px'
+          }}>
+            UPCOMING
+          </Typography>
+          <Divider sx={{
+            width: '30px',
+            height: '3px',
+            background: '#EE8868'
+          }} />
           <span>
-              APR WEEK 3
+              APR WEEK 4
           </span>
           <HeadText>
             <OffWhiteText>
