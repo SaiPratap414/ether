@@ -132,7 +132,7 @@ const MobileFrameComponent: FunctionComponent = memo(() => {
             height: '3px',
             background: '#EE8868'
           }} />
-            <span>Quarter 2</span>
+            <span>QUARTER 2</span>
           <HeadText>
             <span>GAME</span>
             <span>TESTNET</span>
@@ -157,7 +157,7 @@ const MobileFrameComponent: FunctionComponent = memo(() => {
             background: '#EE8868'
           }} />
           <span>
-              Quarter 2
+              QUARTER  2
           </span>
           <HeadText>
             <OffWhiteText>
@@ -187,7 +187,7 @@ const MobileFrameComponent: FunctionComponent = memo(() => {
             background: '#EE8868'
           }} />
           <span>
-              Quarter 2
+              QUARTER  2
           </span>
           <HeadText>
             <OffWhiteText>
